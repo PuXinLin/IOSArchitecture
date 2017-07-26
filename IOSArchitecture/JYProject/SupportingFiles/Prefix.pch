@@ -1,0 +1,34 @@
+//
+//  StarterApp-Prefix.pch
+//  StarterApp
+//
+//  Created by Mihaela Mihaljević Jakić on 24/01/15.
+//  Copyright (c) 2015 Mihaela Mihaljević Jakić. All rights reserved.
+//
+
+#ifndef StarterApp_StarterApp_Prefix_pch
+#define StarterApp_StarterApp_Prefix_pch
+
+/* 宏常量 */
+#import "YMConstantMacro.h"
+
+/* 宏方法 */
+#import "YMMethodMacro.h"
+
+/* 工具类 */
+
+#import "UIView+AddAttributes.h" // View 属性扩展分类
+#import "UIView+AddMethods.h" // View 方法扩展分类
+#import "UIImage+AddMethods.h" // UIImage 方法扩展分类
+#import "UIButton+AddMethods.h" // UIButton 方法扩展分类
+#import "NSDate+AddMethods.h" // NSDate 方法扩展分类
+#import "NSString+AddMethods.h" // NSString 方法扩展分类a
+
+/* ----------- 开发成员 工具类 ----------------- */
+/* 成员1 --> 成员名字 */
+// #import... //
+
+/* 成员2 --> 成员名字 */
+// #import... //
+
+#endif
