@@ -14,7 +14,6 @@
     self = [super init];
     if (self) {
         [self configurationModel];
-        [self loadRequestData];
     }
     return self;
 }
@@ -23,9 +22,6 @@
 #pragma mark ---------- Methods ----------
 #pragma mark 配置Model
 -(void)configurationModel{}
-
-#pragma mark 数据请求
--(void)loadRequestData{}
 
 #pragma mark ---------- Click Event ----------
 
