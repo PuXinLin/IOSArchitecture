@@ -15,16 +15,8 @@
 /* 宏方法 */
 #import "YMMethodMacro.h"
 
-
-
-
-
-
-
-
-
 /* 工具类 */
-
+#import "JY_HttpRequest.h" // HTTP请求封装 (get 和 post)
 #import "UIView+AddAttributes.h" // View 属性扩展分类
 #import "UIView+AddMethods.h" // View 方法扩展分类
 #import "UIImage+AddMethods.h" // UIImage 方法扩展分类

@@ -7,24 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-/* 网络状态 */
-typedef NS_ENUM(NSInteger, DetectionNetworkState) {
-    knownNetwork,
-    NoNetwork,
-    OneselfGNetwork,
-    WIFINetwork,
-};
-/* 请求状态 */
-typedef NS_ENUM(NSInteger, MethodState) {
-    Method_GET,
-    Method_POST,
-};
-
-/* 请求完成回调块 */
-typedef void(^ITFinishedBlock)(id responseObject);
-
-/* ---------------------JY_HttpRequest--------------------- */
+#import "JY_HttpRequestConfiguration.h"
 
 @interface JY_HttpRequest : NSObject
 
@@ -46,8 +29,13 @@ typedef void(^ITFinishedBlock)(id responseObject);
 + (void)cancleAllRequest;
 
 /**
- * 监听网络状态
+ * 监听网络状态 (建议在程序进入前台时调用)
  */
-+(void)netWorkStateDetection;
++ (void)netWorkStateDetection:(NetWorkStateBlock)state;
+
+/**
+ * 关闭监听网络状态 (建议在程序将要进入后台时调用)
+ */
++ (void)cancleNetWorkStateDetection;
 
 @end

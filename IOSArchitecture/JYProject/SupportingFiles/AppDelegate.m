@@ -45,6 +45,8 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    /* 关闭网络监听 */
+    [JY_HttpRequest cancleNetWorkStateDetection];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -53,6 +55,26 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    /* 开启网络改变监听 */
+    [JY_HttpRequest netWorkStateDetection:^(DetectionNetworkState statue) {
+        switch (statue) {
+            case knownNetwork:
+                JY_Log(@"未知网络");
+                break;
+            case NoNetwork:
+                JY_Log(@"无数据连接");
+                break;
+            case OneselfGNetwork:
+                JY_Log(@"已切换至数据流量");
+                break;
+            case WIFINetwork:
+                JY_Log(@"已切换至WIF环境");
+                break;
+            default:
+                break;
+        }
+
+    }];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

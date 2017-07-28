@@ -23,7 +23,7 @@
 		2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8EC1F28808000449AF2 /* UIColor+AddMethods.m */; };
 		2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F21F28879800449AF2 /* PXLHomeModel.m */; };
 		2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F51F2887B000449AF2 /* PXLHomeView.m */; };
-		25199E7C1F29A95F00A6A87D /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25199E7B1F29A95F00A6A87D /* JY_HttpRequest.m */; };
+		253647161F2B19C2001F78C4 /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 253647151F2B19C2001F78C4 /* JY_HttpRequest.m */; };
 		AD287774C9CB541E2E9A8245 /* libPods-JYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -60,8 +60,9 @@
 		2512E8F21F28879800449AF2 /* PXLHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeModel.m; sourceTree = "<group>"; };
 		2512E8F41F2887B000449AF2 /* PXLHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLHomeView.h; sourceTree = "<group>"; };
 		2512E8F51F2887B000449AF2 /* PXLHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeView.m; sourceTree = "<group>"; };
-		25199E7A1F29A95F00A6A87D /* JY_HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequest.h; sourceTree = "<group>"; };
-		25199E7B1F29A95F00A6A87D /* JY_HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequest.m; sourceTree = "<group>"; };
+		253647141F2B19C2001F78C4 /* JY_HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequest.h; sourceTree = "<group>"; };
+		253647151F2B19C2001F78C4 /* JY_HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequest.m; sourceTree = "<group>"; };
+		253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestConfiguration.h; sourceTree = "<group>"; };
 		6573FCC186723583E5A2AD9D /* Pods-JYProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.release.xcconfig"; sourceTree = "<group>"; };
 		779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JYProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFF351276A41E79477686A7 /* Pods-JYProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -231,8 +232,17 @@
 		25199E791F298FAB00A6A87D /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
-				25199E7A1F29A95F00A6A87D /* JY_HttpRequest.h */,
-				25199E7B1F29A95F00A6A87D /* JY_HttpRequest.m */,
+				253647131F2B19C2001F78C4 /* NetWork */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		253647131F2B19C2001F78C4 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */,
+				253647141F2B19C2001F78C4 /* JY_HttpRequest.h */,
+				253647151F2B19C2001F78C4 /* JY_HttpRequest.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -374,7 +384,7 @@
 				2508E6961F274AA000859C5B /* AppDelegate.m in Sources */,
 				2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */,
 				2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */,
-				25199E7C1F29A95F00A6A87D /* JY_HttpRequest.m in Sources */,
+				253647161F2B19C2001F78C4 /* JY_HttpRequest.m in Sources */,
 				2512E8E41F28655000449AF2 /* NSDate+AddMethods.m in Sources */,
 				2508E6801F2742DE00859C5B /* main.m in Sources */,
 				2512E8EA1F287CD700449AF2 /* UIButton+AddMethods.m in Sources */,

@@ -14,9 +14,9 @@
  * 缺省号代表一个可以变化的参数表。使用保留名 __VA_ARGS__ 把参数传递给宏。
  */
 #ifdef DEBUG
-#define JYLog(...) NSLog(@"方法:%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#define JY_Log(...) NSLog(@"方法:%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
-#define JYLog(...)
+#define JY_Log(...)
 
 #endif
 
