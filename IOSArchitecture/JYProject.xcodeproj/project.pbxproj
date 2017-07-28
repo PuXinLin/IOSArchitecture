@@ -24,6 +24,10 @@
 		2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F21F28879800449AF2 /* PXLHomeModel.m */; };
 		2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F51F2887B000449AF2 /* PXLHomeView.m */; };
 		253647161F2B19C2001F78C4 /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 253647151F2B19C2001F78C4 /* JY_HttpRequest.m */; };
+		253647231F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 253647221F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m */; };
+		253647261F2B290C001F78C4 /* JY_HttpRequestUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 253647251F2B290C001F78C4 /* JY_HttpRequestUpload.m */; };
+		253647291F2B2922001F78C4 /* JY_HttpRequestDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 253647281F2B2922001F78C4 /* JY_HttpRequestDownload.m */; };
+		2536472C1F2B2954001F78C4 /* JY_HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */; };
 		AD287774C9CB541E2E9A8245 /* libPods-JYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -63,6 +67,14 @@
 		253647141F2B19C2001F78C4 /* JY_HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequest.h; sourceTree = "<group>"; };
 		253647151F2B19C2001F78C4 /* JY_HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequest.m; sourceTree = "<group>"; };
 		253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestConfiguration.h; sourceTree = "<group>"; };
+		253647211F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestGetAndPost.h; sourceTree = "<group>"; };
+		253647221F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequestGetAndPost.m; sourceTree = "<group>"; };
+		253647241F2B290C001F78C4 /* JY_HttpRequestUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestUpload.h; sourceTree = "<group>"; };
+		253647251F2B290C001F78C4 /* JY_HttpRequestUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequestUpload.m; sourceTree = "<group>"; };
+		253647271F2B2922001F78C4 /* JY_HttpRequestDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestDownload.h; sourceTree = "<group>"; };
+		253647281F2B2922001F78C4 /* JY_HttpRequestDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequestDownload.m; sourceTree = "<group>"; };
+		2536472A1F2B2954001F78C4 /* JY_HTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HTTPSessionManager.h; sourceTree = "<group>"; };
+		2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HTTPSessionManager.m; sourceTree = "<group>"; };
 		6573FCC186723583E5A2AD9D /* Pods-JYProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.release.xcconfig"; sourceTree = "<group>"; };
 		779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JYProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFF351276A41E79477686A7 /* Pods-JYProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +255,14 @@
 				253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */,
 				253647141F2B19C2001F78C4 /* JY_HttpRequest.h */,
 				253647151F2B19C2001F78C4 /* JY_HttpRequest.m */,
+				253647211F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.h */,
+				253647221F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m */,
+				253647241F2B290C001F78C4 /* JY_HttpRequestUpload.h */,
+				253647251F2B290C001F78C4 /* JY_HttpRequestUpload.m */,
+				253647271F2B2922001F78C4 /* JY_HttpRequestDownload.h */,
+				253647281F2B2922001F78C4 /* JY_HttpRequestDownload.m */,
+				2536472A1F2B2954001F78C4 /* JY_HTTPSessionManager.h */,
+				2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -376,16 +396,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2512E8E71F286D3100449AF2 /* NSString+AddMethods.m in Sources */,
+				253647261F2B290C001F78C4 /* JY_HttpRequestUpload.m in Sources */,
 				2512E8DE1F283C2D00449AF2 /* UIView+AddMethods.m in Sources */,
 				2508E69E1F274B3D00859C5B /* PXLHomeViewController.m in Sources */,
 				2512E8E11F28620200449AF2 /* UIImage+AddMethods.m in Sources */,
 				2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */,
+				253647291F2B2922001F78C4 /* JY_HttpRequestDownload.m in Sources */,
 				2512E8DB1F283B9400449AF2 /* UIView+AddAttributes.m in Sources */,
 				2508E6961F274AA000859C5B /* AppDelegate.m in Sources */,
 				2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */,
+				253647231F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m in Sources */,
 				2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */,
 				253647161F2B19C2001F78C4 /* JY_HttpRequest.m in Sources */,
 				2512E8E41F28655000449AF2 /* NSDate+AddMethods.m in Sources */,
+				2536472C1F2B2954001F78C4 /* JY_HTTPSessionManager.m in Sources */,
 				2508E6801F2742DE00859C5B /* main.m in Sources */,
 				2512E8EA1F287CD700449AF2 /* UIButton+AddMethods.m in Sources */,
 			);

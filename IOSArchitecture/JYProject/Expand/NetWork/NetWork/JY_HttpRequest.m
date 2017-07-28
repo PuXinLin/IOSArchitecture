@@ -7,8 +7,8 @@
 //
 
 #import "JY_HttpRequest.h"
-
-#import <AFNetworking/AFNetworking.h>
+#import "JY_HttpRequestGetAndPost.h"
+#import "JY_HttpRequestUpload.h"
 
 @interface JY_HttpRequest()
 
@@ -33,76 +33,6 @@
     return __sharedInstance;
 }
 
-#pragma mark ----------Private Methods ----------
-
-#pragma mark GET请求
-+ (void) netRequestGETWithRequestURL: (NSString *) requestURLString
-                       WithParameter: (NSDictionary *) parameter
-                WithReturnValeuBlock: (ITFinishedBlock) finishedBlock {
-    NSString * stringUrl = [NSString stringWithFormat:@"%@%@",JY_APP_URL,requestURLString]; // 拼接请求url
-    
-    [[JY_HttpRequest sharedRequestInstance].manager GET:stringUrl parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        finishedBlock(responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-#warning 弹框提示请检查网络
-        JY_Log(@"弹框提示请检查网络");
-    }];
-}
-
-#pragma mark POST请求
-+ (void) netRequestPOSTWithRequestURL: (NSString *) requestURLString
-                        WithParameter: (NSDictionary *) parameter
-                 WithReturnValeuBlock: (ITFinishedBlock) block {
-    
-    AFHTTPSessionManager *manager = [JY_HttpRequest sharedRequestInstance].manager;
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    
-    /* 请求时间设置 */
-    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer.timeoutInterval = 10.f;
-    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    [manager.operationQueue cancelAllOperations];
-    
-    NSString * stringUrl = [NSString stringWithFormat:@"%@%@",JY_APP_URL,requestURLString]; // 拼接请求url
-    
-    [manager POST:stringUrl parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        block(responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-#warning 弹框提示请检查网络
-        JY_Log(@"弹框提示请检查网络");
-    }];
-}
-
-#pragma mark 是否发送请求
-+(BOOL)checkRequestHttp{
-    BOOL checkRequestHttp = YES;
-    switch ([JY_HttpRequest sharedRequestInstance].networkState) {
-        case knownNetwork:
-            JY_Log(@"未知网络");
-            checkRequestHttp = NO;
-            break;
-        case NoNetwork:
-            JY_Log(@"无数据连接");
-            checkRequestHttp = NO;
-            break;
-        case OneselfGNetwork:
-            JY_Log(@"已切换至数据流量");
-            checkRequestHttp = YES;
-            break;
-        case WIFINetwork:
-            JY_Log(@"已切换至WIF环境");
-            checkRequestHttp = YES;
-            break;
-        default:
-            break;
-    }
-    return checkRequestHttp;
-}
-
 #pragma mark ----------Public Methods ----------
 #pragma mark -- 数据请求
 + (void)requestWithURLString: (NSString *)URLString
@@ -113,17 +43,20 @@
         JY_Log(@"当前网络不允许发送请求！");
         return;
     }
-    if (method == Method_POST) {
-        [JY_HttpRequest netRequestPOSTWithRequestURL:URLString WithParameter:parameters WithReturnValeuBlock:finishedBlock];
-    }
-    else if (method == Method_GET){
-        [JY_HttpRequest netRequestGETWithRequestURL:URLString WithParameter:parameters WithReturnValeuBlock:finishedBlock];
-    }
+    [JY_HttpRequestGetAndPost requestWithURLString:URLString parameters:parameters method:method callBack:finishedBlock];
+}
+
+#pragma mark 数据上传
++ (void)requestWithURLString: (NSString *)URLString
+                  parameters: (NSDictionary *)parameters
+              imageListBlack:(NetWorkUpload)imageListBlack
+                    callBack: (ITFinishedBlock)finishedBlock{
+    [JY_HttpRequestUpload requestWithURLString:URLString parameters:parameters imageListBlack:imageListBlack callBack:finishedBlock];
 }
 
 #pragma mark 关闭所有数据请求
 + (void)cancleAllRequest{
-    [[JY_HttpRequest sharedRequestInstance].manager.operationQueue cancelAllOperations];
+    [JY_HTTPSessionManager cancleAllRequest];
 }
 
 #pragma mark 监听网络状态
@@ -150,7 +83,7 @@
         }
         [JY_HttpRequest sharedRequestInstance].networkState = status+0; // 保存网络状态
     }];
-
+    
 }
 
 #pragma mark 关闭监听网络状态
@@ -158,6 +91,35 @@
     __weak AFNetworkReachabilityManager *manger = [AFNetworkReachabilityManager sharedManager];
     [manger stopMonitoring]; // 关闭监听改变
 }
+
+#pragma mark ----------Private Methods ----------
+
+#pragma mark 当前条件是否允许发送请求
++(BOOL)checkRequestHttp{
+    BOOL checkRequestHttp = YES;
+    switch ([JY_HttpRequest sharedRequestInstance].networkState) {
+        case knownNetwork:
+            JY_Log(@"未知网络");
+            checkRequestHttp = NO;
+            break;
+        case NoNetwork:
+            JY_Log(@"无数据连接");
+            checkRequestHttp = NO;
+            break;
+        case OneselfGNetwork:
+            JY_Log(@"已切换至数据流量");
+            checkRequestHttp = YES;
+            break;
+        case WIFINetwork:
+            JY_Log(@"已切换至WIF环境");
+            checkRequestHttp = YES;
+            break;
+        default:
+            break;
+    }
+    return checkRequestHttp;
+}
+
 #pragma mark ---------- Click Event ----------
 
 #pragma mark ---------- Delegate ----------
