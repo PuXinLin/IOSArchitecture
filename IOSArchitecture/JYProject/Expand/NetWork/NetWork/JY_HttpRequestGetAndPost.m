@@ -23,9 +23,9 @@
 #pragma mark -- 数据请求
 + (void)requestWithURLString: (NSString *)URLString
                   parameters: (NSDictionary *)parameters
-                      method: (MethodState)method
+                      method: (JYRequestMethodType)method
                     callBack: (ITFinishedBlock)finishedBlock{
-    if (method==Method_GET) {
+    if (method==JYRequestMethod_GET) {
         [JY_HttpRequestGetAndPost netRequestGETWithRequestURL:URLString WithParameter:parameters WithReturnValeuBlock:finishedBlock];
     }
     else{

@@ -17,12 +17,15 @@
 
 /* 工具类 */
 #import "JY_HttpRequest.h" // HTTP请求封装 (get 和 post)
+
+/* 分类 */
 #import "UIView+AddAttributes.h" // View 属性扩展分类
 #import "UIView+AddMethods.h" // View 方法扩展分类
 #import "UIImage+AddMethods.h" // UIImage 方法扩展分类
 #import "UIButton+AddMethods.h" // UIButton 方法扩展分类
 #import "NSDate+AddMethods.h" // NSDate 方法扩展分类
-#import "NSString+AddMethods.h" // NSString 方法扩展分类a
+#import "NSString+AddMethods.h" // NSString 方法扩展分类
+#import "NSObject+AddMethods.h" // NSObject 方法扩展分类
 
 /* ----------- 开发成员 工具类 ----------------- */
 /* 成员1 --> 成员名字 */

@@ -37,7 +37,7 @@
 #pragma mark -- 数据请求
 + (void)requestWithURLString: (NSString *)URLString
                   parameters: (NSDictionary *)parameters
-                      method: (MethodState)method
+                      method:(JYRequestMethodType)method
                     callBack: (ITFinishedBlock)finishedBlock{
     if ([JY_HttpRequest checkRequestHttp]) {
         JY_Log(@"当前网络不允许发送请求！");

@@ -21,7 +21,7 @@
  */
 + (void)requestWithURLString: (NSString *)URLString
                   parameters: (NSDictionary *)parameters
-                      method: (MethodState)method
+                      method: (JYRequestMethodType)method
                     callBack: (ITFinishedBlock)finishedBlock;
 
 /**

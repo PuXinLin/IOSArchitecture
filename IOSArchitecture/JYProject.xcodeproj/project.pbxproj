@@ -14,6 +14,9 @@
 		2508E6931F2749F000859C5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2508E6921F2749F000859C5B /* Images.xcassets */; };
 		2508E6961F274AA000859C5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2508E6951F274AA000859C5B /* AppDelegate.m */; };
 		2508E69E1F274B3D00859C5B /* PXLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2508E69D1F274B3D00859C5B /* PXLHomeViewController.m */; };
+		2510C6D01F2D7B800040EDB8 /* JY_HttpProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510C6CF1F2D7B800040EDB8 /* JY_HttpProxy.m */; };
+		2510C6D31F2D84FC0040EDB8 /* JY_HttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510C6D21F2D84FC0040EDB8 /* JY_HttpResponse.m */; };
+		2510C6D61F2DAE380040EDB8 /* NSObject+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510C6D51F2DAE380040EDB8 /* NSObject+AddMethods.m */; };
 		2512E8DB1F283B9400449AF2 /* UIView+AddAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8DA1F283B9400449AF2 /* UIView+AddAttributes.m */; };
 		2512E8DE1F283C2D00449AF2 /* UIView+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8DD1F283C2D00449AF2 /* UIView+AddMethods.m */; };
 		2512E8E11F28620200449AF2 /* UIImage+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8E01F28620200449AF2 /* UIImage+AddMethods.m */; };
@@ -46,6 +49,12 @@
 		2508E69D1F274B3D00859C5B /* PXLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeViewController.m; sourceTree = "<group>"; };
 		2508E6A11F274E1200859C5B /* YMConstantMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMConstantMacro.h; sourceTree = "<group>"; };
 		2508E6A21F274E4900859C5B /* YMMethodMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMMethodMacro.h; sourceTree = "<group>"; };
+		2510C6CE1F2D7B800040EDB8 /* JY_HttpProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpProxy.h; sourceTree = "<group>"; };
+		2510C6CF1F2D7B800040EDB8 /* JY_HttpProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpProxy.m; sourceTree = "<group>"; };
+		2510C6D11F2D84FC0040EDB8 /* JY_HttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpResponse.h; sourceTree = "<group>"; };
+		2510C6D21F2D84FC0040EDB8 /* JY_HttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpResponse.m; sourceTree = "<group>"; };
+		2510C6D41F2DAE380040EDB8 /* NSObject+AddMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AddMethods.h"; sourceTree = "<group>"; };
+		2510C6D51F2DAE380040EDB8 /* NSObject+AddMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AddMethods.m"; sourceTree = "<group>"; };
 		2512E8D91F283B9400449AF2 /* UIView+AddAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddAttributes.h"; sourceTree = "<group>"; };
 		2512E8DA1F283B9400449AF2 /* UIView+AddAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AddAttributes.m"; sourceTree = "<group>"; };
 		2512E8DC1F283C2D00449AF2 /* UIView+AddMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddMethods.h"; sourceTree = "<group>"; };
@@ -158,6 +167,7 @@
 		2508E6901F2749BF00859C5B /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				25509AA71F2BFC1D00F1065B /* ShowBox */,
 				25199E791F298FAB00A6A87D /* NetWork */,
 				2512E8D51F28335900449AF2 /* Category */,
 				2508E69F1F274C3E00859C5B /* Macro */,
@@ -237,6 +247,8 @@
 				2512E8E31F28655000449AF2 /* NSDate+AddMethods.m */,
 				2512E8E51F286D3100449AF2 /* NSString+AddMethods.h */,
 				2512E8E61F286D3100449AF2 /* NSString+AddMethods.m */,
+				2510C6D41F2DAE380040EDB8 /* NSObject+AddMethods.h */,
+				2510C6D51F2DAE380040EDB8 /* NSObject+AddMethods.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -253,6 +265,10 @@
 			isa = PBXGroup;
 			children = (
 				253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */,
+				2510C6CE1F2D7B800040EDB8 /* JY_HttpProxy.h */,
+				2510C6CF1F2D7B800040EDB8 /* JY_HttpProxy.m */,
+				2510C6D11F2D84FC0040EDB8 /* JY_HttpResponse.h */,
+				2510C6D21F2D84FC0040EDB8 /* JY_HttpResponse.m */,
 				253647141F2B19C2001F78C4 /* JY_HttpRequest.h */,
 				253647151F2B19C2001F78C4 /* JY_HttpRequest.m */,
 				253647211F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.h */,
@@ -265,6 +281,13 @@
 				2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */,
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		25509AA71F2BFC1D00F1065B /* ShowBox */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShowBox;
 			sourceTree = "<group>";
 		};
 		7AC99E5A0D7F83801522C66A /* Pods */ = {
@@ -406,11 +429,14 @@
 				2508E6961F274AA000859C5B /* AppDelegate.m in Sources */,
 				2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */,
 				253647231F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m in Sources */,
+				2510C6D01F2D7B800040EDB8 /* JY_HttpProxy.m in Sources */,
 				2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */,
 				253647161F2B19C2001F78C4 /* JY_HttpRequest.m in Sources */,
 				2512E8E41F28655000449AF2 /* NSDate+AddMethods.m in Sources */,
 				2536472C1F2B2954001F78C4 /* JY_HTTPSessionManager.m in Sources */,
+				2510C6D61F2DAE380040EDB8 /* NSObject+AddMethods.m in Sources */,
 				2508E6801F2742DE00859C5B /* main.m in Sources */,
+				2510C6D31F2D84FC0040EDB8 /* JY_HttpResponse.m in Sources */,
 				2512E8EA1F287CD700449AF2 /* UIButton+AddMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

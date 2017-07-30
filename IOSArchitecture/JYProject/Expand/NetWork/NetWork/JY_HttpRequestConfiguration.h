@@ -9,6 +9,10 @@
 #import <AFNetworking/AFNetworking.h>
 #import "JY_HTTPSessionManager.h"
 
+#define JY_RequestError       @"网络请求错误，请重试"
+#define JY_RequestOutTime     @"请求超时"
+#define JY_NoNetwork          @"暂无网络，请稍后再试"
+
 /* 网络状态 */
 typedef NS_ENUM(NSInteger, DetectionNetworkState) {
     knownNetwork = -1, // 未知
@@ -17,16 +21,20 @@ typedef NS_ENUM(NSInteger, DetectionNetworkState) {
     WIFINetwork, // 局域网络
 };
 /* 请求状态 */
-typedef NS_ENUM(NSInteger, MethodState) {
-    Method_GET,
-    Method_POST,
+typedef NS_ENUM(NSInteger, JYRequestMethodType) {
+    JYRequestMethod_GET,
+    JYRequestMethod_POST,
+    JYRequestMethod_Upload,
 };
 
-/********************** 公共回调块 **********************/
+/********************** 公共块 **********************/
 /* 请求完成回调函数 */
 typedef void(^ITFinishedBlock)(id _Nullable responseObject);
 
-/* 网络改变状态回调函数 */
+/* 请求失败回调函数 */
+typedef void(^ITFailureBlock)(id _Nullable responseObject);
+
+/* 网络改变状函数 */
 typedef void (^NetWorkStateBlock)(DetectionNetworkState statue);
 
 /**
