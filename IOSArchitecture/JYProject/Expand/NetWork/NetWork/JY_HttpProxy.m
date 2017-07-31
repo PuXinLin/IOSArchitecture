@@ -32,6 +32,10 @@
     [self request:stringUrl method:method parameters:parameters imageListBlack:imageListBlack finishedBlock:finishedBlock failureBlock:failureBlock];
 }
 
+#pragma mark 取消所有数据请求
+- (void)cancleAllRequest{
+    [self.sessionManager.operationQueue cancelAllOperations];
+}
 
 #pragma mark ---------- Private Methods ----------
 #pragma mark 发起请求
@@ -85,6 +89,7 @@
         return;
     }
     JY_HttpResponse * responseModel = [[JY_HttpResponse alloc]initWithUrlResponse:(NSHTTPURLResponse *)task.response error:error];
+    
     failureBlock?failureBlock(responseModel):nil;
 }
 
@@ -94,7 +99,7 @@
 
 #pragma mark ---------- Lazy Load ----------
 
--(AFHTTPSessionManager *)manager{
+-(AFHTTPSessionManager *)sessionManager{
     if (!_sessionManager) {
         _sessionManager = [[AFHTTPSessionManager alloc]initWithBaseURL:nil];
     }

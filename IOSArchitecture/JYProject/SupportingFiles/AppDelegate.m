@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+/* 成员一 导入 */
+#import "PXLHomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -46,7 +48,7 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     /* 关闭网络监听 */
-    [JY_HttpRequest cancleNetWorkStateDetection];
+    [JY_MonitorNewWork cancleNetWorkStateDetection];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -56,7 +58,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     /* 开启网络改变监听 */
-    [JY_HttpRequest netWorkStateDetection:^(DetectionNetworkState statue) {
+    [JY_MonitorNewWork starNetWorkStateDetection:^(DetectionNetworkType statue) {
         switch (statue) {
             case knownNetwork:
                 JY_Log(@"未知网络");
@@ -119,7 +121,7 @@
 - (UINavigationController *)navigationController
 {
     if (!_navigationController) {
-        _navigationController = [[UINavigationController alloc] initWithRootViewController:[[UIViewController alloc] init]];
+        _navigationController = [[UINavigationController alloc] initWithRootViewController:[[PXLHomeViewController alloc] init]];
     }
     
     return _navigationController;

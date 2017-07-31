@@ -2,63 +2,71 @@
 //  JY_HttpRequest.h
 //  JYProject
 //
-//  Created by dayou on 2017/7/27.
+//  Created by dayou on 2017/7/31.
 //  Copyright © 2017年 dayou. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "JY_HttpRequestConfiguration.h"
+#import "JY_HttpProxy.h"
+#import "JY_BaseResponseModel.h"
+
+@class JY_HttpRequest;
+
+/*---------------------API回调-----------------------*/
+@protocol JY_HttpRequestCallBackDelegate <NSObject>
+@required
+- (void)managerCallAPIDidSuccess:(JY_HttpRequest *)request;
+- (void)managerCallAPIDidFailed:(JY_HttpRequest *)request;
+@end
 
 @interface JY_HttpRequest : NSObject
+
+/* 回调代理 */
+@property (nonatomic ,weak)id<JY_HttpRequestCallBackDelegate> delegate;
+
+/* 响应类型 */
+@property (nonatomic, assign, readonly)JYResponseErrorType errorType;
+
+/* 返回数据 */
+@property (nonatomic, assign, readonly)id responseData;
+
+/* 错误提示 */
+@property (nonatomic, copy, readonly) NSString *message;
+
+/* 服务器返回的信息 */
+@property (nonatomic ,strong)JY_BaseResponseModel *baseResponseModel;
+
+/* 是否禁止私自弹框 默认值为NO */
+@property (nonatomic ,assign)BOOL disableErrorHUD;
+
+/**
+ * 初始化方法
+ *
+ * @param view 加载HUDView提示框的父View
+ * @param message 提示文字
+ */
++(instancetype)loadDataHUDwithView:(UIView*)view message:(NSString*)message;
+
+/* 上面一样 */
++(instancetype)loadDataHUDwithView:(UIView*)view;
 
 /**
  * 数据请求
  *
  * @param URLString 数据接口
+ * @param method 请求方式 (通过JYRequestMethodType枚举判断请求类型)
  * @param parameters 请求参数集合
- * @param method 请求方式 (get or post)
- * @param finishedBlock 请求完成回调
+ * @param imageListBlack 要上传的文件 如果不是上传请求 可以不传
  */
-+ (void)requestWithURLString: (NSString *)URLString
-                  parameters: (NSDictionary *)parameters
+- (void)requestWithURLString: (NSString *)URLString
                       method: (JYRequestMethodType)method
-                    callBack: (ITFinishedBlock)finishedBlock;
-
-/**
- * 数据上传
- *
- * @param URLString 数据接口
- * @param parameters 请求参数集合
- * @param method 请求方式 (get or post)
- * @param imageListBlack 要上传的图片
- * @param finishedBlock 请求完成回调
- */
-+ (void)requestWithURLString: (NSString *)URLString
                   parameters: (NSDictionary *)parameters
-              imageListBlack:(NetWorkUpload)imageListBlack
-                    callBack: (ITFinishedBlock)finishedBlock;
-/**
- * 数据下载
- *
- * @param URLString 数据接口
- * @param parameters 请求参数集合
- * @param method 请求方式 (get or post)
- * @param imageListBlack 要上传的图片
- * @param finishedBlock 请求完成回调
- */
+              imageListBlack:(NetWorkUpload)imageListBlack;
+
+
 /**
  * 取消所有数据请求
  */
-+ (void)cancleAllRequest;
-
-/**
- * 监听网络状态 (建议在程序进入前台时调用)
- */
-+ (void)netWorkStateDetection:(NetWorkStateBlock)state;
-
-/**
- * 关闭监听网络状态 (建议在程序将要进入后台时调用)
- */
-+ (void)cancleNetWorkStateDetection;
+- (void)cancleAllRequest;
 
 @end

@@ -11,6 +11,7 @@
 
 @interface JY_HttpProxy : NSObject
 
+/* 请求回调 */
 typedef void(^JYCallbackAPICallback)(JY_HttpResponse *response);
 
 + (instancetype)sharedRequestInstance;
@@ -31,5 +32,9 @@ typedef void(^JYCallbackAPICallback)(JY_HttpResponse *response);
               imageListBlack:(NetWorkUpload)imageListBlack
                     finishedBlock: (JYCallbackAPICallback)finishedBlock
                     failureBlock: (JYCallbackAPICallback)failureBlock;
+/**
+ * 取消所有数据请求
+ */
+- (void)cancleAllRequest;
 
 @end

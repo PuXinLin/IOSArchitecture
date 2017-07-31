@@ -2,122 +2,139 @@
 //  JY_HttpRequest.m
 //  JYProject
 //
-//  Created by dayou on 2017/7/27.
+//  Created by dayou on 2017/7/31.
 //  Copyright © 2017年 dayou. All rights reserved.
 //
 
 #import "JY_HttpRequest.h"
-#import "JY_HttpRequestGetAndPost.h"
-#import "JY_HttpRequestUpload.h"
 
 @interface JY_HttpRequest()
-
-/* AFHTTPSessionManager */
-@property (nonatomic ,strong)AFHTTPSessionManager *manager;
-
-/* 网络状态 */
-@property (nonatomic ,assign)DetectionNetworkState networkState;
-
+@property (nonatomic, assign, readwrite)JYResponseErrorType errorType;
+@property (nonatomic, assign, readwrite)id responseData;
+@property (nonatomic, copy,   readwrite)NSString *message;
 @end
 
 @implementation JY_HttpRequest
 
-#pragma mark 单例模式
-+ (instancetype)sharedRequestInstance {
-    static JY_HttpRequest *__sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        __sharedInstance = [[JY_HttpRequest alloc]init];
-        __sharedInstance.manager = [[AFHTTPSessionManager alloc]init];
-    });
-    return __sharedInstance;
+#pragma mark ---------- Public Methods ----------
++(instancetype)loadDataHUDwithView:(UIView*)view{
+    return [JY_HttpRequest loadDataHUDwithView:view message:@""];
 }
 
-#pragma mark ----------Public Methods ----------
-#pragma mark -- 数据请求
-+ (void)requestWithURLString: (NSString *)URLString
++(instancetype)loadDataHUDwithView:(UIView*)view message:(NSString*)message{
+    /* 网络请求失败 可以把view替换 */
+    return [[JY_HttpRequest alloc]init];
+}
+
+#pragma mark 数据请求
+- (void)requestWithURLString: (NSString *)URLString
+                      method: (JYRequestMethodType)method
                   parameters: (NSDictionary *)parameters
-                      method:(JYRequestMethodType)method
-                    callBack: (ITFinishedBlock)finishedBlock{
-    if ([JY_HttpRequest checkRequestHttp]) {
-        JY_Log(@"当前网络不允许发送请求！");
+              imageListBlack:(NetWorkUpload)imageListBlack{
+    JY_HttpProxy *proxy = [JY_HttpProxy sharedRequestInstance];
+    /* 这里可以检验是否发起请求 和 加密 */
+    JY_HttpResponse *errorResponse = [self checkRequestInfo:method parameters:parameters imageListBlack:imageListBlack];
+    if (errorResponse) {
+        [self failedOnCallingAPI:errorResponse];
         return;
     }
-    [JY_HttpRequestGetAndPost requestWithURLString:URLString parameters:parameters method:method callBack:finishedBlock];
-}
-
-#pragma mark 数据上传
-+ (void)requestWithURLString: (NSString *)URLString
-                  parameters: (NSDictionary *)parameters
-              imageListBlack:(NetWorkUpload)imageListBlack
-                    callBack: (ITFinishedBlock)finishedBlock{
-    [JY_HttpRequestUpload requestWithURLString:URLString parameters:parameters imageListBlack:imageListBlack callBack:finishedBlock];
-}
-
-#pragma mark 关闭所有数据请求
-+ (void)cancleAllRequest{
-    [JY_HTTPSessionManager cancleAllRequest];
-}
-
-#pragma mark 监听网络状态
-+ (void)netWorkStateDetection:(NetWorkStateBlock)state{
-    __weak AFNetworkReachabilityManager *manger = [AFNetworkReachabilityManager sharedManager];
-    [manger startMonitoring]; // 开始监听改变
-    [manger setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        
-        switch (status) {
-            case AFNetworkReachabilityStatusUnknown:
-                state(knownNetwork);
-                break;
-            case AFNetworkReachabilityStatusNotReachable:
-                state(NoNetwork);
-                break;
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-                state(OneselfGNetwork);
-                break;
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                state(WIFINetwork);
-                break;
-            default:
-                break;
-        }
-        [JY_HttpRequest sharedRequestInstance].networkState = status+0; // 保存网络状态
-    }];
     
+    [proxy requestWithURLString:URLString method:method parameters:parameters imageListBlack:imageListBlack finishedBlock:^(JY_HttpResponse *response) {
+        [self successedOnCallingAPI:response];
+    } failureBlock:^(JY_HttpResponse *response) {
+        [self failedOnCallingAPI:response];
+    }];
 }
 
-#pragma mark 关闭监听网络状态
-+(void)cancleNetWorkStateDetection{
-    __weak AFNetworkReachabilityManager *manger = [AFNetworkReachabilityManager sharedManager];
-    [manger stopMonitoring]; // 关闭监听改变
+#pragma mark 取消所有数据请求
+- (void)cancleAllRequest{
+    [[JY_HttpProxy sharedRequestInstance] cancleAllRequest];
 }
 
-#pragma mark ----------Private Methods ----------
+#pragma mark ---------- Private Methods ----------
+#pragma mark 请求成功回调
+-(void)successedOnCallingAPI:(JY_HttpResponse*)response{
+    /* 下面两句代码可用模型转 不建议直接使用这样负值 */
+    self.baseResponseModel.message = jy_safeString(response.responseData[@"message"]);
+    self.baseResponseModel.status = jy_safeNumber(response.responseData[@"status"]).integerValue;
+    if (response.responseErrorType == JYResponseErrorTypeNoContent) {
+        [self failedOnCallingAPI:response];
+        return;
+    }
+    self.responseData = response.responseData;
+    self.message = response.message;
+    self.errorType = response.responseErrorType;
+    [self.delegate managerCallAPIDidSuccess:self];
+}
 
-#pragma mark 当前条件是否允许发送请求
-+(BOOL)checkRequestHttp{
-    BOOL checkRequestHttp = YES;
-    switch ([JY_HttpRequest sharedRequestInstance].networkState) {
-        case knownNetwork:
-            JY_Log(@"未知网络");
-            checkRequestHttp = NO;
+#pragma mark 请求失败回调
+-(void)failedOnCallingAPI:(JY_HttpResponse*)response{
+    
+    switch (self.errorType) {
+        case JYResponseErrorTypeDefault:{
+            self.message = JY_RequestError;
+            JY_Log(@"*************httpStatusCode = %ld*************", response.httpStatusCode);
+        }
             break;
-        case NoNetwork:
-            JY_Log(@"无数据连接");
-            checkRequestHttp = NO;
+        case JYResponseErrorTypeSuccess:{
+            
+        }
             break;
-        case OneselfGNetwork:
-            JY_Log(@"已切换至数据流量");
-            checkRequestHttp = YES;
+        case JYResponseErrorTypeNoContent:{
+            self.message = JY_RequestError;
+        }
             break;
-        case WIFINetwork:
-            JY_Log(@"已切换至WIF环境");
-            checkRequestHttp = YES;
+        case JYResponseErrorTypeTimeout:{
+            self.message = JY_RequestOutTime;
+        }
+            break;
+        case JYResponseErrorTypeNoNetWork:{
+            self.message = JY_RequestNoNetwork;
+        }
+            break;
+        case JYResponseErrorTypeParamsError:{
+            self.message = JY_RequestError;
+        }
             break;
         default:
             break;
     }
-    return checkRequestHttp;
+    self.errorType = response.responseErrorType;
+    
+    if (!self.disableErrorHUD) {
+        JY_Log(@"弹出提示框");
+    }
+    [self.delegate managerCallAPIDidFailed:self];
+}
+#pragma mark 检验请求是否合格
+-(JY_HttpResponse*)checkRequestInfo: (JYRequestMethodType)method parameters: (NSDictionary *)parameters imageListBlack:(NetWorkUpload)imageListBlack{
+    JY_HttpResponse *errorResponse = nil;
+    switch (method) {
+        case JYRequestMethod_Upload:{
+            if (imageListBlack==nil) {
+                errorResponse = [[JY_HttpResponse alloc]initWithResponseErrorType:JYResponseErrorTypeParamsError];
+                return errorResponse;
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+    if (!errorResponse) {
+        errorResponse = [self checkNetWrok];
+    }
+    return errorResponse;
+}
+
+#pragma mark 检验网络是否合格
+-(JY_HttpResponse*)checkNetWrok{
+    JY_HttpResponse *errorResponse = nil;
+    DetectionNetworkType networkState = [JY_MonitorNewWork sharedRequestInstance].currentNetworkType;
+    if (networkState==knownNetwork || networkState ==NoNetwork) {
+        errorResponse = [[JY_HttpResponse alloc]initWithResponseErrorType:JYResponseErrorTypeNoNetWork];
+    }
+    return errorResponse;
 }
 
 #pragma mark ---------- Click Event ----------
@@ -125,5 +142,12 @@
 #pragma mark ---------- Delegate ----------
 
 #pragma mark ---------- Lazy Load ----------
+-(JY_BaseResponseModel *)baseResponseModel{
+    if (!_baseResponseModel) {
+        _baseResponseModel  = [[JY_BaseResponseModel alloc]init];
+    }
+    return _baseResponseModel;
+}
+
 
 @end

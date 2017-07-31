@@ -1,16 +1,14 @@
 //
-//  JY_HttpRequestDownload.m
+//  JY_BaseResponseModel.m
 //  JYProject
 //
-//  Created by dayou on 2017/7/28.
+//  Created by dayou on 2017/7/31.
 //  Copyright © 2017年 dayou. All rights reserved.
 //
 
-#import "JY_HttpRequestDownload.h"
+#import "JY_BaseResponseModel.h"
 
-static NSString const * CachaPath;
-
-@implementation JY_HttpRequestDownload
+@implementation JY_BaseResponseModel
 
 -(instancetype)init{
     self = [super init];
@@ -22,7 +20,6 @@ static NSString const * CachaPath;
 
 
 #pragma mark ---------- Public Methods ----------
-
 #pragma mark ---------- Private Methods ----------
 #pragma mark 配置Model
 -(void)configurationModel{}

@@ -23,9 +23,13 @@
 
 #define JY_APP_KeyWindow [UIApplication sharedApplication].keyWindow // window
 
-#define JY_APP_URL @"https://www.baidu.com"  // 应用接口
+#define JY_APP_URL @""  // 应用接口
 
 #define JY_APP_URL_Test @"https://www.baidu.com"  // 应用测试接口
+
+/* 这里用自己的单例模型
+#define JY_UserManager [UserManager sharedInstance] // 当前用户
+*/
 
 /* ----------- 开发成员 全局属性 ----------------- */
 /* 成员1 --> 成员名字 */

@@ -15,8 +15,14 @@
 /* 宏方法 */
 #import "YMMethodMacro.h"
 
+/* 第三方库 */
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <AFNetworking/AFNetworking.h>
+#import <Masonry/Masonry.h>
+#import <MJRefresh/MJRefresh.h>
+
 /* 工具类 */
-#import "JY_HttpRequest.h" // HTTP请求封装 (get 和 post)
+#import "JY_NetWork.h" // HTTP请求封装
 
 /* 分类 */
 #import "UIView+AddAttributes.h" // View 属性扩展分类
@@ -26,6 +32,7 @@
 #import "NSDate+AddMethods.h" // NSDate 方法扩展分类
 #import "NSString+AddMethods.h" // NSString 方法扩展分类
 #import "NSObject+AddMethods.h" // NSObject 方法扩展分类
+
 
 /* ----------- 开发成员 工具类 ----------------- */
 /* 成员1 --> 成员名字 */

@@ -26,11 +26,10 @@
 		2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8EC1F28808000449AF2 /* UIColor+AddMethods.m */; };
 		2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F21F28879800449AF2 /* PXLHomeModel.m */; };
 		2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F51F2887B000449AF2 /* PXLHomeView.m */; };
-		253647161F2B19C2001F78C4 /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 253647151F2B19C2001F78C4 /* JY_HttpRequest.m */; };
-		253647231F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 253647221F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m */; };
-		253647261F2B290C001F78C4 /* JY_HttpRequestUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 253647251F2B290C001F78C4 /* JY_HttpRequestUpload.m */; };
-		253647291F2B2922001F78C4 /* JY_HttpRequestDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 253647281F2B2922001F78C4 /* JY_HttpRequestDownload.m */; };
+		25198E0E1F2EAD0A00F481CA /* JY_BaseResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */; };
 		2536472C1F2B2954001F78C4 /* JY_HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */; };
+		253B9D541F2EC83100890D24 /* JY_MonitorNewWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */; };
+		253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */; };
 		AD287774C9CB541E2E9A8245 /* libPods-JYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -73,17 +72,16 @@
 		2512E8F21F28879800449AF2 /* PXLHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeModel.m; sourceTree = "<group>"; };
 		2512E8F41F2887B000449AF2 /* PXLHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLHomeView.h; sourceTree = "<group>"; };
 		2512E8F51F2887B000449AF2 /* PXLHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeView.m; sourceTree = "<group>"; };
-		253647141F2B19C2001F78C4 /* JY_HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequest.h; sourceTree = "<group>"; };
-		253647151F2B19C2001F78C4 /* JY_HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequest.m; sourceTree = "<group>"; };
+		25198E0C1F2EAD0A00F481CA /* JY_BaseResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_BaseResponseModel.h; sourceTree = "<group>"; };
+		25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_BaseResponseModel.m; sourceTree = "<group>"; };
 		253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestConfiguration.h; sourceTree = "<group>"; };
-		253647211F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestGetAndPost.h; sourceTree = "<group>"; };
-		253647221F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequestGetAndPost.m; sourceTree = "<group>"; };
-		253647241F2B290C001F78C4 /* JY_HttpRequestUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestUpload.h; sourceTree = "<group>"; };
-		253647251F2B290C001F78C4 /* JY_HttpRequestUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequestUpload.m; sourceTree = "<group>"; };
-		253647271F2B2922001F78C4 /* JY_HttpRequestDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestDownload.h; sourceTree = "<group>"; };
-		253647281F2B2922001F78C4 /* JY_HttpRequestDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequestDownload.m; sourceTree = "<group>"; };
 		2536472A1F2B2954001F78C4 /* JY_HTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HTTPSessionManager.h; sourceTree = "<group>"; };
 		2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HTTPSessionManager.m; sourceTree = "<group>"; };
+		253B9D521F2EC83100890D24 /* JY_MonitorNewWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_MonitorNewWork.h; sourceTree = "<group>"; };
+		253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_MonitorNewWork.m; sourceTree = "<group>"; };
+		253B9D551F2ED1AC00890D24 /* JY_NetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JY_NetWork.h; sourceTree = "<group>"; };
+		253B9D561F2ED3E200890D24 /* JY_HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequest.h; sourceTree = "<group>"; };
+		253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequest.m; sourceTree = "<group>"; };
 		6573FCC186723583E5A2AD9D /* Pods-JYProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.release.xcconfig"; sourceTree = "<group>"; };
 		779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JYProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFF351276A41E79477686A7 /* Pods-JYProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,6 +254,7 @@
 		25199E791F298FAB00A6A87D /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				253B9D551F2ED1AC00890D24 /* JY_NetWork.h */,
 				253647131F2B19C2001F78C4 /* NetWork */,
 			);
 			path = NetWork;
@@ -265,18 +264,16 @@
 			isa = PBXGroup;
 			children = (
 				253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */,
-				2510C6CE1F2D7B800040EDB8 /* JY_HttpProxy.h */,
-				2510C6CF1F2D7B800040EDB8 /* JY_HttpProxy.m */,
+				253B9D561F2ED3E200890D24 /* JY_HttpRequest.h */,
+				253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */,
 				2510C6D11F2D84FC0040EDB8 /* JY_HttpResponse.h */,
 				2510C6D21F2D84FC0040EDB8 /* JY_HttpResponse.m */,
-				253647141F2B19C2001F78C4 /* JY_HttpRequest.h */,
-				253647151F2B19C2001F78C4 /* JY_HttpRequest.m */,
-				253647211F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.h */,
-				253647221F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m */,
-				253647241F2B290C001F78C4 /* JY_HttpRequestUpload.h */,
-				253647251F2B290C001F78C4 /* JY_HttpRequestUpload.m */,
-				253647271F2B2922001F78C4 /* JY_HttpRequestDownload.h */,
-				253647281F2B2922001F78C4 /* JY_HttpRequestDownload.m */,
+				2510C6CE1F2D7B800040EDB8 /* JY_HttpProxy.h */,
+				2510C6CF1F2D7B800040EDB8 /* JY_HttpProxy.m */,
+				25198E0C1F2EAD0A00F481CA /* JY_BaseResponseModel.h */,
+				25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */,
+				253B9D521F2EC83100890D24 /* JY_MonitorNewWork.h */,
+				253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */,
 				2536472A1F2B2954001F78C4 /* JY_HTTPSessionManager.h */,
 				2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */,
 			);
@@ -333,6 +330,7 @@
 				TargetAttributes = {
 					2508E66F1F2742DE00859C5B = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = D8WJG285HB;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -419,22 +417,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				2512E8E71F286D3100449AF2 /* NSString+AddMethods.m in Sources */,
-				253647261F2B290C001F78C4 /* JY_HttpRequestUpload.m in Sources */,
 				2512E8DE1F283C2D00449AF2 /* UIView+AddMethods.m in Sources */,
 				2508E69E1F274B3D00859C5B /* PXLHomeViewController.m in Sources */,
 				2512E8E11F28620200449AF2 /* UIImage+AddMethods.m in Sources */,
 				2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */,
-				253647291F2B2922001F78C4 /* JY_HttpRequestDownload.m in Sources */,
 				2512E8DB1F283B9400449AF2 /* UIView+AddAttributes.m in Sources */,
 				2508E6961F274AA000859C5B /* AppDelegate.m in Sources */,
+				253B9D541F2EC83100890D24 /* JY_MonitorNewWork.m in Sources */,
 				2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */,
-				253647231F2B28FB001F78C4 /* JY_HttpRequestGetAndPost.m in Sources */,
+				253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */,
 				2510C6D01F2D7B800040EDB8 /* JY_HttpProxy.m in Sources */,
 				2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */,
-				253647161F2B19C2001F78C4 /* JY_HttpRequest.m in Sources */,
 				2512E8E41F28655000449AF2 /* NSDate+AddMethods.m in Sources */,
 				2536472C1F2B2954001F78C4 /* JY_HTTPSessionManager.m in Sources */,
 				2510C6D61F2DAE380040EDB8 /* NSObject+AddMethods.m in Sources */,
+				25198E0E1F2EAD0A00F481CA /* JY_BaseResponseModel.m in Sources */,
 				2508E6801F2742DE00859C5B /* main.m in Sources */,
 				2510C6D31F2D84FC0040EDB8 /* JY_HttpResponse.m in Sources */,
 				2512E8EA1F287CD700449AF2 /* UIButton+AddMethods.m in Sources */,
@@ -528,6 +525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				DEVELOPMENT_TEAM = D8WJG285HB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JYProject/SupportingFiles/Prefix.pch;
 				INFOPLIST_FILE = JYProject/SupportingFiles/Info.plist;
@@ -548,6 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				DEVELOPMENT_TEAM = D8WJG285HB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JYProject/SupportingFiles/Prefix.pch;
 				INFOPLIST_FILE = JYProject/SupportingFiles/Info.plist;
