@@ -72,7 +72,6 @@
             }
         }
         if (jy_safeNumber(error.userInfo[@"_kCFStreamErrorCodeKey"]).integerValue == -2102) {
-            errorMsg = JY_RequestOutTime;
             self.responseErrorType = JYResponseErrorTypeTimeout;
         }
     }

@@ -9,29 +9,31 @@
 #ifndef StarterApp_StarterApp_Prefix_pch
 #define StarterApp_StarterApp_Prefix_pch
 
-/* 宏常量 */
-#import "YMConstantMacro.h"
+/*************   宏    *************/
+#import "JYConstantMacro.h" //常量
+#import "JYMethodMacro.h" //方法
+#import "JYConstStyle.h" //APP样式和接口
 
-/* 宏方法 */
-#import "YMMethodMacro.h"
-
-/* 第三方库 */
+/************* 第三方库 *************/
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <AFNetworking/AFNetworking.h>
 #import <Masonry/Masonry.h>
 #import <MJRefresh/MJRefresh.h>
+#import <YYModel/YYModel.h>
 
-/* 工具类 */
-#import "JY_NetWork.h" // HTTP请求封装
+/************** 工具类 **************/
+#import "JY_NetWork.h" // AFNetworking 请求封装
+#import "JYProgressHUD.h" // MBProgressHUD 提示框封装
 
-/* 分类 */
-#import "UIView+AddAttributes.h" // View 属性扩展分类
-#import "UIView+AddMethods.h" // View 方法扩展分类
-#import "UIImage+AddMethods.h" // UIImage 方法扩展分类
-#import "UIButton+AddMethods.h" // UIButton 方法扩展分类
-#import "NSDate+AddMethods.h" // NSDate 方法扩展分类
-#import "NSString+AddMethods.h" // NSString 方法扩展分类
-#import "NSObject+AddMethods.h" // NSObject 方法扩展分类
+/************** 分类  **************/
+#import "UIView+AddAttributes.h" // View     属性扩展分类
+#import "UIView+AddMethods.h"    // View     方法扩展分类
+#import "UIImage+AddMethods.h"   // UIImage  方法扩展分类
+#import "UIButton+AddMethods.h"  // UIButton 方法扩展分类
+#import "UIColor+AddMethods.h"   // UIColor  方法扩展分类
+#import "NSDate+AddMethods.h"    // NSDate   方法扩展分类
+#import "NSString+AddMethods.h"  // NSString 方法扩展分类
+#import "NSObject+AddMethods.h"  // NSObject 方法扩展分类
 
 
 /* ----------- 开发成员 工具类 ----------------- */

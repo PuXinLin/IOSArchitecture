@@ -1,13 +1,14 @@
 //
-//  YMMethodMacro.h
+//  JYMethodMacro.h
 //  JYProject
 //
-//  Created by dayou on 2017/7/25.
+//  Created by dayou on 2017/7/31.
 //  Copyright © 2017年 dayou. All rights reserved.
 //
 
-#ifndef YMMethodMacro_h
-#define YMMethodMacro_h
+#ifndef JYMethodMacro_h
+#define JYMethodMacro_h
+
 
 /**
  * 输出
@@ -24,23 +25,15 @@
  * 获取颜色
  * @param : (red green blue)(0 - 255)   alpha(0 - 1)
  */
-#define JY_ColorRgba(red,green,blue,alpha)\
-    [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:alpha]
+#define JY_ColorRgba(r,g,b,a)\
+[UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 /**
  * 获取颜色
  * @param : stringColor(例: "ffffff")   alpha(0 - 1)
  */
-#define JY_ColorString(stringColor,alpha)\
-    [UIColor jy_getColorWithHexNumber:stringColor alpha:alpha]
-
-
-/**
- * 检验 Response 数据是否正确
- * @param responseObject 请求返回数据
- */
-#define BoolResponse(responseObject) [responseObject[@"status"] integerValue] == 1
-
+#define JY_ColorString(stringColor,a)\
+[UIColor jy_getColorWithHexNumber:stringColor alpha:a]
 
 /* ----------- 开发成员 全局方法 ----------------- */
 /* 成员1 --> 成员名字 */
@@ -49,4 +42,5 @@
 /* 成员2 --> 成员名字 */
 // code...
 
-#endif /* YMMethodMacro_h */
+
+#endif /* JYMethodMacro_h */

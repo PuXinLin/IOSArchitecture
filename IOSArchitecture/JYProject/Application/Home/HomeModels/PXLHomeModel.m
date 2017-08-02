@@ -9,7 +9,7 @@
 #import "PXLHomeModel.h"
 
 @implementation PXLHomeModel
-
+#pragma mark ---------- Life Cycle ----------
 -(instancetype)init{
     self = [super init];
     if (self) {
@@ -19,13 +19,19 @@
 }
 
 
-#pragma mark ---------- Methods ----------
+#pragma mark ---------- Private Methods ----------
 #pragma mark 配置Model
 -(void)configurationModel{}
 
 #pragma mark ---------- Click Event ----------
 
 #pragma mark ---------- Delegate ----------
++(NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    
+    return @{
+             @"appUserForMyCircleDto":@"PXLHomeSubModel"
+             };
+}
 
 #pragma mark ---------- Lazy Load ----------
 

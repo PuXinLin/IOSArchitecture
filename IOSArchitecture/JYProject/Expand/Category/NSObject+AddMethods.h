@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+/**
+ *  安全字符串
+ */
 NSString* jy_safeString(id obj);
+/**
+ * 安全字符串
+ */
 NSNumber* jy_safeNumber(id obj);
 @interface NSObject (AddMethods)
 

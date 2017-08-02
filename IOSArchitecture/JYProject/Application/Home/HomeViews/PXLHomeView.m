@@ -23,7 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self configurationView];
-        [self loadRequestData];
+        //[self loadRequestData];
         [self resizeCustomView];
     }
     return self;
@@ -34,7 +34,9 @@
 -(void)configurationView{}
 
 #pragma mark 数据请求
--(void)loadRequestData{}
+-(void)loadRequestData{
+    
+}
 
 #pragma mark 页面初始化
 -(void)resizeCustomView{}

@@ -10,11 +10,6 @@
 
 @implementation UIView (AddMethods)
 
-/*  设置圆角 */
--(void)jy_addCornerRadius:(CGFloat)radius{
-    self.layer.cornerRadius = radius;
-}
-
 /* 切除view指定位置的圆角 */
 -(void)jy_removalOfSpecifiedLocationRoundCorners:(UIRectCorner)corner withSize:(CGSize)size {
     

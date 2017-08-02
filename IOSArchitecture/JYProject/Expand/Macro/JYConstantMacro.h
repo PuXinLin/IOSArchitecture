@@ -1,13 +1,13 @@
 //
-//  YMConstantMacro.h
+//  JYConstantMacro.h
 //  JYProject
 //
-//  Created by dayou on 2017/7/25.
+//  Created by dayou on 2017/7/31.
 //  Copyright © 2017年 dayou. All rights reserved.
 //
 
-#ifndef YMConstantMacro_h
-#define YMConstantMacro_h
+#ifndef JYConstantMacro_h
+#define JYConstantMacro_h
 
 /*  默认全局属性 */
 
@@ -23,13 +23,9 @@
 
 #define JY_APP_KeyWindow [UIApplication sharedApplication].keyWindow // window
 
-#define JY_APP_URL @""  // 应用接口
-
-#define JY_APP_URL_Test @"https://www.baidu.com"  // 应用测试接口
-
 /* 这里用自己的单例模型
-#define JY_UserManager [UserManager sharedInstance] // 当前用户
-*/
+ #define JY_UserManager [UserManager sharedInstance] // 当前用户
+ */
 
 /* ----------- 开发成员 全局属性 ----------------- */
 /* 成员1 --> 成员名字 */
@@ -38,4 +34,4 @@
 /* 成员2 --> 成员名字 */
 // code...
 
-#endif /* YMConstantMacro_h */
+#endif /* JYConstantMacro_h */

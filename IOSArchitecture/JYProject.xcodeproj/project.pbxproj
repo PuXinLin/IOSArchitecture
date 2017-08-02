@@ -26,10 +26,16 @@
 		2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8EC1F28808000449AF2 /* UIColor+AddMethods.m */; };
 		2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F21F28879800449AF2 /* PXLHomeModel.m */; };
 		2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F51F2887B000449AF2 /* PXLHomeView.m */; };
+		251694C91F3026F400279E6B /* JYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694C81F3026F400279E6B /* JYProgressHUD.m */; };
+		251694CC1F3028A900279E6B /* JYModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694CB1F3028A900279E6B /* JYModelView.m */; };
+		251694CF1F302AE700279E6B /* JYModelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694CE1F302AE700279E6B /* JYModelModel.m */; };
+		251694D21F302B8C00279E6B /* JYModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694D11F302B8C00279E6B /* JYModelViewController.m */; };
 		25198E0E1F2EAD0A00F481CA /* JY_BaseResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */; };
+		252FCE881F3161B1008FADD9 /* JYNoNetWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 252FCE871F3161B1008FADD9 /* JYNoNetWorkView.m */; };
 		2536472C1F2B2954001F78C4 /* JY_HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */; };
 		253B9D541F2EC83100890D24 /* JY_MonitorNewWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */; };
 		253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */; };
+		25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B422B71F2F277700072214 /* PXLHomeSubModel.m */; };
 		AD287774C9CB541E2E9A8245 /* libPods-JYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -46,8 +52,6 @@
 		2508E6951F274AA000859C5B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SupportingFiles/AppDelegate.m; sourceTree = "<group>"; };
 		2508E69C1F274B3D00859C5B /* PXLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLHomeViewController.h; sourceTree = "<group>"; };
 		2508E69D1F274B3D00859C5B /* PXLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeViewController.m; sourceTree = "<group>"; };
-		2508E6A11F274E1200859C5B /* YMConstantMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMConstantMacro.h; sourceTree = "<group>"; };
-		2508E6A21F274E4900859C5B /* YMMethodMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YMMethodMacro.h; sourceTree = "<group>"; };
 		2510C6CE1F2D7B800040EDB8 /* JY_HttpProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpProxy.h; sourceTree = "<group>"; };
 		2510C6CF1F2D7B800040EDB8 /* JY_HttpProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpProxy.m; sourceTree = "<group>"; };
 		2510C6D11F2D84FC0040EDB8 /* JY_HttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpResponse.h; sourceTree = "<group>"; };
@@ -72,8 +76,19 @@
 		2512E8F21F28879800449AF2 /* PXLHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeModel.m; sourceTree = "<group>"; };
 		2512E8F41F2887B000449AF2 /* PXLHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLHomeView.h; sourceTree = "<group>"; };
 		2512E8F51F2887B000449AF2 /* PXLHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeView.m; sourceTree = "<group>"; };
+		251694C71F3026F400279E6B /* JYProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYProgressHUD.h; sourceTree = "<group>"; };
+		251694C81F3026F400279E6B /* JYProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYProgressHUD.m; sourceTree = "<group>"; };
+		251694CA1F3028A900279E6B /* JYModelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYModelView.h; sourceTree = "<group>"; };
+		251694CB1F3028A900279E6B /* JYModelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYModelView.m; sourceTree = "<group>"; };
+		251694CD1F302AE700279E6B /* JYModelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYModelModel.h; sourceTree = "<group>"; };
+		251694CE1F302AE700279E6B /* JYModelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYModelModel.m; sourceTree = "<group>"; };
+		251694D01F302B8C00279E6B /* JYModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYModelViewController.h; sourceTree = "<group>"; };
+		251694D11F302B8C00279E6B /* JYModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYModelViewController.m; sourceTree = "<group>"; };
 		25198E0C1F2EAD0A00F481CA /* JY_BaseResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_BaseResponseModel.h; sourceTree = "<group>"; };
 		25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_BaseResponseModel.m; sourceTree = "<group>"; };
+		252FCE861F3161B1008FADD9 /* JYNoNetWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYNoNetWorkView.h; sourceTree = "<group>"; };
+		252FCE871F3161B1008FADD9 /* JYNoNetWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYNoNetWorkView.m; sourceTree = "<group>"; };
+		252FCE891F316CD9008FADD9 /* JYConstStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYConstStyle.h; sourceTree = "<group>"; };
 		253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestConfiguration.h; sourceTree = "<group>"; };
 		2536472A1F2B2954001F78C4 /* JY_HTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HTTPSessionManager.h; sourceTree = "<group>"; };
 		2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HTTPSessionManager.m; sourceTree = "<group>"; };
@@ -82,6 +97,10 @@
 		253B9D551F2ED1AC00890D24 /* JY_NetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JY_NetWork.h; sourceTree = "<group>"; };
 		253B9D561F2ED3E200890D24 /* JY_HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequest.h; sourceTree = "<group>"; };
 		253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequest.m; sourceTree = "<group>"; };
+		253B9D591F2EF8E100890D24 /* JYConstantMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYConstantMacro.h; sourceTree = "<group>"; };
+		253B9D5A1F2EF8F500890D24 /* JYMethodMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYMethodMacro.h; sourceTree = "<group>"; };
+		25B422B61F2F277700072214 /* PXLHomeSubModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLHomeSubModel.h; sourceTree = "<group>"; };
+		25B422B71F2F277700072214 /* PXLHomeSubModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeSubModel.m; sourceTree = "<group>"; };
 		6573FCC186723583E5A2AD9D /* Pods-JYProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.release.xcconfig"; sourceTree = "<group>"; };
 		779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JYProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFF351276A41E79477686A7 /* Pods-JYProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +203,7 @@
 		2508E6981F274AE100859C5B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				251694BE1F3001D400279E6B /* HomeManage */,
 				2508E6991F274AE100859C5B /* HomeModels */,
 				2508E69A1F274AE100859C5B /* HomeViewControllers */,
 				2508E69B1F274AE100859C5B /* HomeViews */,
@@ -197,6 +217,10 @@
 			children = (
 				2512E8F11F28879800449AF2 /* PXLHomeModel.h */,
 				2512E8F21F28879800449AF2 /* PXLHomeModel.m */,
+				25B422B61F2F277700072214 /* PXLHomeSubModel.h */,
+				25B422B71F2F277700072214 /* PXLHomeSubModel.m */,
+				251694CD1F302AE700279E6B /* JYModelModel.h */,
+				251694CE1F302AE700279E6B /* JYModelModel.m */,
 			);
 			path = HomeModels;
 			sourceTree = "<group>";
@@ -206,6 +230,8 @@
 			children = (
 				2508E69C1F274B3D00859C5B /* PXLHomeViewController.h */,
 				2508E69D1F274B3D00859C5B /* PXLHomeViewController.m */,
+				251694D01F302B8C00279E6B /* JYModelViewController.h */,
+				251694D11F302B8C00279E6B /* JYModelViewController.m */,
 			);
 			path = HomeViewControllers;
 			sourceTree = "<group>";
@@ -215,6 +241,8 @@
 			children = (
 				2512E8F41F2887B000449AF2 /* PXLHomeView.h */,
 				2512E8F51F2887B000449AF2 /* PXLHomeView.m */,
+				251694CA1F3028A900279E6B /* JYModelView.h */,
+				251694CB1F3028A900279E6B /* JYModelView.m */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -222,8 +250,9 @@
 		2508E69F1F274C3E00859C5B /* Macro */ = {
 			isa = PBXGroup;
 			children = (
-				2508E6A11F274E1200859C5B /* YMConstantMacro.h */,
-				2508E6A21F274E4900859C5B /* YMMethodMacro.h */,
+				253B9D591F2EF8E100890D24 /* JYConstantMacro.h */,
+				253B9D5A1F2EF8F500890D24 /* JYMethodMacro.h */,
+				252FCE891F316CD9008FADD9 /* JYConstStyle.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -251,6 +280,13 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		251694BE1F3001D400279E6B /* HomeManage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeManage;
+			sourceTree = "<group>";
+		};
 		25199E791F298FAB00A6A87D /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,12 +306,12 @@
 				2510C6D21F2D84FC0040EDB8 /* JY_HttpResponse.m */,
 				2510C6CE1F2D7B800040EDB8 /* JY_HttpProxy.h */,
 				2510C6CF1F2D7B800040EDB8 /* JY_HttpProxy.m */,
-				25198E0C1F2EAD0A00F481CA /* JY_BaseResponseModel.h */,
-				25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */,
 				253B9D521F2EC83100890D24 /* JY_MonitorNewWork.h */,
 				253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */,
 				2536472A1F2B2954001F78C4 /* JY_HTTPSessionManager.h */,
 				2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */,
+				25198E0C1F2EAD0A00F481CA /* JY_BaseResponseModel.h */,
+				25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -283,6 +319,10 @@
 		25509AA71F2BFC1D00F1065B /* ShowBox */ = {
 			isa = PBXGroup;
 			children = (
+				251694C71F3026F400279E6B /* JYProgressHUD.h */,
+				251694C81F3026F400279E6B /* JYProgressHUD.m */,
+				252FCE861F3161B1008FADD9 /* JYNoNetWorkView.h */,
+				252FCE871F3161B1008FADD9 /* JYNoNetWorkView.m */,
 			);
 			path = ShowBox;
 			sourceTree = "<group>";
@@ -417,9 +457,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2512E8E71F286D3100449AF2 /* NSString+AddMethods.m in Sources */,
+				251694CC1F3028A900279E6B /* JYModelView.m in Sources */,
 				2512E8DE1F283C2D00449AF2 /* UIView+AddMethods.m in Sources */,
 				2508E69E1F274B3D00859C5B /* PXLHomeViewController.m in Sources */,
 				2512E8E11F28620200449AF2 /* UIImage+AddMethods.m in Sources */,
+				252FCE881F3161B1008FADD9 /* JYNoNetWorkView.m in Sources */,
+				251694C91F3026F400279E6B /* JYProgressHUD.m in Sources */,
+				25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */,
+				251694D21F302B8C00279E6B /* JYModelViewController.m in Sources */,
 				2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */,
 				2512E8DB1F283B9400449AF2 /* UIView+AddAttributes.m in Sources */,
 				2508E6961F274AA000859C5B /* AppDelegate.m in Sources */,
@@ -434,6 +479,7 @@
 				25198E0E1F2EAD0A00F481CA /* JY_BaseResponseModel.m in Sources */,
 				2508E6801F2742DE00859C5B /* main.m in Sources */,
 				2510C6D31F2D84FC0040EDB8 /* JY_HttpResponse.m in Sources */,
+				251694CF1F302AE700279E6B /* JYModelModel.m in Sources */,
 				2512E8EA1F287CD700449AF2 /* UIButton+AddMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

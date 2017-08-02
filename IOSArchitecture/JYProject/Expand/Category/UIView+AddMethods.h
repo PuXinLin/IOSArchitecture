@@ -11,11 +11,6 @@
 @interface UIView (AddMethods)
 
 /**
- * 添加圆角
- */
--(void)jy_addCornerRadius:(CGFloat)radius;
-
-/**
  * 切除view指定位置的圆角
  *
  * @param corner 选定的位置, size   圆角的大小

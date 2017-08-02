@@ -18,7 +18,6 @@
     return self;
 }
 
-
 #pragma mark ---------- Public Methods ----------
 #pragma mark ---------- Private Methods ----------
 #pragma mark 配置Model
