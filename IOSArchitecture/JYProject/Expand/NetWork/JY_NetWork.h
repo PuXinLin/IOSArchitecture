@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <AFNetworking/AFNetworking.h>
 #import "JY_HttpRequestConfiguration.h"
 #import "JY_HttpRequest.h"
-#import "JY_HTTPSessionManager.h"
 #import "JY_MonitorNewWork.h"
+#import "JY_HttpRequestManager.h"

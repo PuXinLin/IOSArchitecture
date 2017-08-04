@@ -11,6 +11,13 @@
 
 @interface JY_HttpProxy : NSObject
 
+/**
+ * 上传图片的块
+ *
+ * @param formData AFNetWorking上传文件的代码块
+ */
+typedef void (^NetWorkUpload)(id<AFMultipartFormData> formData);
+
 /* 请求回调 */
 typedef void(^JYCallbackAPICallback)(JY_HttpResponse *response);
 

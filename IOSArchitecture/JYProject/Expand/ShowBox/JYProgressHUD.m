@@ -8,6 +8,7 @@
 
 #import "JYProgressHUD.h"
 #import "JYNoNetWorkView.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 static CGFloat const duration = 2.f; // 显示时间
 

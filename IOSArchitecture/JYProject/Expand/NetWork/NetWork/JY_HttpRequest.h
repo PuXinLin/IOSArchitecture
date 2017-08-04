@@ -28,23 +28,13 @@
 @property (nonatomic, assign, readonly)JYResponseErrorType errorType;
 
 /* 返回数据 */
-@property (nonatomic, assign, readonly)id responseData;
+@property (nonatomic, assign, readwrite)id responseData;
 
 /* 错误提示 */
 @property (nonatomic, copy, readonly) NSString *message;
 
 /* 服务器返回的信息 */
-@property (nonatomic ,strong)JY_BaseResponseModel *baseResponseModel;
-
-/* 请求提示 (看枚举) */
-@property (nonatomic ,assign)JYRequestShowType requestShowType;
-
-/**
- * 初始化方法
- *
- * @param view 加载HUDView提示框的父View
- */
-+(instancetype)loadDataHUDwithView:(UIView*)view;
+@property (nonatomic ,strong, readonly)JY_BaseResponseModel *baseResponseModel;
 
 /**
  * 数据请求

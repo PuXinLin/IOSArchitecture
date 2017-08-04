@@ -10,6 +10,8 @@
 
 @interface NSString (AddMethods)
 
+
+
 /**
  * 把string转化为NSMutableAttributedString
  */

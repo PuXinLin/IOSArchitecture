@@ -8,6 +8,10 @@
 
 #import "JY_HttpProxy.h"
 
+static CGFloat const timeoutIntervalRequest = 5.f; // 请求超时时间
+
+static CGFloat const timeoutIntervalRequestUpload = 20.f; // 上传超时时间
+
 @interface JY_HttpProxy()
 
 @property (nonatomic ,strong)AFHTTPSessionManager *sessionManager;
@@ -42,7 +46,7 @@
 - (void)request:(NSString *)URLString method: (JYRequestMethodType)method parameters: (NSDictionary *)parameters imageListBlack:(NetWorkUpload)imageListBlack finishedBlock: (JYCallbackAPICallback)finishedBlock failureBlock: (JYCallbackAPICallback)failureBlock{
     /* 配置请求 */
     self.sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    self.sessionManager.requestSerializer.timeoutInterval = 10;
+    self.sessionManager.requestSerializer.timeoutInterval = timeoutIntervalRequest;
     
     switch (method) {
         case JYRequestMethod_GET:{
@@ -64,8 +68,8 @@
         }
             break;
         case JYRequestMethod_Upload:{
-            self.sessionManager.requestSerializer.timeoutInterval = 20; //上传文件时间
-            [[JY_HTTPSessionManager sharedRequestInstance]POST:URLString parameters:parameters constructingBodyWithBlock:imageListBlack progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            self.sessionManager.requestSerializer.timeoutInterval = timeoutIntervalRequestUpload; //上传文件时间
+            [self.sessionManager POST:URLString parameters:parameters constructingBodyWithBlock:imageListBlack progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 [self handelSuccessRequst:task responseObject:responseObject finishedBlock:finishedBlock];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 [self handelFailureRequst:task error:error failureBlock:failureBlock];
@@ -102,6 +106,7 @@
 -(AFHTTPSessionManager *)sessionManager{
     if (!_sessionManager) {
         _sessionManager = [[AFHTTPSessionManager alloc]initWithBaseURL:nil];
+        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain", nil]; // 默认支持类型
     }
     return _sessionManager;
 }

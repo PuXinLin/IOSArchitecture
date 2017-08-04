@@ -21,7 +21,7 @@
     [self configurationController];
     [self loadRequestData];
     [self resizeCustomView];
-    NSLog(@"%@",self.jystring);
+    JY_Log(@"%@",self.jystring);
 }
 
 #pragma mark ---------- Private Methods ----------

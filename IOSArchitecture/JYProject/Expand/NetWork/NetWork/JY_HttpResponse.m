@@ -66,7 +66,7 @@
         if (responseData) {
             NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:NULL];
             if ([response isKindOfClass:[NSDictionary class]]) {
-                /* 请求失败 多半连不上服务器接口 那么这里不会有进来 */
+                /* 请求失败 多半连不上服务器接口 那么这里不会进来 */
                 errorMsg = jy_safeString(response[@"message"]);
                 return errorMsg;
             }
@@ -83,8 +83,6 @@
 -(BOOL)checkResponseData:(id)responseObject{
     return [responseObject[@"status"] integerValue] == 1;
 }
-#pragma mark 配置Model
--(void)configurationModel{}
 
 #pragma mark ---------- Click Event ----------
 

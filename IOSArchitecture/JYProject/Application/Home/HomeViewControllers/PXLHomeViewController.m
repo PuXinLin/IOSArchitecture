@@ -10,9 +10,9 @@
 #import "PXLHomeModel.h"
 #import "JYModelViewController.h"
 
-@interface PXLHomeViewController ()<JY_HttpRequestCallBackDelegate>
+@interface PXLHomeViewController ()<JY_HttpRequestManagerCallBackDelegate>
 /* test API */
-@property (nonatomic ,strong)JY_HttpRequest *httpRequestModel;
+@property (nonatomic ,strong)JY_HttpRequestManager *httpRequestManager;
 
 /* 发起请求按钮 */
 @property (nonatomic ,strong)UIButton *sendButton;
@@ -32,7 +32,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self configurationController];
-    [self loadRequestData];
     [self resizeCustomView];
 }
 
@@ -40,31 +39,33 @@
 #pragma mark 配置Controller
 -(void)configurationController{
     self.view.backgroundColor = UIColor.whiteColor;
+    /* 模拟用户登录 */
+    UserModel * user = JY_User;
+    user.userCacheKey = @"UserOne";
 }
 
 #pragma mark 数据请求
 -(void)loadRequestData{
-    _httpRequestModel = [JY_HttpRequest loadDataHUDwithView:self.view];
-    _httpRequestModel.delegate = self;
-    _httpRequestModel.requestShowType = JYRequestShowType_RequestViewShow;
-    [_httpRequestModel requestWithURLString:@"/app/postlist.doa" method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+    [self.httpRequestManager requestWithURLString:@"/app/postlist.do" method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
 }
 
 #pragma mark 页面初始化
 -(void)resizeCustomView{
-    
+    /* 点击按钮 */
     [self.sendButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(100);
         make.top.equalTo(self.view.mas_top).offset(100);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.size.mas_equalTo(CGSizeMake(100, 50));
     }];
     
+    /* 请求按钮 */
     [self.showButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(100);
         make.top.equalTo(self.view.mas_top).offset(200);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.size.mas_equalTo(CGSizeMake(100, 50));
     }];
     
+    /* 跳转按钮 */
     [self.pushControllerButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(100);
         make.top.equalTo(self.view.mas_top).offset(300);
@@ -73,38 +74,56 @@
 }
 
 #pragma mark ---------- Click Event ----------
--(void)sendClick:(UIButton*)sender{
-    [JYProgressHUD showMessageJY:@"哈哈" onView:self.view progressType:JYProgress_Text];
-    [self loadRequestData];
+-(void)sendClick:(UIButton*)sender
+{
+    [JYCache userLoginCheckResponseOverdue];
 }
--(void)showClick:(UIButton*)sender{
-    [JYProgressHUD showMessageJY:JY_RequestLoading onView:self.view progressType:JYProgress_RequestError];
+-(void)showClick:(UIButton*)sender
+{
+    [self.httpRequestManager requestWithURLString:@"/app/postlist.do" method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
 }
--(void)pushControllerClick:(UIButton*)sender{
-    
-     JYModelViewController * ctr = [[JYModelViewController alloc]init];
-     ctr.jystring = @"哈哈";
-     [self.navigationController pushViewController:ctr animated:YES];
+-(void)pushControllerClick:(UIButton*)sender
+{
+    if (sender.tag) {
+        JY_User.userCacheKey = @"UserOne";
+    }
+    else{
+        JY_User.userCacheKey = @"UserTwo";
+    }
+    sender.tag = !sender.tag;
+    JY_Log(@"%@", JY_User.userCacheKey);
 }
 
 #pragma mark ---------- Delegate ----------
--(void)managerCallAPIDidSuccess:(JY_HttpRequest *)request{
+-(void)managerCallAPIDidSuccess:(JY_HttpRequest *)request
+{
+    JY_Log(@"********************* 有缓存");
 //    PXLHomeModel * model = [PXLHomeModel yy_modelWithJSON:request.responseData[@"data"][@"items"][0]];
 //    NSArray *array = [NSArray yy_modelArrayWithClass:PXLHomeModel.class json:request.responseData[@"data"][@"items"]];
 //    JY_Log(@"%@,%@", array,model);
 //    NSArray *array = [NSMutableArray yy_modelWithJSON:request.responseData[@"data"][@"items"][0]];
-    
 }
 -(void)managerCallAPIDidFailed:(JY_HttpRequest *)request{
-    JY_Log(@"%@", request.message);
+    JY_Log(@"********************* 无缓存");
+//    JY_Log(@"%@", request.message);
 }
 
 #pragma mark ---------- Lazy Load ----------
+-(JY_HttpRequestManager *)httpRequestManager{
+    if (!_httpRequestManager) {
+        _httpRequestManager = [JY_HttpRequestManager loadDataHUDwithView:self.view];
+        _httpRequestManager.delegate = self;
+        _httpRequestManager.starCache = YES;
+        _httpRequestManager.requestShowType = JYRequestShowType_RequestAndResponseViewShow;
+    }
+    return _httpRequestManager;
+}
+
 -(UIButton *)sendButton{
     if (!_sendButton) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitle:@"按钮" forState:UIControlStateNormal];
+        [button setTitle:@"检验数据过期" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(sendClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         _sendButton = button;
@@ -115,7 +134,7 @@
     if (!_showButton) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitle:@"弹框" forState:UIControlStateNormal];
+        [button setTitle:@"发起请求" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(showClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         _showButton = button;
@@ -126,7 +145,7 @@
     if (!_pushControllerButton) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitle:@"下一页" forState:UIControlStateNormal];
+        [button setTitle:@"切换用户" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(pushControllerClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         _pushControllerButton = button;

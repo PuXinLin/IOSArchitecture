@@ -11,6 +11,7 @@
 /* 响应状态状态 */
 typedef NS_ENUM (NSUInteger, JYResponseErrorType){
     JYResponseErrorTypeDefault,    //API请求失败的默认状态。
+    
     JYResponseErrorTypeSuccess,    //API请求成功且返回数据正确，此时manager的数据是可以直接拿来使用的。
     JYResponseErrorTypeNoContent,  //API请求成功但返回数据不正确。如果回调数据验证函数返回值为NO，manager的状态就会是这个。
     JYResponseErrorTypeTimeout,    //请求超时。JY_HttpProxy设置的是10秒超时，具体超时时间的设置请自己去看JY_HttpProxy的相关代码。

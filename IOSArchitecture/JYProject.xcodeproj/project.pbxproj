@@ -31,11 +31,14 @@
 		251694CF1F302AE700279E6B /* JYModelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694CE1F302AE700279E6B /* JYModelModel.m */; };
 		251694D21F302B8C00279E6B /* JYModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694D11F302B8C00279E6B /* JYModelViewController.m */; };
 		25198E0E1F2EAD0A00F481CA /* JY_BaseResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */; };
+		251D38701F32A62E00246B35 /* JY_HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D386F1F32A62E00246B35 /* JY_HttpRequestManager.m */; };
+		251D38781F32F6AE00246B35 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D38771F32F6AE00246B35 /* UserModel.m */; };
 		252FCE881F3161B1008FADD9 /* JYNoNetWorkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 252FCE871F3161B1008FADD9 /* JYNoNetWorkView.m */; };
-		2536472C1F2B2954001F78C4 /* JY_HTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */; };
+		252FCE8D1F31C6A9008FADD9 /* JYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 252FCE8C1F31C6A9008FADD9 /* JYCache.m */; };
 		253B9D541F2EC83100890D24 /* JY_MonitorNewWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */; };
 		253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */; };
 		25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B422B71F2F277700072214 /* PXLHomeSubModel.m */; };
+		25D4DFB61F34535000313DC6 /* JYMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D4DFB51F34535000313DC6 /* JYMD5.m */; };
 		AD287774C9CB541E2E9A8245 /* libPods-JYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -86,12 +89,16 @@
 		251694D11F302B8C00279E6B /* JYModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYModelViewController.m; sourceTree = "<group>"; };
 		25198E0C1F2EAD0A00F481CA /* JY_BaseResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_BaseResponseModel.h; sourceTree = "<group>"; };
 		25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_BaseResponseModel.m; sourceTree = "<group>"; };
+		251D386E1F32A62E00246B35 /* JY_HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestManager.h; sourceTree = "<group>"; };
+		251D386F1F32A62E00246B35 /* JY_HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequestManager.m; sourceTree = "<group>"; };
+		251D38761F32F6AE00246B35 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		251D38771F32F6AE00246B35 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		252FCE861F3161B1008FADD9 /* JYNoNetWorkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYNoNetWorkView.h; sourceTree = "<group>"; };
 		252FCE871F3161B1008FADD9 /* JYNoNetWorkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYNoNetWorkView.m; sourceTree = "<group>"; };
 		252FCE891F316CD9008FADD9 /* JYConstStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYConstStyle.h; sourceTree = "<group>"; };
+		252FCE8B1F31C6A9008FADD9 /* JYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYCache.h; sourceTree = "<group>"; };
+		252FCE8C1F31C6A9008FADD9 /* JYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYCache.m; sourceTree = "<group>"; };
 		253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestConfiguration.h; sourceTree = "<group>"; };
-		2536472A1F2B2954001F78C4 /* JY_HTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HTTPSessionManager.h; sourceTree = "<group>"; };
-		2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HTTPSessionManager.m; sourceTree = "<group>"; };
 		253B9D521F2EC83100890D24 /* JY_MonitorNewWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_MonitorNewWork.h; sourceTree = "<group>"; };
 		253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_MonitorNewWork.m; sourceTree = "<group>"; };
 		253B9D551F2ED1AC00890D24 /* JY_NetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JY_NetWork.h; sourceTree = "<group>"; };
@@ -101,6 +108,8 @@
 		253B9D5A1F2EF8F500890D24 /* JYMethodMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYMethodMacro.h; sourceTree = "<group>"; };
 		25B422B61F2F277700072214 /* PXLHomeSubModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLHomeSubModel.h; sourceTree = "<group>"; };
 		25B422B71F2F277700072214 /* PXLHomeSubModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeSubModel.m; sourceTree = "<group>"; };
+		25D4DFB41F34535000313DC6 /* JYMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYMD5.h; sourceTree = "<group>"; };
+		25D4DFB51F34535000313DC6 /* JYMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYMD5.m; sourceTree = "<group>"; };
 		6573FCC186723583E5A2AD9D /* Pods-JYProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.release.xcconfig"; sourceTree = "<group>"; };
 		779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JYProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFF351276A41E79477686A7 /* Pods-JYProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +185,7 @@
 		2508E6841F2742DE00859C5B /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				251D38711F32F66C00246B35 /* Login */,
 				2508E6981F274AE100859C5B /* Home */,
 			);
 			name = Application;
@@ -184,6 +194,8 @@
 		2508E6901F2749BF00859C5B /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				25D4DFB01F344CAA00313DC6 /* DataEncryption */,
+				252FCE8A1F31C671008FADD9 /* Cache */,
 				25509AA71F2BFC1D00F1065B /* ShowBox */,
 				25199E791F298FAB00A6A87D /* NetWork */,
 				2512E8D51F28335900449AF2 /* Category */,
@@ -296,10 +308,63 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		251D38711F32F66C00246B35 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				251D38721F32F66C00246B35 /* LoginController */,
+				251D38731F32F66C00246B35 /* LoginManage */,
+				251D38741F32F66C00246B35 /* LoginModel */,
+				251D38751F32F66C00246B35 /* LoginView */,
+			);
+			name = Login;
+			path = Application/Login;
+			sourceTree = "<group>";
+		};
+		251D38721F32F66C00246B35 /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginController;
+			sourceTree = "<group>";
+		};
+		251D38731F32F66C00246B35 /* LoginManage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginManage;
+			sourceTree = "<group>";
+		};
+		251D38741F32F66C00246B35 /* LoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				251D38761F32F6AE00246B35 /* UserModel.h */,
+				251D38771F32F6AE00246B35 /* UserModel.m */,
+			);
+			path = LoginModel;
+			sourceTree = "<group>";
+		};
+		251D38751F32F66C00246B35 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		252FCE8A1F31C671008FADD9 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				252FCE8B1F31C6A9008FADD9 /* JYCache.h */,
+				252FCE8C1F31C6A9008FADD9 /* JYCache.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		253647131F2B19C2001F78C4 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
 				253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */,
+				251D386E1F32A62E00246B35 /* JY_HttpRequestManager.h */,
+				251D386F1F32A62E00246B35 /* JY_HttpRequestManager.m */,
 				253B9D561F2ED3E200890D24 /* JY_HttpRequest.h */,
 				253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */,
 				2510C6D11F2D84FC0040EDB8 /* JY_HttpResponse.h */,
@@ -308,8 +373,6 @@
 				2510C6CF1F2D7B800040EDB8 /* JY_HttpProxy.m */,
 				253B9D521F2EC83100890D24 /* JY_MonitorNewWork.h */,
 				253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */,
-				2536472A1F2B2954001F78C4 /* JY_HTTPSessionManager.h */,
-				2536472B1F2B2954001F78C4 /* JY_HTTPSessionManager.m */,
 				25198E0C1F2EAD0A00F481CA /* JY_BaseResponseModel.h */,
 				25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */,
 			);
@@ -325,6 +388,15 @@
 				252FCE871F3161B1008FADD9 /* JYNoNetWorkView.m */,
 			);
 			path = ShowBox;
+			sourceTree = "<group>";
+		};
+		25D4DFB01F344CAA00313DC6 /* DataEncryption */ = {
+			isa = PBXGroup;
+			children = (
+				25D4DFB41F34535000313DC6 /* JYMD5.h */,
+				25D4DFB51F34535000313DC6 /* JYMD5.m */,
+			);
+			path = DataEncryption;
 			sourceTree = "<group>";
 		};
 		7AC99E5A0D7F83801522C66A /* Pods */ = {
@@ -461,6 +533,7 @@
 				2512E8DE1F283C2D00449AF2 /* UIView+AddMethods.m in Sources */,
 				2508E69E1F274B3D00859C5B /* PXLHomeViewController.m in Sources */,
 				2512E8E11F28620200449AF2 /* UIImage+AddMethods.m in Sources */,
+				252FCE8D1F31C6A9008FADD9 /* JYCache.m in Sources */,
 				252FCE881F3161B1008FADD9 /* JYNoNetWorkView.m in Sources */,
 				251694C91F3026F400279E6B /* JYProgressHUD.m in Sources */,
 				25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */,
@@ -470,12 +543,14 @@
 				2508E6961F274AA000859C5B /* AppDelegate.m in Sources */,
 				253B9D541F2EC83100890D24 /* JY_MonitorNewWork.m in Sources */,
 				2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */,
+				25D4DFB61F34535000313DC6 /* JYMD5.m in Sources */,
 				253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */,
 				2510C6D01F2D7B800040EDB8 /* JY_HttpProxy.m in Sources */,
+				251D38781F32F6AE00246B35 /* UserModel.m in Sources */,
 				2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */,
 				2512E8E41F28655000449AF2 /* NSDate+AddMethods.m in Sources */,
-				2536472C1F2B2954001F78C4 /* JY_HTTPSessionManager.m in Sources */,
 				2510C6D61F2DAE380040EDB8 /* NSObject+AddMethods.m in Sources */,
+				251D38701F32A62E00246B35 /* JY_HttpRequestManager.m in Sources */,
 				25198E0E1F2EAD0A00F481CA /* JY_BaseResponseModel.m in Sources */,
 				2508E6801F2742DE00859C5B /* main.m in Sources */,
 				2510C6D31F2D84FC0040EDB8 /* JY_HttpResponse.m in Sources */,
@@ -571,6 +646,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = D8WJG285HB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JYProject/SupportingFiles/Prefix.pch;
@@ -579,6 +655,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hr.token.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TargetIdentifier = com.apple.dt.cocoaTouchApplicationTarget;
 				WRAPPER_EXTENSION = app;
 			};
@@ -592,6 +669,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = D8WJG285HB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JYProject/SupportingFiles/Prefix.pch;
@@ -600,6 +678,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hr.token.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TargetIdentifier = com.apple.dt.cocoaTouchApplicationTarget;
 				WRAPPER_EXTENSION = app;
 			};

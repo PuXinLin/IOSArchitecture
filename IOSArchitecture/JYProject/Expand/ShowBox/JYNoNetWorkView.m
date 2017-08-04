@@ -15,6 +15,7 @@
 /* 提示文本 */
 @property (nonatomic ,strong)UILabel *messageLable;
 
+/* MBProgressHUD */
 @property (nonatomic ,strong)MBProgressHUD *superViewHUB;
 
 @end
@@ -98,12 +99,11 @@
 }
 -(UILabel *)messageLable{
     if (!_messageLable) {
-        UILabel *label = [[UILabel alloc] init];
+        UILabel *label = [[UILabel alloc]init];
         label.textColor = [UIColor lightGrayColor];
         label.font = [UIFont systemFontOfSize:14];
         label.textAlignment = NSTextAlignmentCenter;
         label.numberOfLines = 0;
-        
         _messageLable = label;
         [self addSubview:_messageLable];
     }

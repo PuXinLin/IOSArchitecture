@@ -29,17 +29,3 @@ typedef NS_ENUM(NSInteger, JYRequestShowType) {
     JYRequestShowType_ResponseWindowShow,               // 请求完毕后提示 for Window
     JYRequestShowType_RequestAndResponseWindowShow,     // 请求时请求完毕都提示 for Window
 };
-/********************** 公共块 **********************/
-/* 请求完成回调函数 */
-typedef void(^ITFinishedBlock)(id _Nullable responseObject);
-
-/* 请求失败回调函数 */
-typedef void(^ITFailureBlock)(id _Nullable responseObject);
-
-/**
- * 上传图片的块
- *
- * @param formData AFNetWorking上传文件的代码块 
- *
- */
-typedef void (^NetWorkUpload)(id<AFMultipartFormData>  _Nonnull formData);
