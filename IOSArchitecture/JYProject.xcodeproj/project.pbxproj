@@ -26,6 +26,13 @@
 		2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8EC1F28808000449AF2 /* UIColor+AddMethods.m */; };
 		2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F21F28879800449AF2 /* PXLHomeModel.m */; };
 		2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8F51F2887B000449AF2 /* PXLHomeView.m */; };
+		251536B81F41A07100FFF640 /* TabBarInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 251536B71F41A07100FFF640 /* TabBarInfo.plist */; };
+		251536BC1F41A73F00FFF640 /* JY_TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251536BB1F41A73F00FFF640 /* JY_TabBarController.m */; };
+		251536BF1F41A77300FFF640 /* JY_NavigationVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251536BE1F41A77300FFF640 /* JY_NavigationVController.m */; };
+		2515924B1F3AB85900AC9B76 /* JY_HttpDownloadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2515924A1F3AB85900AC9B76 /* JY_HttpDownloadProxy.m */; };
+		2515924E1F3ABA5D00AC9B76 /* JY_HttpDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2515924D1F3ABA5D00AC9B76 /* JY_HttpDownload.m */; };
+		251592511F3ABD4A00AC9B76 /* Jy_BaseDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 251592501F3ABD4A00AC9B76 /* Jy_BaseDownloadModel.m */; };
+		251592541F3ADC7E00AC9B76 /* PXLDownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251592531F3ADC7E00AC9B76 /* PXLDownLoadViewController.m */; };
 		251694C91F3026F400279E6B /* JYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694C81F3026F400279E6B /* JYProgressHUD.m */; };
 		251694CC1F3028A900279E6B /* JYModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694CB1F3028A900279E6B /* JYModelView.m */; };
 		251694CF1F302AE700279E6B /* JYModelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694CE1F302AE700279E6B /* JYModelModel.m */; };
@@ -39,7 +46,7 @@
 		253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */; };
 		25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B422B71F2F277700072214 /* PXLHomeSubModel.m */; };
 		25D4DFB61F34535000313DC6 /* JYMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D4DFB51F34535000313DC6 /* JYMD5.m */; };
-		AD287774C9CB541E2E9A8245 /* libPods-JYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		34C5F5A24C1938571327DA75 /* libPods-JYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65AB226639E0E6E966EA58B0 /* libPods-JYProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +86,19 @@
 		2512E8F21F28879800449AF2 /* PXLHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeModel.m; sourceTree = "<group>"; };
 		2512E8F41F2887B000449AF2 /* PXLHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLHomeView.h; sourceTree = "<group>"; };
 		2512E8F51F2887B000449AF2 /* PXLHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeView.m; sourceTree = "<group>"; };
+		251536B71F41A07100FFF640 /* TabBarInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TabBarInfo.plist; path = SupportingFiles/TabBarInfo.plist; sourceTree = "<group>"; };
+		251536BA1F41A73F00FFF640 /* JY_TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_TabBarController.h; sourceTree = "<group>"; };
+		251536BB1F41A73F00FFF640 /* JY_TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_TabBarController.m; sourceTree = "<group>"; };
+		251536BD1F41A77300FFF640 /* JY_NavigationVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_NavigationVController.h; sourceTree = "<group>"; };
+		251536BE1F41A77300FFF640 /* JY_NavigationVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_NavigationVController.m; sourceTree = "<group>"; };
+		251592491F3AB85900AC9B76 /* JY_HttpDownloadProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpDownloadProxy.h; sourceTree = "<group>"; };
+		2515924A1F3AB85900AC9B76 /* JY_HttpDownloadProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpDownloadProxy.m; sourceTree = "<group>"; };
+		2515924C1F3ABA5D00AC9B76 /* JY_HttpDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpDownload.h; sourceTree = "<group>"; };
+		2515924D1F3ABA5D00AC9B76 /* JY_HttpDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpDownload.m; sourceTree = "<group>"; };
+		2515924F1F3ABD4A00AC9B76 /* Jy_BaseDownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jy_BaseDownloadModel.h; sourceTree = "<group>"; };
+		251592501F3ABD4A00AC9B76 /* Jy_BaseDownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jy_BaseDownloadModel.m; sourceTree = "<group>"; };
+		251592521F3ADC7E00AC9B76 /* PXLDownLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLDownLoadViewController.h; sourceTree = "<group>"; };
+		251592531F3ADC7E00AC9B76 /* PXLDownLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLDownLoadViewController.m; sourceTree = "<group>"; };
 		251694C71F3026F400279E6B /* JYProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYProgressHUD.h; sourceTree = "<group>"; };
 		251694C81F3026F400279E6B /* JYProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYProgressHUD.m; sourceTree = "<group>"; };
 		251694CA1F3028A900279E6B /* JYModelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYModelView.h; sourceTree = "<group>"; };
@@ -111,8 +131,8 @@
 		25D4DFB41F34535000313DC6 /* JYMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYMD5.h; sourceTree = "<group>"; };
 		25D4DFB51F34535000313DC6 /* JYMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYMD5.m; sourceTree = "<group>"; };
 		6573FCC186723583E5A2AD9D /* Pods-JYProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.release.xcconfig"; sourceTree = "<group>"; };
-		779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JYProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAFF351276A41E79477686A7 /* Pods-JYProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.debug.xcconfig"; sourceTree = "<group>"; };
+		65AB226639E0E6E966EA58B0 /* libPods-JYProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JYProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C9E61B2288F73DD15D57A4C /* Pods-JYProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +143,7 @@
 				2508E6781F2742DE00859C5B /* CoreGraphics.framework in Frameworks */,
 				2508E6741F2742DE00859C5B /* UIKit.framework in Frameworks */,
 				2508E6761F2742DE00859C5B /* Foundation.framework in Frameworks */,
-				AD287774C9CB541E2E9A8245 /* libPods-JYProject.a in Frameworks */,
+				34C5F5A24C1938571327DA75 /* libPods-JYProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +174,7 @@
 				2508E6731F2742DE00859C5B /* UIKit.framework */,
 				2508E6751F2742DE00859C5B /* Foundation.framework */,
 				2508E6771F2742DE00859C5B /* CoreGraphics.framework */,
-				779ADAA4281C9355AB1ADF85 /* libPods-JYProject.a */,
+				65AB226639E0E6E966EA58B0 /* libPods-JYProject.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,6 +198,7 @@
 				2508E67D1F2742DE00859C5B /* Info.plist */,
 				2508E67E1F2742DE00859C5B /* Prefix.pch */,
 				2508E67F1F2742DE00859C5B /* main.m */,
+				251536B71F41A07100FFF640 /* TabBarInfo.plist */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -194,6 +215,7 @@
 		2508E6901F2749BF00859C5B /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				251536B91F41A70700FFF640 /* Bar */,
 				25D4DFB01F344CAA00313DC6 /* DataEncryption */,
 				252FCE8A1F31C671008FADD9 /* Cache */,
 				25509AA71F2BFC1D00F1065B /* ShowBox */,
@@ -244,6 +266,8 @@
 				2508E69D1F274B3D00859C5B /* PXLHomeViewController.m */,
 				251694D01F302B8C00279E6B /* JYModelViewController.h */,
 				251694D11F302B8C00279E6B /* JYModelViewController.m */,
+				251592521F3ADC7E00AC9B76 /* PXLDownLoadViewController.h */,
+				251592531F3ADC7E00AC9B76 /* PXLDownLoadViewController.m */,
 			);
 			path = HomeViewControllers;
 			sourceTree = "<group>";
@@ -292,6 +316,17 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		251536B91F41A70700FFF640 /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+				251536BD1F41A77300FFF640 /* JY_NavigationVController.h */,
+				251536BE1F41A77300FFF640 /* JY_NavigationVController.m */,
+				251536BA1F41A73F00FFF640 /* JY_TabBarController.h */,
+				251536BB1F41A73F00FFF640 /* JY_TabBarController.m */,
+			);
+			path = Bar;
+			sourceTree = "<group>";
+		};
 		251694BE1F3001D400279E6B /* HomeManage */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +339,7 @@
 			children = (
 				253B9D551F2ED1AC00890D24 /* JY_NetWork.h */,
 				253647131F2B19C2001F78C4 /* NetWork */,
+				254E28001F39928600DAB769 /* NetWorkDownloadTool */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -379,6 +415,19 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		254E28001F39928600DAB769 /* NetWorkDownloadTool */ = {
+			isa = PBXGroup;
+			children = (
+				2515924C1F3ABA5D00AC9B76 /* JY_HttpDownload.h */,
+				2515924D1F3ABA5D00AC9B76 /* JY_HttpDownload.m */,
+				251592491F3AB85900AC9B76 /* JY_HttpDownloadProxy.h */,
+				2515924A1F3AB85900AC9B76 /* JY_HttpDownloadProxy.m */,
+				2515924F1F3ABD4A00AC9B76 /* Jy_BaseDownloadModel.h */,
+				251592501F3ABD4A00AC9B76 /* Jy_BaseDownloadModel.m */,
+			);
+			path = NetWorkDownloadTool;
+			sourceTree = "<group>";
+		};
 		25509AA71F2BFC1D00F1065B /* ShowBox */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,8 +451,8 @@
 		7AC99E5A0D7F83801522C66A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AAFF351276A41E79477686A7 /* Pods-JYProject.debug.xcconfig */,
 				6573FCC186723583E5A2AD9D /* Pods-JYProject.release.xcconfig */,
+				7C9E61B2288F73DD15D57A4C /* Pods-JYProject.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -469,6 +518,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251536B81F41A07100FFF640 /* TabBarInfo.plist in Resources */,
 				2508E6931F2749F000859C5B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,9 +532,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JYProject/Pods-JYProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -497,9 +564,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JYProject/Pods-JYProject-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -512,13 +582,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JYProject-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -529,13 +602,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2512E8E71F286D3100449AF2 /* NSString+AddMethods.m in Sources */,
+				251592541F3ADC7E00AC9B76 /* PXLDownLoadViewController.m in Sources */,
 				251694CC1F3028A900279E6B /* JYModelView.m in Sources */,
 				2512E8DE1F283C2D00449AF2 /* UIView+AddMethods.m in Sources */,
 				2508E69E1F274B3D00859C5B /* PXLHomeViewController.m in Sources */,
 				2512E8E11F28620200449AF2 /* UIImage+AddMethods.m in Sources */,
 				252FCE8D1F31C6A9008FADD9 /* JYCache.m in Sources */,
 				252FCE881F3161B1008FADD9 /* JYNoNetWorkView.m in Sources */,
+				2515924B1F3AB85900AC9B76 /* JY_HttpDownloadProxy.m in Sources */,
+				251536BF1F41A77300FFF640 /* JY_NavigationVController.m in Sources */,
+				251536BC1F41A73F00FFF640 /* JY_TabBarController.m in Sources */,
 				251694C91F3026F400279E6B /* JYProgressHUD.m in Sources */,
+				2515924E1F3ABA5D00AC9B76 /* JY_HttpDownload.m in Sources */,
 				25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */,
 				251694D21F302B8C00279E6B /* JYModelViewController.m in Sources */,
 				2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */,
@@ -548,6 +626,7 @@
 				2510C6D01F2D7B800040EDB8 /* JY_HttpProxy.m in Sources */,
 				251D38781F32F6AE00246B35 /* UserModel.m in Sources */,
 				2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */,
+				251592511F3ABD4A00AC9B76 /* Jy_BaseDownloadModel.m in Sources */,
 				2512E8E41F28655000449AF2 /* NSDate+AddMethods.m in Sources */,
 				2510C6D61F2DAE380040EDB8 /* NSObject+AddMethods.m in Sources */,
 				251D38701F32A62E00246B35 /* JY_HttpRequestManager.m in Sources */,
@@ -640,7 +719,7 @@
 		};
 		2508E68E1F2742DE00859C5B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAFF351276A41E79477686A7 /* Pods-JYProject.debug.xcconfig */;
+			baseConfigurationReference = 7C9E61B2288F73DD15D57A4C /* Pods-JYProject.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

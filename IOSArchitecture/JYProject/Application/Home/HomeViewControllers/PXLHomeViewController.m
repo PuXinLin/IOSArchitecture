@@ -9,6 +9,7 @@
 #import "PXLHomeViewController.h"
 #import "PXLHomeModel.h"
 #import "JYModelViewController.h"
+#import "PXLDownLoadViewController.h"
 
 @interface PXLHomeViewController ()<JY_HttpRequestManagerCallBackDelegate>
 /* test API */
@@ -22,6 +23,9 @@
 
 /* 下一页按钮 */
 @property (nonatomic ,strong)UIButton *pushControllerButton;
+
+/* 下一页按钮 */
+@property (nonatomic ,strong)UIButton *pushDownloadControllerButton;
 
 @end
 
@@ -46,7 +50,7 @@
 
 #pragma mark 数据请求
 -(void)loadRequestData{
-    [self.httpRequestManager requestWithURLString:@"/app/postlist.do" method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
 }
 
 #pragma mark 页面初始化
@@ -71,16 +75,32 @@
         make.top.equalTo(self.view.mas_top).offset(300);
         make.size.mas_equalTo(CGSizeMake(100, 50));
     }];
+    
+    /* 跳转按钮 */
+    [self.pushDownloadControllerButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(100);
+        make.top.equalTo(self.view.mas_top).offset(400);
+        make.size.mas_equalTo(CGSizeMake(100, 50));
+    }];
 }
 
 #pragma mark ---------- Click Event ----------
 -(void)sendClick:(UIButton*)sender
 {
+    /*
     [JYCache userLoginCheckResponseOverdue];
+     */
+    [self.httpRequestManager cancleAllRequest];
+    [JYProgressHUD hideProgressJY:self.view];
 }
 -(void)showClick:(UIButton*)sender
 {
-    [self.httpRequestManager requestWithURLString:@"/app/postlist.do" method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+    for (int i = 0 ; i<10; i++) {
+        [self.httpRequestManager requestWithURLString:[NSString stringWithFormat:@"%@%d",JY_Url_Home_List,i] method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+    }
+    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+//    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+//    [self.httpRequestManager requestWithURLString:@"app/postlista.do" method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
 }
 -(void)pushControllerClick:(UIButton*)sender
 {
@@ -91,20 +111,28 @@
         JY_User.userCacheKey = @"UserTwo";
     }
     sender.tag = !sender.tag;
-    JY_Log(@"%@", JY_User.userCacheKey);
+    [self.navigationController pushViewController:[[JYModelViewController alloc]init] animated:YES];
+}
+-(void)pushDownloadControllerClick:(UIButton*)sender
+{
+    [self.navigationController pushViewController:[[PXLDownLoadViewController alloc]init] animated:YES];
+//    [self.navigationController pushViewController:[[JYModelViewController alloc]init] animated:YES];
+    
 }
 
 #pragma mark ---------- Delegate ----------
--(void)managerCallAPIDidSuccess:(JY_HttpRequest *)request
+-(void)managerCallAPIDidSuccess:(JY_BaseResponseModel *)response
 {
-    JY_Log(@"********************* 有缓存");
+//    JY_Log(@"********************* PXLHomeViewController  有缓存");
+    JY_Log(@"%@", response.url);
 //    PXLHomeModel * model = [PXLHomeModel yy_modelWithJSON:request.responseData[@"data"][@"items"][0]];
 //    NSArray *array = [NSArray yy_modelArrayWithClass:PXLHomeModel.class json:request.responseData[@"data"][@"items"]];
 //    JY_Log(@"%@,%@", array,model);
 //    NSArray *array = [NSMutableArray yy_modelWithJSON:request.responseData[@"data"][@"items"][0]];
 }
--(void)managerCallAPIDidFailed:(JY_HttpRequest *)request{
-    JY_Log(@"********************* 无缓存");
+-(void)managerCallAPIDidFailed:(JY_BaseResponseModel *)response{
+//    JY_Log(@"********************* PXLHomeViewController 无缓存");
+    JY_Log(@"%@", response.url);
 //    JY_Log(@"%@", request.message);
 }
 
@@ -113,11 +141,12 @@
     if (!_httpRequestManager) {
         _httpRequestManager = [JY_HttpRequestManager loadDataHUDwithView:self.view];
         _httpRequestManager.delegate = self;
-        _httpRequestManager.starCache = YES;
+        _httpRequestManager.starCache = NO;
         _httpRequestManager.requestShowType = JYRequestShowType_RequestAndResponseViewShow;
     }
     return _httpRequestManager;
 }
+
 
 -(UIButton *)sendButton{
     if (!_sendButton) {
@@ -151,6 +180,17 @@
         _pushControllerButton = button;
     }
     return _pushControllerButton;
+}
+-(UIButton *)pushDownloadControllerButton{
+    if (!_pushDownloadControllerButton) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitle:@"下载页面" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(pushDownloadControllerClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+        _pushDownloadControllerButton = button;
+    }
+    return _pushDownloadControllerButton;
 }
 
 @end

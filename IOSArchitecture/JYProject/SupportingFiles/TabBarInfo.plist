@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>TabBarInfo</key>
+	<array>
+		<dict>
+			<key>ViewControllerName</key>
+			<string>PXLHomeViewController</string>
+			<key>TabBarButtonTitle</key>
+			<string>首页</string>
+			<key>TabBarButtonDefaultImage</key>
+			<string>首页-未点击</string>
+			<key>TabBarButtonSelectImage</key>
+			<string>首页</string>
+		</dict>
+        <dict>
+            <key>ViewControllerName</key>
+            <string>PXLHomeViewController</string>
+            <key>TabBarButtonTitle</key>
+            <string>商城</string>
+            <key>TabBarButtonDefaultImage</key>
+            <string>首页-未点击</string>
+            <key>TabBarButtonSelectImage</key>
+            <string>首页</string>
+        </dict>
+        <dict>
+            <key>ViewControllerName</key>
+            <string>PXLHomeViewController</string>
+            <key>TabBarButtonTitle</key>
+            <string>圈子</string>
+            <key>TabBarButtonDefaultImage</key>
+            <string>首页-未点击</string>
+            <key>TabBarButtonSelectImage</key>
+            <string>首页</string>
+        </dict>
+        <dict>
+            <key>ViewControllerName</key>
+            <string>PXLHomeViewController</string>
+            <key>TabBarButtonTitle</key>
+            <string>我的</string>
+            <key>TabBarButtonDefaultImage</key>
+            <string>首页-未点击</string>
+            <key>TabBarButtonSelectImage</key>
+            <string>首页</string>
+        </dict>
+	</array>
+</dict>
+</plist>

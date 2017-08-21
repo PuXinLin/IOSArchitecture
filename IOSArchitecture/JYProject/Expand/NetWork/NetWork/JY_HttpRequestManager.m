@@ -14,10 +14,6 @@
 /* 提示框 */
 @property (nonatomic ,strong)UIView *superViewHUB;
 
-@property (nonatomic ,strong)NSString *requestUrl;
-
-@property (nonatomic ,strong)NSDictionary *requestParameters;
-
 @end
 
 @implementation JY_HttpRequestManager
@@ -40,19 +36,19 @@
               imageListBlack:(NetWorkUpload)imageListBlack
 {
     /* 可以根据参赛和Token 生成验收字段 根据需求来 */
-    self.requestUrl = URLString;
-    self.requestParameters = parameters;
-    [self showPromptWithRequest:YES];
+    [self showPromptWithRequest:YES response:nil];
     [self.request requestWithURLString:URLString method:method parameters:parameters imageListBlack:imageListBlack];
 }
 
 #pragma mark 取消所有数据请求
 - (void)cancleAllRequest{
-    [[JY_HttpProxy sharedRequestInstance] cancleAllRequest];
+    [self.request cancleAllRequest];
 }
 
 #pragma mark 提示框显示
--(void)showPromptWithRequest:(BOOL)starRequest{
+-(void)showPromptWithRequest:(BOOL)starRequest response:(JY_BaseResponseModel*)response{
+    [JYProgressHUD hideProgressJY:self.superViewHUB];
+    [JYProgressHUD hideProgressJY:JY_APP_KeyWindow];
     if (starRequest) {
         switch (self.requestShowType) {
             case JYRequestShowType_RequestViewShow:
@@ -81,32 +77,30 @@
     }
     else
     {
-        [JYProgressHUD hideProgressJY:self.superViewHUB];
-        [JYProgressHUD hideProgressJY:JY_APP_KeyWindow];
         switch (self.requestShowType) {
             case JYRequestShowType_ResponseViewShow:
             {
-                [JYProgressHUD showMessageJY:self.request.message onView:self.superViewHUB progressType:JYProgress_RequestError];
+                [JYProgressHUD showMessageJY:response.message onView:self.superViewHUB progressType:JYProgress_RequestError];
             }
                 break;
             case JYRequestShowType_RequestAndResponseViewShow:
             {
-                if (self.request.errorType != JYResponseErrorTypeSuccess) {
-                    [JYProgressHUD showMessageJY:self.request.message onView:self.superViewHUB progressType:JYProgress_RequestError];
+                if (response.responseErrorType != JYResponseErrorTypeSuccess) {
+                    [JYProgressHUD showMessageJY:response.message onView:self.superViewHUB progressType:JYProgress_RequestError];
                 }
             }
                 break;
             case JYRequestShowType_ResponseWindowShow:
             {
-                if (self.request.errorType != JYResponseErrorTypeSuccess) {
-                    [JYProgressHUD showMessageJY:self.request.message  progressType:JYProgress_Text];
+                if (response.responseErrorType != JYResponseErrorTypeSuccess) {
+                    [JYProgressHUD showMessageJY:response.message  progressType:JYProgress_Text];
                 }
             }
                 break;
             case JYRequestShowType_RequestAndResponseWindowShow:
             {
-                if (self.request.errorType != JYResponseErrorTypeSuccess) {
-                    [JYProgressHUD showMessageJY:self.request.message  progressType:JYProgress_Text];
+                if (response.responseErrorType != JYResponseErrorTypeSuccess) {
+                    [JYProgressHUD showMessageJY:response.message  progressType:JYProgress_Text];
                 }
             }
                 break;
@@ -122,11 +116,11 @@
 #pragma mark ---------- Delegate ----------
 
 #pragma mark JY_HttpRequestCallBackDelegate
-- (void)managerCallAPIDidSuccess:(JY_HttpRequest *)request{
+- (void)managerCallAPIDidSuccess:(JY_BaseResponseModel *)response{
     if (self.starCache) { //缓存
-        if (request.errorType == JYResponseErrorTypeSuccess) {
-            [JYCache cacheResponseData:request.responseData Url:self.requestUrl parameters:self.requestParameters];
-            [self showPromptWithRequest:NO];
+        if (response.responseErrorType == JYResponseErrorTypeSuccess) {
+            [JYCache cacheResponseData:response.responseData Url:response.api parameters:response.parameters];
+            [self showPromptWithRequest:NO response:response];
         }
         else{ //获取的缓存
             [JYProgressHUD hideProgressJY:self.superViewHUB];
@@ -134,23 +128,26 @@
         }
     }
     else{
-        [self showPromptWithRequest:NO];
+        [self showPromptWithRequest:NO response:response];
     }
-    [self.delegate managerCallAPIDidSuccess:request];
+    [self.delegate managerCallAPIDidSuccess:response];
 }
 
-- (void)managerCallAPIDidFailed:(JY_HttpRequest *)request{
+- (void)managerCallAPIDidFailed:(JY_BaseResponseModel *)response{
     if (self.starCache) { //获取缓存
-        id responseData = [JYCache getCacheResponseDataForUrl:self.requestUrl parameters:self.requestParameters];
+        id responseData = [JYCache getCacheResponseDataForUrl:response.api parameters:response.parameters];
         if (responseData) {
-            request.responseData = responseData;
-            return [self managerCallAPIDidSuccess:request];
+            response.responseData = responseData;
+            return [self managerCallAPIDidSuccess:response];
         }
     }
-    [self showPromptWithRequest:NO];
-    [self.delegate managerCallAPIDidFailed:request];
+    [self showPromptWithRequest:NO response:response];
+    [self.delegate managerCallAPIDidFailed:response];
 }
 
+- (void)managerCallAPIUploadProgressWithCurrentProgress:(CGFloat)currentProgress{
+    [self.delegate managerCallAPIUploadProgressWithCurrentProgress:currentProgress];
+}
 #pragma mark ---------- Lazy Load ----------
 -(JY_HttpRequest *)request{
     if (!_request) {

@@ -12,7 +12,6 @@
 #define JY_RequestNoNetwork   @"暂无网络，请稍后再试"
 #define JY_RequestLoading     @"正在加载，请稍后..."
 
-
 /* 请求状态 */
 typedef NS_ENUM(NSInteger, JYRequestMethodType) {
     JYRequestMethod_GET = 0,

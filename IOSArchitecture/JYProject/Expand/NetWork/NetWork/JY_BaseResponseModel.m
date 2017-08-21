@@ -17,7 +17,21 @@
     }
     return self;
 }
+-(id)copyWithZone:(NSZone *)zone{
+    JY_BaseResponseModel *model= [[[self class] allocWithZone:zone] init];
+    model.url = self.url;
+    model.httpStatusCode = self.httpStatusCode;
+    model.descr = self.descr;
+    return model;
+}
 
+- (id)mutableCopyWithZone:(NSZone *)zone{
+    JY_BaseResponseModel *model= [[[self class] allocWithZone:zone] init];
+    model.url = self.url;
+    model.httpStatusCode = self.httpStatusCode;
+    model.descr = self.descr;
+    return model;
+}
 #pragma mark ---------- Public Methods ----------
 #pragma mark ---------- Private Methods ----------
 #pragma mark 配置Model

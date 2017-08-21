@@ -15,26 +15,21 @@
 /*---------------------API回调-----------------------*/
 @protocol JY_HttpRequestCallBackDelegate <NSObject>
 @required
-- (void)managerCallAPIDidSuccess:(JY_HttpRequest *)request;
-- (void)managerCallAPIDidFailed:(JY_HttpRequest *)request;
+/* 请求成功回调 */
+- (void)managerCallAPIDidSuccess:(JY_BaseResponseModel *)response;
+/* 请求失败回调 */
+- (void)managerCallAPIDidFailed:(JY_BaseResponseModel *)response;
+@optional
+/* 上传文件进度 */
+- (void)managerCallAPIUploadProgressWithCurrentProgress:(CGFloat)currentProgress;
 @end
+
+/*********************** JY_HttpRequest ***********************/
 
 @interface JY_HttpRequest : NSObject
 
 /* 回调代理 */
 @property (nonatomic ,weak)id<JY_HttpRequestCallBackDelegate> delegate;
-
-/* 响应类型 */
-@property (nonatomic, assign, readonly)JYResponseErrorType errorType;
-
-/* 返回数据 */
-@property (nonatomic, assign, readwrite)id responseData;
-
-/* 错误提示 */
-@property (nonatomic, copy, readonly) NSString *message;
-
-/* 服务器返回的信息 */
-@property (nonatomic ,strong, readonly)JY_BaseResponseModel *baseResponseModel;
 
 /**
  * 数据请求
@@ -48,7 +43,6 @@
                       method: (JYRequestMethodType)method
                   parameters: (NSDictionary *)parameters
               imageListBlack:(NetWorkUpload)imageListBlack;
-
 
 /**
  * 取消所有数据请求

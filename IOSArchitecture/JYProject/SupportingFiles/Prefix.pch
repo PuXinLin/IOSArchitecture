@@ -15,9 +15,11 @@
 #import "JYConstStyle.h" //APP样式和接口
 
 /************* 第三方库 *************/
+//#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 #import <AFNetworking/AFNetworking.h>
-#import <Masonry/Masonry.h>
 #import <MJRefresh/MJRefresh.h>
+#import <Masonry/Masonry.h>
 #import <YYModel/YYModel.h>
 
 /************** 工具类 **************/

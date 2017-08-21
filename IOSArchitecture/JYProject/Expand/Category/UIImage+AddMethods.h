@@ -11,13 +11,14 @@
 @interface UIImage (AddMethods)
 
 /**
- * 绘制一张纯色的图片
- *
- * @param color 图片的颜色,rect 图片的大小
- *
- * @return 返回绘制完的图片
+ 绘制纯色的图片
+ 
+ @param color 图片的颜色
+ @param rect 图片的大小
+ @param radius 圆角大小
+ @return 返回绘制完的图片
  */
--(UIImage *)getImage:(CGSize)size backColor:(UIColor *)color cornerRadius:(CGFloat)radius;
++(UIImage*)jy_createImageWithColor:(UIColor *)color frame:(CGRect)rect Radius:(CGFloat)radius;
 
 /**
  * 设置图片的大小

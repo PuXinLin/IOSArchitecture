@@ -23,9 +23,6 @@
 
 #define JY_APP_KeyWindow [UIApplication sharedApplication].keyWindow // window
 
-/* 这里用自己的单例模型
- #define JY_UserManager [UserManager sharedInstance] // 当前用户
- */
 
 /* ----------- 开发成员 全局属性 ----------------- */
 /* 成员1 --> 成员名字 */

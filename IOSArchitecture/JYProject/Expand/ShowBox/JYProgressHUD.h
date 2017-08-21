@@ -33,7 +33,6 @@ typedef NS_ENUM(NSInteger, JYProgressType) {
  */
 +(void)hideProgressJY:(UIView*)onView;
 
-
 /**************************** 以下是全局弹框 切换页面后依然显示 ****************************/
 /**
  * 提示框  (Window上的提示)

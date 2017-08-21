@@ -11,9 +11,16 @@
 /*---------------------API回调-----------------------*/
 @protocol JY_HttpRequestManagerCallBackDelegate <NSObject>
 @required
-- (void)managerCallAPIDidSuccess:(JY_HttpRequest *)request;
-- (void)managerCallAPIDidFailed:(JY_HttpRequest *)request;
+/* 请求成功回调 */
+- (void)managerCallAPIDidSuccess:(JY_BaseResponseModel *)response;
+/* 请求失败回调 */
+- (void)managerCallAPIDidFailed:(JY_BaseResponseModel *)response;
+@optional
+/* 上传文件进度 */
+- (void)managerCallAPIUploadProgressWithCurrentProgress:(CGFloat)currentProgress;
 @end
+
+/*********************** JY_HttpRequestManager ***********************/
 
 @interface JY_HttpRequestManager : NSObject
 /* 开启缓存 默认值NO */

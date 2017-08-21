@@ -9,10 +9,11 @@
 #import "AppDelegate.h"
 /* 成员一 导入 */
 #import "PXLHomeViewController.h"
+#import "JY_TabBarController.h"
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong)JY_TabBarController *tabbarController;
 
 @end
 
@@ -24,7 +25,7 @@
 {
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:screenBounds];
-    self.window.rootViewController = self.navigationController;
+    self.window.rootViewController = self.tabbarController;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -75,13 +76,12 @@
 
 #pragma mark ---------- Lazy Load ----------
 
-- (UINavigationController *)navigationController
+- (JY_TabBarController *)tabbarController
 {
-    if (!_navigationController) {
-        _navigationController = [[UINavigationController alloc] initWithRootViewController:[[PXLHomeViewController alloc] init]];
+    if (!_tabbarController) {
+        _tabbarController = [[JY_TabBarController alloc]init];
     }
-    
-    return _navigationController;
+    return _tabbarController;
 }
 
 @end

@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "JY_HttpResponse.h"
 
-@interface JY_HttpProxy : NSObject
-
 /**
  * 上传图片的块
  *
@@ -21,27 +19,37 @@ typedef void (^NetWorkUpload)(id<AFMultipartFormData> formData);
 /* 请求回调 */
 typedef void(^JYCallbackAPICallback)(JY_HttpResponse *response);
 
+/* 上传进度回调 */
+typedef void(^JYCallbackAPIProgressCallback)(CGFloat currentProgress);
+
+
+@interface JY_HttpProxy : NSObject
+
 + (instancetype)sharedRequestInstance;
 
 /**
  * 数据请求
  *
  * @param URLString      数据接口
- * @param method         请求方式 (get or post)
+ * @param method         请求方式
  * @param parameters     请求参数集合
  * @param imageListBlack 要上传的图片
+ * @param progressBlock  上传图片进度
  * @param finishedBlock  请求完成回调
- * @param failureBlock   请求失败回调
+ * @param failureBlock   请求完成回调
+ *
+ * @return 请求分派的id
  */
-- (void)requestWithURLString: (NSString *)URLString
+- (NSNumber*)requestWithURLString: (NSString *)URLString
                       method: (JYRequestMethodType)method
                   parameters: (NSDictionary *)parameters
-              imageListBlack:(NetWorkUpload)imageListBlack
+                   imageListBlack:(NetWorkUpload)imageListBlack
+                    progressBlock:(JYCallbackAPIProgressCallback)progressBlock
                     finishedBlock: (JYCallbackAPICallback)finishedBlock
                     failureBlock: (JYCallbackAPICallback)failureBlock;
 /**
  * 取消所有数据请求
  */
-- (void)cancleAllRequest;
+- (void)cancleAllRequestWithArrayList:(NSArray*)arrayList;
 
 @end
