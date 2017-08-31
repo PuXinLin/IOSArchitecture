@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "JY_HttpResponse.h"
-
 /**
  * 上传图片的块
  *
@@ -23,6 +22,7 @@ typedef void(^JYCallbackAPICallback)(JY_HttpResponse *response);
 typedef void(^JYCallbackAPIProgressCallback)(CGFloat currentProgress);
 
 
+/*********************** JY_HttpProxy ***********************/
 @interface JY_HttpProxy : NSObject
 
 + (instancetype)sharedRequestInstance;

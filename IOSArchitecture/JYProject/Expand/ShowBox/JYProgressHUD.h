@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, JYProgressType) {
  * @param onView         弹出框的父View
  * @param progressType 提示框状态
  */
-+(void)showMessageJY:(NSString*)message onView:(UIView*)onView progressType:(JYProgressType)progressType;
++(MBProgressHUD*)showMessageJY:(NSString*)message onView:(UIView*)onView progressType:(JYProgressType)progressType;
 
 /**
  * 隐藏小菊花
@@ -47,5 +47,8 @@ typedef NS_ENUM(NSInteger, JYProgressType) {
  * 隐藏小菊花
  */
 +(void)hideProgressJY;
+
+
++ (instancetype)sharedRequestInstance;
 
 @end

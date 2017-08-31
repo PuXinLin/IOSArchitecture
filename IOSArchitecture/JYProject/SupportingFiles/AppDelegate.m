@@ -27,6 +27,8 @@
     self.window = [[UIWindow alloc] initWithFrame:screenBounds];
     self.window.rootViewController = self.tabbarController;
     [self.window makeKeyAndVisible];
+    /* 网络监听 */
+    [self starNetWorkStateDetection];
     return YES;
 }
 
@@ -46,34 +48,35 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    /* 开启网络改变监听 */
-    [JY_MonitorNewWork starNetWorkStateDetection:^(DetectionNetworkType statue) {
-        switch (statue) {
-            case knownNetwork:
-                JY_Log(@"未知网络");
-                break;
-            case NoNetwork:
-                JY_Log(@"无数据连接");
-                break;
-            case OneselfGNetwork:
-                JY_Log(@"已切换至数据流量");
-                break;
-            case WIFINetwork:
-                JY_Log(@"已切换至WIF环境");
-                break;
-            default:
-                break;
-        }
-
-    }];
-}
+- (void)applicationDidBecomeActive:(UIApplication *)application{}
 
 - (void)applicationWillTerminate:(UIApplication *)application {}
 
 #pragma mark ---------- Private Methods ----------
-
+#pragma mark 网络监听
+-(void)starNetWorkStateDetection
+{
+    [JY_MonitorNewWork starNetWorkStateDetection];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NetWorkStateChange:) name:NetWorkStateChangeName object:nil];
+}
+#pragma mark 网络改变监听
+-(void)NetWorkStateChange:(NSNotification*)notification
+{
+    DetectionNetworkType statue = [notification.object integerValue];
+    switch (statue) {
+        case DetectionNetworkTypeNoNetwork:
+            JY_Log(@"无数据连接");
+            break;
+        case DetectionNetworkTypeOneselfGNetwork:
+            JY_Log(@"已切换至数据流量");
+            break;
+        case DetectionNetworkTypeWIFINetwork:
+            JY_Log(@"已切换至WIF环境");
+            break;
+        default:
+            break;
+    }
+}
 #pragma mark ---------- Lazy Load ----------
 
 - (JY_TabBarController *)tabbarController

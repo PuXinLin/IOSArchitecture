@@ -10,6 +10,7 @@
 #import "PXLHomeModel.h"
 #import "JYModelViewController.h"
 #import "PXLDownLoadViewController.h"
+#import "PXLConcurrentController.h"
 
 @interface PXLHomeViewController ()<JY_HttpRequestManagerCallBackDelegate>
 /* test API */
@@ -91,16 +92,16 @@
     [JYCache userLoginCheckResponseOverdue];
      */
     [self.httpRequestManager cancleAllRequest];
-    [JYProgressHUD hideProgressJY:self.view];
 }
+
 -(void)showClick:(UIButton*)sender
 {
+    
     for (int i = 0 ; i<10; i++) {
-        [self.httpRequestManager requestWithURLString:[NSString stringWithFormat:@"%@%d",JY_Url_Home_List,i] method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+        [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
     }
-    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
-//    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
-//    [self.httpRequestManager requestWithURLString:@"app/postlista.do" method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+    
+    [self.httpRequestManager requestWithURLString:@"app/postlist.do" method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
 }
 -(void)pushControllerClick:(UIButton*)sender
 {
@@ -115,7 +116,8 @@
 }
 -(void)pushDownloadControllerClick:(UIButton*)sender
 {
-    [self.navigationController pushViewController:[[PXLDownLoadViewController alloc]init] animated:YES];
+    [self.navigationController pushViewController:[[PXLConcurrentController alloc]init] animated:YES];
+//    [self.navigationController pushViewController:[[PXLDownLoadViewController alloc]init] animated:YES];
 //    [self.navigationController pushViewController:[[JYModelViewController alloc]init] animated:YES];
     
 }
@@ -132,7 +134,7 @@
 }
 -(void)managerCallAPIDidFailed:(JY_BaseResponseModel *)response{
 //    JY_Log(@"********************* PXLHomeViewController 无缓存");
-    JY_Log(@"%@", response.url);
+//    JY_Log(@"%@", response.url);
 //    JY_Log(@"%@", request.message);
 }
 
@@ -142,6 +144,8 @@
         _httpRequestManager = [JY_HttpRequestManager loadDataHUDwithView:self.view];
         _httpRequestManager.delegate = self;
         _httpRequestManager.starCache = NO;
+        _httpRequestManager.notResendResquest = NO;
+        _httpRequestManager.netWorkChangeRestoreRequest = YES;
         _httpRequestManager.requestShowType = JYRequestShowType_RequestAndResponseViewShow;
     }
     return _httpRequestManager;

@@ -26,7 +26,6 @@
 
 @property (nonatomic ,weak)id<JY_HttpDownloadDelegate> delegate;
 
-
 /**
  * 数据下载
  *

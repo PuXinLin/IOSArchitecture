@@ -60,6 +60,7 @@
         if (jy_safeNumber(error.userInfo[@"_kCFStreamErrorCodeKey"]).integerValue == -2102) {
             self.baseResponseModel.responseErrorType = JYResponseErrorTypeTimeout;
         }
+        self.baseResponseModel.httpStatusCode = error.code;
         self.baseResponseModel.url = error.userInfo[@"NSErrorFailingURLStringKey"];
     }
 }

@@ -23,8 +23,15 @@
 /*********************** JY_HttpRequestManager ***********************/
 
 @interface JY_HttpRequestManager : NSObject
+
 /* 开启缓存 默认值NO */
 @property (nonatomic ,assign)BOOL starCache;
+
+/* 预防网络抖动 针对特殊业务不允许重发 默认开启 */
+@property (nonatomic ,assign)BOOL notResendResquest;
+
+/* 网络改变恢复失败接口 默认关闭 */
+@property (nonatomic ,assign)BOOL netWorkChangeRestoreRequest;
 
 /* 请求提示 (看枚举) */
 @property (nonatomic ,assign)JYRequestShowType requestShowType;

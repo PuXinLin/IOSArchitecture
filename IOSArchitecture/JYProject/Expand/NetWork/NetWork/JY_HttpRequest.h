@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "JY_HttpProxy.h"
 #import "JY_BaseResponseModel.h"
+#import "JY_HttpRequestResend.h"
 
 @class JY_HttpRequest;
+
+/*********************** JY_HttpRequest ***********************/
 
 /*---------------------API回调-----------------------*/
 @protocol JY_HttpRequestCallBackDelegate <NSObject>
@@ -24,9 +27,10 @@
 - (void)managerCallAPIUploadProgressWithCurrentProgress:(CGFloat)currentProgress;
 @end
 
-/*********************** JY_HttpRequest ***********************/
-
 @interface JY_HttpRequest : NSObject
+
+/* 针对特殊业务不允许重发 */
+@property (nonatomic ,assign)BOOL notResendResquest;
 
 /* 回调代理 */
 @property (nonatomic ,weak)id<JY_HttpRequestCallBackDelegate> delegate;
@@ -50,3 +54,4 @@
 - (void)cancleAllRequest;
 
 @end
+

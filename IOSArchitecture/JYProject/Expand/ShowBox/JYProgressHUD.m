@@ -33,12 +33,12 @@ static BOOL isAvalibleTouch = NO; // 手势是否可用，默认NO
 #pragma mark ---------- Public Methods ----------
 /**************************** 这里是页面弹框 切换页面后不会显示 ****************************/
 #pragma mark 提示框  (Controller上的提示)
-+(void)showMessageJY:(NSString*)message onView:(UIView*)onView progressType:(JYProgressType)progressType
++(MBProgressHUD*)showMessageJY:(NSString*)message onView:(UIView*)onView progressType:(JYProgressType)progressType
 {
     JYProgressHUD * jyprogress = [JYProgressHUD sharedRequestInstance] ;
     MBProgressHUD *progressHUD = [jyprogress loadProgressOnView:onView];
     if (!progressHUD) {
-        return;
+        return nil;
     }
     switch (progressType) {
         case JYProgress_Text:
@@ -78,7 +78,7 @@ static BOOL isAvalibleTouch = NO; // 手势是否可用，默认NO
         default:
             break;
     }
-
+    return progressHUD;
 }
 
 #pragma mark 隐藏小菊花
