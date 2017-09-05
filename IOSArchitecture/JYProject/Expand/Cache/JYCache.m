@@ -22,6 +22,7 @@ static int const JYNetworkResponseCacheOverdueTime = 2;
 @interface JYCache()
 /* 缓存名 */
 @property (nonatomic ,copy)NSString *cacheUserInfoName;
+
 @property (nonatomic ,strong) YYCache *cache;
 
 @end

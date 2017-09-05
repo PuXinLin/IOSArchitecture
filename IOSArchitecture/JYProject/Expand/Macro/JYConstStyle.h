@@ -11,9 +11,9 @@
 
 #define JY_User [UserModel sharedRequestInstance] //当前用户
 
-#define JY_APP_ViewBackgroundColor [UIColor whiteColor] //背景颜色
+#define JY_APP_ViewBackgroundColor [UIColor whiteColor] //常用背景颜色
 
-#define JY_APP_UIMarin 10  //间距
+#define JY_APP_UIMarin 10  //常用间距
 
 /************************ API ************************/
 #define JY_APP_Token @"..."  //检验令牌

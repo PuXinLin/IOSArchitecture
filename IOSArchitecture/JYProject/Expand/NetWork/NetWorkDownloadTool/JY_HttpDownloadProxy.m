@@ -18,9 +18,7 @@
 @end
 
 @implementation JY_HttpDownloadProxy
--(void)dealloc{
-    JY_Log(@"释放了");
-}
+
 #pragma mark ---------- Public Methods ----------
 + (instancetype)sharedRequestInstance {
     static JY_HttpDownloadProxy *__sharedInstance = nil;
@@ -31,22 +29,28 @@
     return __sharedInstance;
 }
 
-#pragma mark 取消所有数据请求
-- (void)cancleAllDownloadWithArrayList:(NSArray*)arrayList{
-    for (NSNumber* taskId in arrayList) {
-        [self cancleDownloadWithTaskId:taskId];
-    }
-}
 #pragma mark 取消单个数据请求
-- (void)cancleDownloadWithTaskId:(NSNumber*)taskId{
+- (void)cancleDownloadWithTaskId:(NSNumber*)taskId
+{
     NSURLSessionDataTask * task = self.dispatchTable[taskId];
     [task cancel];
     [self.dispatchTable removeObjectForKey:taskId];
 }
 
+#pragma mark 删除下载文件
+-(BOOL)removeFileWithFilePath:(NSString*)filePath
+{
+    if ([self.fileManage fileExistsAtPath:filePath]) {
+        return [self.fileManage removeItemAtPath:filePath error:nil];
+    }
+    else{
+        JY_Log(@"没有%@文件",filePath);
+    }
+    return NO;
+}
 #pragma mark ---------- Private Methods ----------
 #pragma mark 发起请求
-- (NSUInteger)requestWithURLString: (NSString *)URLString
+- (NSNumber*)requestWithURLString: (NSString *)URLString
                        parameters: (NSDictionary *)parameters
                          filePath:(NSString*)filePath
                     progressBlock:(JYCallbackAPIDownloadCallback)progressBlock
@@ -88,7 +92,7 @@
     
     self.dispatchTable[@(saveTask.taskIdentifier)] = [self setDownloadTaskWithSessionTask:saveTask filePath:filePath];
     [saveTask resume];
-    return saveTask.taskIdentifier;
+    return @(saveTask.taskIdentifier);
 }
 
 #pragma mark 多任务下载配置
@@ -119,7 +123,8 @@
 }
 
 #pragma mark 生成文件路径
--(void)generateFilePath:(NSString*)filePath{
+-(void)generateFilePath:(NSString*)filePath
+{
     if (![self.fileManage isExecutableFileAtPath:filePath]) {
         NSString *fileName = [[filePath componentsSeparatedByString:@"/"] lastObject];
         NSString *filePath2 = [filePath stringByReplacingOccurrencesOfString:fileName withString:@""];

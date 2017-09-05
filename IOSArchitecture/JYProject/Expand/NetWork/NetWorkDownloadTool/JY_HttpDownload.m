@@ -22,40 +22,38 @@
 
 #pragma mark ---------- Private Methods ----------
 #pragma mark 数据下载
-- (void)requestWithURLString: (NSString *)URLString
+- (NSNumber*)starDownloadTaskWithURLString: (NSString *)URLString
                   parameters: (NSDictionary *)parameters
                     savePath: (NSString *)savePath
 {
-    NSUInteger taskId = [self.downloadProxy requestWithURLString:URLString parameters:parameters filePath:savePath progressBlock:^(Jy_BaseDownloadModel *completeProgressResponse) {
+    NSNumber *taskId = [self.downloadProxy requestWithURLString:URLString parameters:parameters filePath:savePath progressBlock:^(Jy_BaseDownloadModel *completeProgressResponse) {
         [self.delegate managerCallAPIDownloadProgressWithCompleteProgressResponse:completeProgressResponse];
     } finishedBlock:^(Jy_BaseDownloadModel *completeResponse) {
         [self.delegate managerCallAPIDownloadDidSuccess:completeResponse];
     }];
-    [self.taskIdList addObject:@(taskId)];
-}
-
-#pragma mark 开始下载
--(void)starDownloadTask
-{
-    
-}
-
-#pragma mark 断点下载
--(void)starDownloadTasks
-{
-    
+    [self.taskIdList addObject:taskId];
+    return taskId;
 }
 
 #pragma mark 取消单个下载
 - (void)cancleDownloadWithRequestId:(NSNumber*)requestId
 {
-    
+    [self.taskIdList removeObject:requestId];
+    [self.downloadProxy cancleDownloadWithTaskId:requestId];
 }
 
 #pragma mark 取消所有下载
-- (void)cancleAllDownloadWithArrayList:(NSArray*)arrayList
+- (void)cancleAllDownload
 {
-    
+    for (NSNumber *taskIdItem in self.taskIdList) {
+        [self cancleDownloadWithRequestId:taskIdItem];
+    }
+}
+
+#pragma mark 删除下载文件
+-(BOOL)removeFileWithFilePath:(NSString*)filePath
+{
+    return [self.downloadProxy removeFileWithFilePath:filePath];
 }
 
 #pragma mark ---------- Click Event ----------
@@ -65,7 +63,7 @@
 #pragma mark ---------- Lazy Load ----------
 -(JY_HttpDownloadProxy *)downloadProxy{
     if (!_downloadProxy) {
-        _downloadProxy = [[JY_HttpDownloadProxy alloc]init];
+        _downloadProxy = [JY_HttpDownloadProxy sharedRequestInstance];
     }
     return _downloadProxy;
 }

@@ -17,6 +17,7 @@
 		2510C6D01F2D7B800040EDB8 /* JY_HttpProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510C6CF1F2D7B800040EDB8 /* JY_HttpProxy.m */; };
 		2510C6D31F2D84FC0040EDB8 /* JY_HttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510C6D21F2D84FC0040EDB8 /* JY_HttpResponse.m */; };
 		2510C6D61F2DAE380040EDB8 /* NSObject+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510C6D51F2DAE380040EDB8 /* NSObject+AddMethods.m */; };
+		2512352F1F5E965E006CC9DA /* PXLDataListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512352E1F5E965E006CC9DA /* PXLDataListViewController.m */; };
 		2512E8DB1F283B9400449AF2 /* UIView+AddAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8DA1F283B9400449AF2 /* UIView+AddAttributes.m */; };
 		2512E8DE1F283C2D00449AF2 /* UIView+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8DD1F283C2D00449AF2 /* UIView+AddMethods.m */; };
 		2512E8E11F28620200449AF2 /* UIImage+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8E01F28620200449AF2 /* UIImage+AddMethods.m */; };
@@ -36,7 +37,6 @@
 		251694C91F3026F400279E6B /* JYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694C81F3026F400279E6B /* JYProgressHUD.m */; };
 		251694CC1F3028A900279E6B /* JYModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694CB1F3028A900279E6B /* JYModelView.m */; };
 		251694CF1F302AE700279E6B /* JYModelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694CE1F302AE700279E6B /* JYModelModel.m */; };
-		251694D21F302B8C00279E6B /* JYModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251694D11F302B8C00279E6B /* JYModelViewController.m */; };
 		25198E0E1F2EAD0A00F481CA /* JY_BaseResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */; };
 		251D38701F32A62E00246B35 /* JY_HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D386F1F32A62E00246B35 /* JY_HttpRequestManager.m */; };
 		251D38781F32F6AE00246B35 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 251D38771F32F6AE00246B35 /* UserModel.m */; };
@@ -45,7 +45,6 @@
 		252FCE8D1F31C6A9008FADD9 /* JYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 252FCE8C1F31C6A9008FADD9 /* JYCache.m */; };
 		253B9D541F2EC83100890D24 /* JY_MonitorNewWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */; };
 		253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */; };
-		2548770C1F56A17D007A7314 /* PXLConcurrentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2548770B1F56A17D007A7314 /* PXLConcurrentController.m */; };
 		25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B422B71F2F277700072214 /* PXLHomeSubModel.m */; };
 		25D4DFB61F34535000313DC6 /* JYMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D4DFB51F34535000313DC6 /* JYMD5.m */; };
 		34C5F5A24C1938571327DA75 /* libPods-JYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65AB226639E0E6E966EA58B0 /* libPods-JYProject.a */; };
@@ -70,6 +69,8 @@
 		2510C6D21F2D84FC0040EDB8 /* JY_HttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpResponse.m; sourceTree = "<group>"; };
 		2510C6D41F2DAE380040EDB8 /* NSObject+AddMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AddMethods.h"; sourceTree = "<group>"; };
 		2510C6D51F2DAE380040EDB8 /* NSObject+AddMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AddMethods.m"; sourceTree = "<group>"; };
+		2512352D1F5E965E006CC9DA /* PXLDataListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLDataListViewController.h; sourceTree = "<group>"; };
+		2512352E1F5E965E006CC9DA /* PXLDataListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLDataListViewController.m; sourceTree = "<group>"; };
 		2512E8D91F283B9400449AF2 /* UIView+AddAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddAttributes.h"; sourceTree = "<group>"; };
 		2512E8DA1F283B9400449AF2 /* UIView+AddAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AddAttributes.m"; sourceTree = "<group>"; };
 		2512E8DC1F283C2D00449AF2 /* UIView+AddMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddMethods.h"; sourceTree = "<group>"; };
@@ -107,8 +108,6 @@
 		251694CB1F3028A900279E6B /* JYModelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYModelView.m; sourceTree = "<group>"; };
 		251694CD1F302AE700279E6B /* JYModelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYModelModel.h; sourceTree = "<group>"; };
 		251694CE1F302AE700279E6B /* JYModelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYModelModel.m; sourceTree = "<group>"; };
-		251694D01F302B8C00279E6B /* JYModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYModelViewController.h; sourceTree = "<group>"; };
-		251694D11F302B8C00279E6B /* JYModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYModelViewController.m; sourceTree = "<group>"; };
 		25198E0C1F2EAD0A00F481CA /* JY_BaseResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_BaseResponseModel.h; sourceTree = "<group>"; };
 		25198E0D1F2EAD0A00F481CA /* JY_BaseResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_BaseResponseModel.m; sourceTree = "<group>"; };
 		251D386E1F32A62E00246B35 /* JY_HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestManager.h; sourceTree = "<group>"; };
@@ -130,8 +129,6 @@
 		253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequest.m; sourceTree = "<group>"; };
 		253B9D591F2EF8E100890D24 /* JYConstantMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYConstantMacro.h; sourceTree = "<group>"; };
 		253B9D5A1F2EF8F500890D24 /* JYMethodMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYMethodMacro.h; sourceTree = "<group>"; };
-		2548770A1F56A17D007A7314 /* PXLConcurrentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLConcurrentController.h; sourceTree = "<group>"; };
-		2548770B1F56A17D007A7314 /* PXLConcurrentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLConcurrentController.m; sourceTree = "<group>"; };
 		25B422B61F2F277700072214 /* PXLHomeSubModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLHomeSubModel.h; sourceTree = "<group>"; };
 		25B422B71F2F277700072214 /* PXLHomeSubModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeSubModel.m; sourceTree = "<group>"; };
 		25D4DFB41F34535000313DC6 /* JYMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYMD5.h; sourceTree = "<group>"; };
@@ -270,12 +267,10 @@
 			children = (
 				2508E69C1F274B3D00859C5B /* PXLHomeViewController.h */,
 				2508E69D1F274B3D00859C5B /* PXLHomeViewController.m */,
-				251694D01F302B8C00279E6B /* JYModelViewController.h */,
-				251694D11F302B8C00279E6B /* JYModelViewController.m */,
+				2512352D1F5E965E006CC9DA /* PXLDataListViewController.h */,
+				2512352E1F5E965E006CC9DA /* PXLDataListViewController.m */,
 				251592521F3ADC7E00AC9B76 /* PXLDownLoadViewController.h */,
 				251592531F3ADC7E00AC9B76 /* PXLDownLoadViewController.m */,
-				2548770A1F56A17D007A7314 /* PXLConcurrentController.h */,
-				2548770B1F56A17D007A7314 /* PXLConcurrentController.m */,
 			);
 			path = HomeViewControllers;
 			sourceTree = "<group>";
@@ -625,17 +620,16 @@
 				251694C91F3026F400279E6B /* JYProgressHUD.m in Sources */,
 				2515924E1F3ABA5D00AC9B76 /* JY_HttpDownload.m in Sources */,
 				25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */,
-				251694D21F302B8C00279E6B /* JYModelViewController.m in Sources */,
 				2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */,
 				2512E8DB1F283B9400449AF2 /* UIView+AddAttributes.m in Sources */,
 				2508E6961F274AA000859C5B /* AppDelegate.m in Sources */,
 				253B9D541F2EC83100890D24 /* JY_MonitorNewWork.m in Sources */,
-				2548770C1F56A17D007A7314 /* PXLConcurrentController.m in Sources */,
 				2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */,
 				25D4DFB61F34535000313DC6 /* JYMD5.m in Sources */,
 				253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */,
 				2510C6D01F2D7B800040EDB8 /* JY_HttpProxy.m in Sources */,
 				251D38781F32F6AE00246B35 /* UserModel.m in Sources */,
+				2512352F1F5E965E006CC9DA /* PXLDataListViewController.m in Sources */,
 				2512E8F61F2887B000449AF2 /* PXLHomeView.m in Sources */,
 				251F2AA41F4E5B6200473F03 /* JY_HttpRequestResend.m in Sources */,
 				251592511F3ABD4A00AC9B76 /* Jy_BaseDownloadModel.m in Sources */,

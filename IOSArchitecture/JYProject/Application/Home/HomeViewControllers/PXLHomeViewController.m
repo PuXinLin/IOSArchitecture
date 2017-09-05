@@ -8,25 +8,18 @@
 
 #import "PXLHomeViewController.h"
 #import "PXLHomeModel.h"
-#import "JYModelViewController.h"
 #import "PXLDownLoadViewController.h"
-#import "PXLConcurrentController.h"
+#import "PXLDataListViewController.h"
 
-@interface PXLHomeViewController ()<JY_HttpRequestManagerCallBackDelegate>
-/* test API */
+@interface PXLHomeViewController ()<JY_HttpRequestManagerCallBackDelegate,UITableViewDelegate,UITableViewDataSource>
+/* API Manage */
 @property (nonatomic ,strong)JY_HttpRequestManager *httpRequestManager;
 
-/* 发起请求按钮 */
-@property (nonatomic ,strong)UIButton *sendButton;
+/* 数据列表 */
+@property (nonatomic ,strong)UITableView *homeTableView;
 
-/* 弹框按钮 */
-@property (nonatomic ,strong)UIButton *showButton;
-
-/* 下一页按钮 */
-@property (nonatomic ,strong)UIButton *pushControllerButton;
-
-/* 下一页按钮 */
-@property (nonatomic ,strong)UIButton *pushDownloadControllerButton;
+/* 数据列表 */
+@property (nonatomic ,strong)NSArray *homeList;
 
 @end
 
@@ -42,100 +35,89 @@
 
 #pragma mark ---------- Methods ----------
 #pragma mark 配置Controller
--(void)configurationController{
+-(void)configurationController
+{
     self.view.backgroundColor = UIColor.whiteColor;
+    _homeList = @[@"切换用户",@"发起请求",@"数据列表Controller",@"数据下载Controller"];
+    
     /* 模拟用户登录 */
     UserModel * user = JY_User;
     user.userCacheKey = @"UserOne";
 }
 
-#pragma mark 数据请求
--(void)loadRequestData{
-    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
-}
-
 #pragma mark 页面初始化
--(void)resizeCustomView{
-    /* 点击按钮 */
-    [self.sendButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(100);
-        make.top.equalTo(self.view.mas_top).offset(100);
-        make.size.mas_equalTo(CGSizeMake(100, 50));
-    }];
-    
-    /* 请求按钮 */
-    [self.showButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(100);
-        make.top.equalTo(self.view.mas_top).offset(200);
-        make.size.mas_equalTo(CGSizeMake(100, 50));
-    }];
-    
-    /* 跳转按钮 */
-    [self.pushControllerButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(100);
-        make.top.equalTo(self.view.mas_top).offset(300);
-        make.size.mas_equalTo(CGSizeMake(100, 50));
-    }];
-    
-    /* 跳转按钮 */
-    [self.pushDownloadControllerButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(100);
-        make.top.equalTo(self.view.mas_top).offset(400);
-        make.size.mas_equalTo(CGSizeMake(100, 50));
+-(void)resizeCustomView
+{
+    /* 列表 */
+    [self.homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(0, 0, JY_IPHONE_TabBarHeight, 0));
     }];
 }
-
-#pragma mark ---------- Click Event ----------
--(void)sendClick:(UIButton*)sender
-{
-    /*
-    [JYCache userLoginCheckResponseOverdue];
-     */
-    [self.httpRequestManager cancleAllRequest];
-}
-
--(void)showClick:(UIButton*)sender
-{
-    
-    for (int i = 0 ; i<10; i++) {
-        [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
-    }
-    
-    [self.httpRequestManager requestWithURLString:@"app/postlist.do" method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
-}
--(void)pushControllerClick:(UIButton*)sender
-{
-    if (sender.tag) {
+#pragma mark 用户切换
+-(void)userChange{
+    if ([JY_User.userCacheKey isEqualToString:@"UserTwo"]) {
         JY_User.userCacheKey = @"UserOne";
     }
     else{
         JY_User.userCacheKey = @"UserTwo";
     }
-    sender.tag = !sender.tag;
-    [self.navigationController pushViewController:[[JYModelViewController alloc]init] animated:YES];
+    JY_Log(@"用户切换成功!");
 }
--(void)pushDownloadControllerClick:(UIButton*)sender
-{
-    [self.navigationController pushViewController:[[PXLConcurrentController alloc]init] animated:YES];
-//    [self.navigationController pushViewController:[[PXLDownLoadViewController alloc]init] animated:YES];
-//    [self.navigationController pushViewController:[[JYModelViewController alloc]init] animated:YES];
-    
+#pragma mark 数据请求
+-(void)loadRequestData{
+    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+}
+#pragma mark 跳转下载页面
+-(void)pushDownloadController{
+    [self.navigationController pushViewController:[[PXLDownLoadViewController alloc]init] animated:YES];
 }
 
+#pragma mark 跳转数据列表页面
+-(void)pushDataListController{
+    [self.navigationController pushViewController:[[PXLDataListViewController alloc]init] animated:YES];
+}
+
+#pragma mark ---------- Click Event ----------
+
 #pragma mark ---------- Delegate ----------
--(void)managerCallAPIDidSuccess:(JY_BaseResponseModel *)response
-{
-//    JY_Log(@"********************* PXLHomeViewController  有缓存");
+#pragma mark JY_HttpRequestManagerCallBackDelegate
+-(void)managerCallAPIDidSuccess:(JY_BaseResponseModel *)response{
     JY_Log(@"%@", response.url);
-//    PXLHomeModel * model = [PXLHomeModel yy_modelWithJSON:request.responseData[@"data"][@"items"][0]];
-//    NSArray *array = [NSArray yy_modelArrayWithClass:PXLHomeModel.class json:request.responseData[@"data"][@"items"]];
-//    JY_Log(@"%@,%@", array,model);
-//    NSArray *array = [NSMutableArray yy_modelWithJSON:request.responseData[@"data"][@"items"][0]];
 }
 -(void)managerCallAPIDidFailed:(JY_BaseResponseModel *)response{
-//    JY_Log(@"********************* PXLHomeViewController 无缓存");
-//    JY_Log(@"%@", response.url);
-//    JY_Log(@"%@", request.message);
+    JY_Log(@"%@", response.url);
+}
+
+#pragma mark TableView Delegate And DataSource
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _homeList.count;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
+    }
+    cell.textLabel.text = _homeList[indexPath.row];
+    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+            [self userChange];
+            break;
+        case 1:
+            [self loadRequestData];
+            break;
+        case 2:
+            [self pushDataListController];
+            break;
+        case 3:
+            [self pushDownloadController];
+            break;
+        default:
+            break;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 #pragma mark ---------- Lazy Load ----------
@@ -151,50 +133,14 @@
     return _httpRequestManager;
 }
 
-
--(UIButton *)sendButton{
-    if (!_sendButton) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitle:@"检验数据过期" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(sendClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
-        _sendButton = button;
+-(UITableView *)homeTableView{
+    if (!_homeTableView) {
+        _homeTableView = [[UITableView alloc]init];
+        _homeTableView.delegate = self;
+        _homeTableView.dataSource = self;
+        [self.view addSubview:_homeTableView];
     }
-    return _sendButton;
-}
--(UIButton *)showButton{
-    if (!_showButton) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitle:@"发起请求" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(showClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
-        _showButton = button;
-    }
-    return _showButton;
-}
--(UIButton *)pushControllerButton{
-    if (!_pushControllerButton) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitle:@"切换用户" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(pushControllerClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
-        _pushControllerButton = button;
-    }
-    return _pushControllerButton;
-}
--(UIButton *)pushDownloadControllerButton{
-    if (!_pushDownloadControllerButton) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitle:@"下载页面" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(pushDownloadControllerClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
-        _pushDownloadControllerButton = button;
-    }
-    return _pushDownloadControllerButton;
+    return _homeTableView;
 }
 
 @end

@@ -44,6 +44,7 @@
     
     for (NSDictionary*tabbarInfoItem in tabbarInfo) {
         UIViewController *viewController = [NSClassFromString(tabbarInfoItem[@"ViewControllerName"]) new];
+        viewController.title = tabbarInfoItem[@"TabBarButtonTitle"];
         JY_NavigationVController *navigationController = [[JY_NavigationVController alloc]initWithRootViewController:viewController];
         navigationController.tabBarItem = [self getTabbarItemWithTabbarInfo:tabbarInfoItem];
         [self addChildViewController:navigationController];

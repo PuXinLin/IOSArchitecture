@@ -32,19 +32,22 @@ static NSString * const url = @"http://120.25.226.186:32812/resources/videos/min
 
 #pragma mark ---------- Private Methods ----------
 #pragma mark 配置Controller
--(void)configurationController{}
+-(void)configurationController{
+    self.view.backgroundColor = JY_APP_ViewBackgroundColor;
+}
 
 #pragma mark 数据请求
 -(void)loadRequestData{
     NSString *filePath = [self getFilePtchWithFileName:@"/Film/minion_02.mp4"];
     NSString *firstTwoFilePath = [self getFilePtchWithFileName:@"/Film/minion_03.mp4"];
-    [self.httpDownload requestWithURLString:url parameters:@{} savePath:filePath];
-    [self.httpDownload requestWithURLString:url parameters:@{} savePath:firstTwoFilePath];
+    [self.httpDownload removeFileWithFilePath:filePath];
+    [self.httpDownload removeFileWithFilePath:firstTwoFilePath];
+    [self.httpDownload starDownloadTaskWithURLString:url parameters:@{} savePath:filePath];
+    [self.httpDownload starDownloadTaskWithURLString:url parameters:@{} savePath:firstTwoFilePath];
 }
 
 #pragma mark 页面初始化
 -(void)resizeCustomView{
-    self.view.backgroundColor = JY_APP_ViewBackgroundColor;
     [self.progressHUD show:YES];
 }
 
