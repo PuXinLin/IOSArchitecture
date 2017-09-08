@@ -12,3 +12,4 @@
 #import "JY_HttpRequest.h"
 #import "JY_MonitorNewWork.h"
 #import "JY_HttpRequestManager.h"
+#import "JY_HttpRequestListManager.h"

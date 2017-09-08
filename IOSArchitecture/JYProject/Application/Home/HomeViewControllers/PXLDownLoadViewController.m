@@ -33,6 +33,7 @@ static NSString * const url = @"http://120.25.226.186:32812/resources/videos/min
 #pragma mark ---------- Private Methods ----------
 #pragma mark 配置Controller
 -(void)configurationController{
+    self.title = @"数据下载";
     self.view.backgroundColor = JY_APP_ViewBackgroundColor;
 }
 

@@ -48,7 +48,7 @@ static const NSInteger ResendCount = 3; //允许接口发送次数
 #pragma mark 数据重新请求
 -(void)resendRequestWithRequestResend:(JY_HttpRequestResend*)requestResend
 {
-    JY_Log(@"重新请求 -- URL = %@",requestResend.api);
+    JY_Log(@"重新请求 -- URL = %@",requestResend.apiDetails.api);
     requestResend.resendResquestCount++;
     requestResend.requestId = [self requestWithRequestResend:requestResend];
 }
@@ -58,12 +58,12 @@ static const NSInteger ResendCount = 3; //允许接口发送次数
     /* 检验网络 */
     JY_HttpResponse *errorResponse = [self checkNetWrok];
     if (errorResponse) {
-        errorResponse.baseResponseModel.url = [self getURLStringWithApi:requestResend.api];
+        errorResponse.baseResponseModel.url = [self getURLStringWithApi:requestResend.apiDetails.api];
         [self failedOnCallingAPI:errorResponse];
         return nil;
     }
     JY_HttpRequest __weak *__self = self;
-    NSNumber *requestId = [[JY_HttpProxy sharedRequestInstance] requestWithURLString:requestResend.api method:requestResend.method parameters:requestResend.parameters imageListBlack:requestResend.imageListBlack progressBlock:^(CGFloat currentProgress){
+    NSNumber *requestId = [[JY_HttpProxy sharedRequestInstance] requestWithURLString:requestResend.apiDetails.api method:requestResend.apiDetails.method parameters:requestResend.apiDetails.parameters imageListBlack:requestResend.apiDetails.imageListBlack progressBlock:^(CGFloat currentProgress){
         [__self.delegate managerCallAPIUploadProgressWithCurrentProgress:currentProgress];
     }finishedBlock:^(JY_HttpResponse *response){
            [__self successedOnCallingAPI:response];

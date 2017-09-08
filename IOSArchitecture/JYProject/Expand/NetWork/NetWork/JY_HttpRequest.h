@@ -13,9 +13,8 @@
 
 @class JY_HttpRequest;
 
-/*********************** JY_HttpRequest ***********************/
+/*********************** JY_HttpRequestCallBackDelegate ***********************/
 
-/*---------------------API回调-----------------------*/
 @protocol JY_HttpRequestCallBackDelegate <NSObject>
 @required
 /* 请求成功回调 */
@@ -26,6 +25,8 @@
 /* 上传文件进度 */
 - (void)managerCallAPIUploadProgressWithCurrentProgress:(CGFloat)currentProgress;
 @end
+
+/*********************** JY_HttpRequest ***********************/
 
 @interface JY_HttpRequest : NSObject
 

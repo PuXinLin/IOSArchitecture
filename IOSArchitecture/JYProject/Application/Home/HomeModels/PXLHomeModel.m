@@ -18,20 +18,24 @@
     return self;
 }
 
-
 #pragma mark ---------- Private Methods ----------
 #pragma mark 配置Model
 -(void)configurationModel{}
+#pragma mark 包含
++(NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{
+             @"dataListModel":@"PXLDataListModel"
+             };
+}
+#pragma mark 白名单 (模型属性 转换 key)
++ (NSArray *)modelPropertyWhitelist {
+    return @[@"appUserForMyCircleDto",
+             @"dataListModel"];
+}
 
 #pragma mark ---------- Click Event ----------
 
 #pragma mark ---------- Delegate ----------
-+(NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
-    
-    return @{
-             @"appUserForMyCircleDto":@"PXLHomeSubModel"
-             };
-}
 
 #pragma mark ---------- Lazy Load ----------
 

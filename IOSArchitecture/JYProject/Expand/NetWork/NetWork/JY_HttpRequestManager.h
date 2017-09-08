@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-/*---------------------API回调-----------------------*/
+/*********************** JY_HttpRequestManagerCallBackDelegate ***********************/
+
 @protocol JY_HttpRequestManagerCallBackDelegate <NSObject>
 @required
 /* 请求成功回调 */
@@ -16,7 +17,7 @@
 /* 请求失败回调 */
 - (void)managerCallAPIDidFailed:(JY_BaseResponseModel *)response;
 @optional
-/* 上传文件进度 */
+/* 上传文件进度回调 */
 - (void)managerCallAPIUploadProgressWithCurrentProgress:(CGFloat)currentProgress;
 @end
 
@@ -25,7 +26,7 @@
 @interface JY_HttpRequestManager : NSObject
 
 /* 开启缓存 默认值NO */
-@property (nonatomic ,assign)BOOL starCache;
+@property (nonatomic ,assign)BOOL openCache;
 
 /* 预防网络抖动 针对特殊业务不允许重发 默认开启 */
 @property (nonatomic ,assign)BOOL notResendResquest;
@@ -39,15 +40,22 @@
 /* 回调代理 */
 @property (nonatomic ,weak)id<JY_HttpRequestManagerCallBackDelegate> delegate;
 
+/* api 详情 */
+@property (nonatomic ,strong)JY_HttpAPIDetails *apiDetails;
+
+/**
+ * 初始化方法
+ */
++(instancetype)loadDataRequestManager;
 /**
  * 初始化方法
  *
  * @param view 加载HUDView提示框的父View
  */
-+(instancetype)loadDataHUDwithView:(UIView*)view;
++(instancetype)loadDataRequestManagerWithView:(UIView*)view;
 
 /**
- * 数据请求
+ * 数据请求配置
  *
  * @param URLString      数据接口
  * @param method         请求方式 (通过JYRequestMethodType枚举判断请求类型)
@@ -58,10 +66,13 @@
                       method: (JYRequestMethodType)method
                   parameters: (NSDictionary *)parameters
               imageListBlack:(NetWorkUpload)imageListBlack;
-
 /**
- * 取消所有数据请求
+ * 开始数据请求
  */
-- (void)cancleAllRequest;
+- (void)startRequest;
+/**
+ * 取消数据请求
+ */
+- (void)cancleRequest;
 
 @end

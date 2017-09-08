@@ -43,6 +43,8 @@
     /* 模拟用户登录 */
     UserModel * user = JY_User;
     user.userCacheKey = @"UserOne";
+    /* 请求配置 */
+    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
 }
 
 #pragma mark 页面初始化
@@ -62,10 +64,6 @@
         JY_User.userCacheKey = @"UserTwo";
     }
     JY_Log(@"用户切换成功!");
-}
-#pragma mark 数据请求
--(void)loadRequestData{
-    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
 }
 #pragma mark 跳转下载页面
 -(void)pushDownloadController{
@@ -106,7 +104,7 @@
             [self userChange];
             break;
         case 1:
-            [self loadRequestData];
+            [self.httpRequestManager startRequest];
             break;
         case 2:
             [self pushDataListController];
@@ -123,9 +121,9 @@
 #pragma mark ---------- Lazy Load ----------
 -(JY_HttpRequestManager *)httpRequestManager{
     if (!_httpRequestManager) {
-        _httpRequestManager = [JY_HttpRequestManager loadDataHUDwithView:self.view];
+        _httpRequestManager = [JY_HttpRequestManager loadDataRequestManagerWithView:self.view];
         _httpRequestManager.delegate = self;
-        _httpRequestManager.starCache = NO;
+        _httpRequestManager.openCache = NO;
         _httpRequestManager.notResendResquest = NO;
         _httpRequestManager.netWorkChangeRestoreRequest = YES;
         _httpRequestManager.requestShowType = JYRequestShowType_RequestAndResponseViewShow;

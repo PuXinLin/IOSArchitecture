@@ -10,11 +10,12 @@
 #import "JYNoNetWorkView.h"
 
 @interface JY_HttpRequestManager()<JY_HttpRequestCallBackDelegate,JYNoNetWorkViewDelegate>
+
 /* 请求 */
 @property (nonatomic ,strong)JY_HttpRequest *request;
 /* 提示框 */
 @property (nonatomic ,strong)UIView *superViewHUB;
-/* 重新请求数据 */
+/* 恢复请求数据 */
 @property (nonatomic ,strong)JY_HttpRequestResend *requestResend;
 
 @end
@@ -29,33 +30,53 @@
 
 #pragma mark ---------- Private Methods ----------
 #pragma mark 初始化方法
-+(instancetype)loadDataHUDwithView:(UIView*)view
++(instancetype)loadDataRequestManager
+{
+    JY_HttpRequestManager * requestManager = [[JY_HttpRequestManager alloc]init];
+    return requestManager;
+}
+
++(instancetype)loadDataRequestManagerWithView:(UIView*)view
 {
     /* 网络请求失败 可以把view替换 */
-    JY_HttpRequestManager * request = [[JY_HttpRequestManager alloc]init];
+    JY_HttpRequestManager * request = [JY_HttpRequestManager loadDataRequestManager];
     request.superViewHUB = view;
     return request;
 }
 
-#pragma mark 数据请求
+#pragma mark 数据请求配置
 - (void)requestWithURLString: (NSString *)URLString
                       method: (JYRequestMethodType)method
                   parameters: (NSDictionary *)parameters
               imageListBlack:(NetWorkUpload)imageListBlack
 {
-    if (!_requestResend) {
-        _requestResend = [JY_HttpRequestResend createRequestResendWithAPI:URLString method:method parameters:parameters imageListBlack:imageListBlack];
-    }
-    /* 提示框 */
-    [self showPromptWithRequest:YES response:nil];
-    
-    /* 请求 */
+    /* api信息 */
+    _requestResend = [JY_HttpRequestResend createRequestResendWithAPI:URLString method:method parameters:parameters imageListBlack:imageListBlack];
+    _apiDetails = _requestResend.apiDetails;
     self.request.notResendResquest = self.notResendResquest;
-    [self.request requestWithURLString:URLString method:method parameters:parameters imageListBlack:imageListBlack];
 }
 
-#pragma mark 取消所有数据请求
-- (void)cancleAllRequest{
+#pragma mark 开始数据请求
+- (void)startRequest
+{
+    /* 提示框 */
+    [self showPromptWithRequest:YES message:nil responseErrorType:0];
+    /* 获取缓存 */
+    if (self.openCache) {
+        id responseData = [self readCache];
+        if (responseData) {
+            JY_BaseResponseModel *responseModel = [[JY_BaseResponseModel alloc]init];
+            responseModel.responseData = responseData;
+            responseModel.api = _apiDetails.api;
+            responseModel.responseErrorType = JYResponseErrorTypeDataCache;
+            [self managerCallAPIDidSuccess:responseModel];
+        }
+    }
+    /* 发起请求 */
+    [self.request requestWithURLString:_apiDetails.api method:_apiDetails.method parameters:_apiDetails.parameters imageListBlack:_apiDetails.imageListBlack];
+}
+#pragma mark 取消数据请求
+- (void)cancleRequest{
     [self.request cancleAllRequest];
 }
 
@@ -75,7 +96,8 @@
 }
 
 #pragma mark 提示框显示
--(void)showPromptWithRequest:(BOOL)starRequest response:(JY_BaseResponseModel*)response{
+-(void)showPromptWithRequest:(BOOL)starRequest message:(NSString*)message responseErrorType:(JYResponseErrorType)responseErrorType
+{
     [JYProgressHUD hideProgressJY:self.superViewHUB];
     [JYProgressHUD hideProgressJY:JY_APP_KeyWindow];
     if (starRequest) {
@@ -109,13 +131,13 @@
         switch (self.requestShowType) {
             case JYRequestShowType_ResponseViewShow:
             {
-                [JYProgressHUD showMessageJY:response.message onView:self.superViewHUB progressType:JYProgress_RequestError];
+                [JYProgressHUD showMessageJY:message onView:self.superViewHUB progressType:JYProgress_RequestError];
             }
                 break;
             case JYRequestShowType_RequestAndResponseViewShow:
             {
-                if (response.responseErrorType != JYResponseErrorTypeSuccess &&self.requestResend.resendRequest) {
-                    MBProgressHUD *progressHUD = [JYProgressHUD showMessageJY:response.message onView:self.superViewHUB progressType:JYProgress_RequestError];
+                if (responseErrorType != JYResponseErrorTypeSuccess &&self.requestResend.resendRequest) {
+                    MBProgressHUD *progressHUD = [JYProgressHUD showMessageJY:message onView:self.superViewHUB progressType:JYProgress_RequestError];
                     if (progressHUD) {
                         ((JYNoNetWorkView*)progressHUD.customView).delegate = self;
                     }
@@ -124,15 +146,15 @@
                 break;
             case JYRequestShowType_ResponseWindowShow:
             {
-                if (response.responseErrorType != JYResponseErrorTypeSuccess) {
-                    [JYProgressHUD showMessageJY:response.message  progressType:JYProgress_Text];
+                if (responseErrorType != JYResponseErrorTypeSuccess) {
+                    [JYProgressHUD showMessageJY:message  progressType:JYProgress_Text];
                 }
             }
                 break;
             case JYRequestShowType_RequestAndResponseWindowShow:
             {
-                if (response.responseErrorType != JYResponseErrorTypeSuccess) {
-                    [JYProgressHUD showMessageJY:response.message  progressType:JYProgress_Text];
+                if (responseErrorType != JYResponseErrorTypeSuccess) {
+                    [JYProgressHUD showMessageJY:message  progressType:JYProgress_Text];
                 }
             }
                 break;
@@ -142,6 +164,14 @@
     }
 }
 
+#pragma mark 读取缓存数据
+-(id)readCache{
+    return [JYCache getCacheResponseDataForUrl:_apiDetails.api parameters:_apiDetails.parameters];;
+}
+#pragma mark 缓存数据
+-(void)wirteCacheWithResponse:(id)response{
+    [JYCache cacheResponseData:response Url:_apiDetails.api parameters:_apiDetails.parameters];
+}
 #pragma mark ---------- Click Event ----------
 
 #pragma mark ---------- Delegate ----------
@@ -149,40 +179,34 @@
 #pragma mark JY_HttpRequestCallBackDelegate
 - (void)managerCallAPIDidSuccess:(JY_BaseResponseModel *)response
 {
-    if (self.starCache) { //缓存
-        if (response.responseErrorType == JYResponseErrorTypeSuccess) {
-            [JYCache cacheResponseData:response.responseData Url:response.api parameters:response.parameters];
-            [self showPromptWithRequest:NO response:response];
-        }
-        else{ //获取的缓存
-            [JYProgressHUD hideProgressJY:self.superViewHUB];
-            [JYProgressHUD hideProgressJY:JY_APP_KeyWindow];
-        }
+    /* 隐藏提升框 */
+    [self showPromptWithRequest:NO message:response.message responseErrorType:response.responseErrorType];
+    /* 缓存 */
+    if (self.openCache&&response.responseErrorType == JYResponseErrorTypeSuccess) {
+        [self wirteCacheWithResponse:response.responseData];
+        
     }
-    else{
-        [self showPromptWithRequest:NO response:response];
+    /* 关闭网络改变恢复请求 */
+    if (self.netWorkChangeRestoreRequest) {
+        self.requestResend.resendRequest = NO;
     }
-    self.requestResend.resendRequest = NO;
     [self.delegate managerCallAPIDidSuccess:response];
 }
+
 - (void)managerCallAPIDidFailed:(JY_BaseResponseModel *)response
 {
-    [self showPromptWithRequest:NO response:response];
-    if (response.httpStatusCode == -999) { // 手动取消
+    /* 隐藏提升框 */
+    [self showPromptWithRequest:NO message:response.message responseErrorType:response.responseErrorType];
+    /* 手动取消任务 不需要回调 */
+    if (response.httpStatusCode == -999) {
         return;
     }
-    if (self.starCache) { //获取缓存
-        id responseData = [JYCache getCacheResponseDataForUrl:response.api parameters:response.parameters];
-        if (responseData) {
-            response.responseData = responseData;
-            return [self managerCallAPIDidSuccess:response];
-        }
-    }
-    /* 网络状态改变 恢复失败请求 */
+    /* 开启网络状态改变 恢复失败请求 */
     if (self.netWorkChangeRestoreRequest&&self.requestResend.resendRequest) {
         self.netWorkChangeRestoreRequest = NO;
         [self restroeRequestWithRequestResend:_requestResend];
     }
+    /* 请求失败回调 */
     [self.delegate managerCallAPIDidFailed:response];
 }
 - (void)managerCallAPIUploadProgressWithCurrentProgress:(CGFloat)currentProgress{
@@ -192,7 +216,7 @@
 #pragma mark JYNoNetWorkViewDelegate
 -(void)reloadRequest
 {
-    [self requestWithURLString:_requestResend.api method:_requestResend.method parameters:_requestResend.parameters imageListBlack:_requestResend.imageListBlack];
+    [self startRequest];
 }
 
 #pragma mark ---------- Lazy Load ----------

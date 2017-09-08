@@ -18,6 +18,8 @@
 		2510C6D31F2D84FC0040EDB8 /* JY_HttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510C6D21F2D84FC0040EDB8 /* JY_HttpResponse.m */; };
 		2510C6D61F2DAE380040EDB8 /* NSObject+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510C6D51F2DAE380040EDB8 /* NSObject+AddMethods.m */; };
 		2512352F1F5E965E006CC9DA /* PXLDataListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512352E1F5E965E006CC9DA /* PXLDataListViewController.m */; };
+		251235321F5EA87E006CC9DA /* JY_HttpRequestListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 251235311F5EA87E006CC9DA /* JY_HttpRequestListManager.m */; };
+		251289B21F60D30F005B368F /* PXLDataListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 251289B11F60D30F005B368F /* PXLDataListModel.m */; };
 		2512E8DB1F283B9400449AF2 /* UIView+AddAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8DA1F283B9400449AF2 /* UIView+AddAttributes.m */; };
 		2512E8DE1F283C2D00449AF2 /* UIView+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8DD1F283C2D00449AF2 /* UIView+AddMethods.m */; };
 		2512E8E11F28620200449AF2 /* UIImage+AddMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2512E8E01F28620200449AF2 /* UIImage+AddMethods.m */; };
@@ -45,7 +47,6 @@
 		252FCE8D1F31C6A9008FADD9 /* JYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 252FCE8C1F31C6A9008FADD9 /* JYCache.m */; };
 		253B9D541F2EC83100890D24 /* JY_MonitorNewWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D531F2EC83100890D24 /* JY_MonitorNewWork.m */; };
 		253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */; };
-		25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B422B71F2F277700072214 /* PXLHomeSubModel.m */; };
 		25D4DFB61F34535000313DC6 /* JYMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D4DFB51F34535000313DC6 /* JYMD5.m */; };
 		34C5F5A24C1938571327DA75 /* libPods-JYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65AB226639E0E6E966EA58B0 /* libPods-JYProject.a */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,10 @@
 		2510C6D51F2DAE380040EDB8 /* NSObject+AddMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AddMethods.m"; sourceTree = "<group>"; };
 		2512352D1F5E965E006CC9DA /* PXLDataListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLDataListViewController.h; sourceTree = "<group>"; };
 		2512352E1F5E965E006CC9DA /* PXLDataListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLDataListViewController.m; sourceTree = "<group>"; };
+		251235301F5EA87E006CC9DA /* JY_HttpRequestListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JY_HttpRequestListManager.h; sourceTree = "<group>"; };
+		251235311F5EA87E006CC9DA /* JY_HttpRequestListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequestListManager.m; sourceTree = "<group>"; };
+		251289B01F60D30F005B368F /* PXLDataListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLDataListModel.h; sourceTree = "<group>"; };
+		251289B11F60D30F005B368F /* PXLDataListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLDataListModel.m; sourceTree = "<group>"; };
 		2512E8D91F283B9400449AF2 /* UIView+AddAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddAttributes.h"; sourceTree = "<group>"; };
 		2512E8DA1F283B9400449AF2 /* UIView+AddAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AddAttributes.m"; sourceTree = "<group>"; };
 		2512E8DC1F283C2D00449AF2 /* UIView+AddMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddMethods.h"; sourceTree = "<group>"; };
@@ -129,8 +134,6 @@
 		253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JY_HttpRequest.m; sourceTree = "<group>"; };
 		253B9D591F2EF8E100890D24 /* JYConstantMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYConstantMacro.h; sourceTree = "<group>"; };
 		253B9D5A1F2EF8F500890D24 /* JYMethodMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYMethodMacro.h; sourceTree = "<group>"; };
-		25B422B61F2F277700072214 /* PXLHomeSubModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXLHomeSubModel.h; sourceTree = "<group>"; };
-		25B422B71F2F277700072214 /* PXLHomeSubModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXLHomeSubModel.m; sourceTree = "<group>"; };
 		25D4DFB41F34535000313DC6 /* JYMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYMD5.h; sourceTree = "<group>"; };
 		25D4DFB51F34535000313DC6 /* JYMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYMD5.m; sourceTree = "<group>"; };
 		6573FCC186723583E5A2AD9D /* Pods-JYProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-JYProject/Pods-JYProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,10 +257,10 @@
 			children = (
 				2512E8F11F28879800449AF2 /* PXLHomeModel.h */,
 				2512E8F21F28879800449AF2 /* PXLHomeModel.m */,
-				25B422B61F2F277700072214 /* PXLHomeSubModel.h */,
-				25B422B71F2F277700072214 /* PXLHomeSubModel.m */,
 				251694CD1F302AE700279E6B /* JYModelModel.h */,
 				251694CE1F302AE700279E6B /* JYModelModel.m */,
+				251289B01F60D30F005B368F /* PXLDataListModel.h */,
+				251289B11F60D30F005B368F /* PXLDataListModel.m */,
 			);
 			path = HomeModels;
 			sourceTree = "<group>";
@@ -404,6 +407,8 @@
 				253647171F2B19DE001F78C4 /* JY_HttpRequestConfiguration.h */,
 				251D386E1F32A62E00246B35 /* JY_HttpRequestManager.h */,
 				251D386F1F32A62E00246B35 /* JY_HttpRequestManager.m */,
+				251235301F5EA87E006CC9DA /* JY_HttpRequestListManager.h */,
+				251235311F5EA87E006CC9DA /* JY_HttpRequestListManager.m */,
 				253B9D561F2ED3E200890D24 /* JY_HttpRequest.h */,
 				253B9D571F2ED3E200890D24 /* JY_HttpRequest.m */,
 				2510C6D11F2D84FC0040EDB8 /* JY_HttpResponse.h */,
@@ -611,6 +616,7 @@
 				251694CC1F3028A900279E6B /* JYModelView.m in Sources */,
 				2512E8DE1F283C2D00449AF2 /* UIView+AddMethods.m in Sources */,
 				2508E69E1F274B3D00859C5B /* PXLHomeViewController.m in Sources */,
+				251289B21F60D30F005B368F /* PXLDataListModel.m in Sources */,
 				2512E8E11F28620200449AF2 /* UIImage+AddMethods.m in Sources */,
 				252FCE8D1F31C6A9008FADD9 /* JYCache.m in Sources */,
 				252FCE881F3161B1008FADD9 /* JYNoNetWorkView.m in Sources */,
@@ -619,13 +625,13 @@
 				251536BC1F41A73F00FFF640 /* JY_TabBarController.m in Sources */,
 				251694C91F3026F400279E6B /* JYProgressHUD.m in Sources */,
 				2515924E1F3ABA5D00AC9B76 /* JY_HttpDownload.m in Sources */,
-				25B422B81F2F277700072214 /* PXLHomeSubModel.m in Sources */,
 				2512E8ED1F28808000449AF2 /* UIColor+AddMethods.m in Sources */,
 				2512E8DB1F283B9400449AF2 /* UIView+AddAttributes.m in Sources */,
 				2508E6961F274AA000859C5B /* AppDelegate.m in Sources */,
 				253B9D541F2EC83100890D24 /* JY_MonitorNewWork.m in Sources */,
 				2512E8F31F28879800449AF2 /* PXLHomeModel.m in Sources */,
 				25D4DFB61F34535000313DC6 /* JYMD5.m in Sources */,
+				251235321F5EA87E006CC9DA /* JY_HttpRequestListManager.m in Sources */,
 				253B9D581F2ED3E200890D24 /* JY_HttpRequest.m in Sources */,
 				2510C6D01F2D7B800040EDB8 /* JY_HttpProxy.m in Sources */,
 				251D38781F32F6AE00246B35 /* UserModel.m in Sources */,

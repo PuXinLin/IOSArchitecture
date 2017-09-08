@@ -26,6 +26,6 @@
 //参数
 @property (nonatomic ,strong)NSDictionary *parameters;
 //错误类型类型
-@property (nonatomic ,assign ,readwrite)JYResponseErrorType responseErrorType;
+@property (nonatomic ,assign)JYResponseErrorType responseErrorType;
 
 @end
