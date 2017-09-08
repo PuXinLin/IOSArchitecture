@@ -68,7 +68,7 @@
     [self.sessionManager setDataTaskDidReceiveResponseBlock:^NSURLSessionResponseDisposition(NSURLSession * _Nonnull session, NSURLSessionDataTask * _Nonnull dataTask, NSURLResponse * _Nonnull response) {
         JY_DownloadModel *model = weakSelf.dispatchTable[@(dataTask.taskIdentifier)];
         [model.outputStream open];
-        model.baseDownloadModel.totalSize = response.expectedContentLength;
+        model.baseDownloadModel.totalSize += response.expectedContentLength;
         return NSURLSessionResponseAllow;
     }];
     
@@ -90,19 +90,21 @@
         [weakSelf.dispatchTable removeObjectForKey:@(task.taskIdentifier)];
     }];
     
-    self.dispatchTable[@(saveTask.taskIdentifier)] = [self setDownloadTaskWithSessionTask:saveTask filePath:filePath];
+    self.dispatchTable[@(saveTask.taskIdentifier)] = [self setDownloadTaskWithSessionTask:saveTask filePath:filePath currentSize:range];
     [saveTask resume];
     return @(saveTask.taskIdentifier);
 }
 
 #pragma mark 多任务下载配置
--(JY_DownloadModel*)setDownloadTaskWithSessionTask:(NSURLSessionDataTask*)dataTask filePath:(NSString*)filePath
+-(JY_DownloadModel*)setDownloadTaskWithSessionTask:(NSURLSessionDataTask*)dataTask filePath:(NSString*)filePath currentSize:(NSInteger)currentSize
 {
     NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:YES];
     
     Jy_BaseDownloadModel *downloadModel = [[Jy_BaseDownloadModel alloc]init];
     downloadModel.taskId = @(dataTask.taskIdentifier);
     downloadModel.savePath = filePath;
+    downloadModel.totalSize = currentSize;
+    downloadModel.currentDownloadSize = currentSize;
     
     JY_DownloadModel * model = [[JY_DownloadModel alloc]init];
     model.SaveTask = dataTask;

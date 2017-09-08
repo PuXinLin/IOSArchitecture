@@ -33,8 +33,6 @@
 {
     self.title = @"数据列表";
     self.view.backgroundColor = JY_APP_ViewBackgroundColor;
-    
-//    [self.httpRequestListManager reload];
 }
 
 #pragma mark 页面初始化

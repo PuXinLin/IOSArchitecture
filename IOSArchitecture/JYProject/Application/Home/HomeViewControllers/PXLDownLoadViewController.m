@@ -68,7 +68,7 @@ static NSString * const url = @"http://120.25.226.186:32812/resources/videos/min
     JY_Log(@"任务%ld下载完成", [successResponse.taskId integerValue]);
 }
 -(void)managerCallAPIDownloadDidFailed:(Jy_BaseDownloadModel *)failureResponse{
-    
+    JY_Log(@"任务%ld下载失败", [failureResponse.taskId integerValue]);
 }
 -(void)managerCallAPIDownloadProgressWithCompleteProgressResponse:(Jy_BaseDownloadModel *)completeProgressResponse
 {
