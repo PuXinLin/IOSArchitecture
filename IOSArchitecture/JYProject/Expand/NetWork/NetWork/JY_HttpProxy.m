@@ -73,11 +73,10 @@ static NSInteger const tcpConnectionMaxCount4GOrWIFI = 3; // 最多连接通道4
     /* 分配管理id */
     _dispatchId = [self getdispatchId];
     NSNumber *dispatchId = [_dispatchId copy];
-    /* 配置请求 */
-    AFHTTPSessionManager *sessionManager = [self getBestSessionManager];
-    sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    sessionManager.requestSerializer.timeoutInterval = [self getBestTimeOutTime];
     /* 发起请求 */
+    AFHTTPSessionManager *sessionManager = [self getBestSessionManager];
+    /* 检验缓存是否是最新 服务器不支持 暂时未实现 */
+    [sessionManager.requestSerializer setValue:@"" forHTTPHeaderField:@""];
     switch (method) {
         case JYRequestMethod_GET:{
             task = [sessionManager GET:stringUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -203,6 +202,9 @@ static NSInteger const tcpConnectionMaxCount4GOrWIFI = 3; // 最多连接通道4
         default:
             break;
     }
+    /* 配置请求 */
+    sessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    sessionManager.requestSerializer.timeoutInterval = [self getBestTimeOutTime];
     return sessionManager;
 }
 #pragma mark 获取SessionManager

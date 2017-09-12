@@ -14,10 +14,8 @@
 @interface PXLHomeViewController ()<JY_HttpRequestManagerCallBackDelegate,UITableViewDelegate,UITableViewDataSource>
 /* API Manage */
 @property (nonatomic ,strong)JY_HttpRequestManager *httpRequestManager;
-
 /* 数据列表 */
 @property (nonatomic ,strong)UITableView *homeTableView;
-
 /* 数据列表 */
 @property (nonatomic ,strong)NSArray *homeList;
 
@@ -44,9 +42,8 @@
     UserModel * user = JY_User;
     user.userCacheKey = @"UserOne";
     /* 请求配置 */
-    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_POST parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
+    [self.httpRequestManager requestWithURLString:JY_Url_Home_List method:JYRequestMethod_GET parameters:@{@"postType":@"1",@"pagenum":@"1",@"eqMy":@"2"} imageListBlack:nil];
 }
-
 #pragma mark 页面初始化
 -(void)resizeCustomView
 {
@@ -74,7 +71,6 @@
 -(void)pushDataListController{
     [self.navigationController pushViewController:[[PXLDataListViewController alloc]init] animated:YES];
 }
-
 #pragma mark ---------- Click Event ----------
 
 #pragma mark ---------- Delegate ----------

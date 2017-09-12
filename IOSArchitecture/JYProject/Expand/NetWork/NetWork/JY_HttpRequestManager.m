@@ -35,7 +35,6 @@
     JY_HttpRequestManager * requestManager = [[JY_HttpRequestManager alloc]init];
     return requestManager;
 }
-
 +(instancetype)loadDataRequestManagerWithView:(UIView*)view
 {
     /* 网络请求失败 可以把view替换 */
@@ -43,7 +42,6 @@
     request.superViewHUB = view;
     return request;
 }
-
 #pragma mark 数据请求配置
 - (void)requestWithURLString: (NSString *)URLString
                       method: (JYRequestMethodType)method
@@ -55,7 +53,6 @@
     _apiDetails = _requestResend.apiDetails;
     self.request.notResendResquest = self.notResendResquest;
 }
-
 #pragma mark 开始数据请求
 - (void)startRequest
 {
@@ -79,7 +76,6 @@
 - (void)cancleRequest{
     [self.request cancleAllRequest];
 }
-
 #pragma mark 网络改变 恢复加载失败的页面
 -(void)restroeRequestWithRequestResend:(JY_HttpRequestResend*)requestResend
 {
@@ -94,7 +90,6 @@
         }
     }
 }
-
 #pragma mark 提示框显示
 -(void)showPromptWithRequest:(BOOL)starRequest message:(NSString*)message responseErrorType:(JYResponseErrorType)responseErrorType
 {
@@ -163,7 +158,6 @@
         }
     }
 }
-
 #pragma mark 读取缓存数据
 -(id)readCache{
     return [JYCache getCacheResponseDataForUrl:_apiDetails.api parameters:_apiDetails.parameters];;
