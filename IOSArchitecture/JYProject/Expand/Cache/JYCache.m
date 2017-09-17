@@ -118,6 +118,7 @@ static int const JYNetworkResponseCacheOverdueTime = 2;
     [cache.memoryCache setCountLimit:JYNetworkResponseCacheCountLimit];
     return cache;
 }
+
 #pragma mark ---------- Click Event ----------
 
 #pragma mark ---------- Delegate ----------

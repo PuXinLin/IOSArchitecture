@@ -13,3 +13,4 @@
 #import "JY_MonitorNewWork.h"
 #import "JY_HttpRequestManager.h"
 #import "JY_HttpRequestListManager.h"
+#import "JY_BaseResponseModel.h"
