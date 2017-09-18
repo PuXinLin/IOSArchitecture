@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "PXLNetWork"
-  s.version      = "1.0.7"
+  s.version      = "1.0.8"
   s.summary      = "This is a network based on afnetworking module."
 
   # This description is used to generate tags and improve search results.
@@ -156,9 +156,11 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'NetWork' do |ss|
+      ss.source_files = 'Expand/NetWork/*.{h}'
+
       ss.subspec 'RequestTool' do |sss|
-            sss.source_files = 'Expand/NetWork/*.{h}', 'Expand/NetWork/NetWork/*.{h,m}'
-            sss.exclude_files = 'Expand/NetWork/NetWork/JY_HttpRequestListManager.{h,m}', 'Expand/NetWork/NetWork/JY_HttpRequestListManager.{h,m}'
+            sss.source_files = 'Expand/NetWork/NetWork/*.{h,m}'
+            sss.exclude_files = 'Expand/NetWork/NetWork/JY_HttpRequestListManager.{h,m}', 'Expand/NetWork/NetWork/JY_HttpRequestManager.{h,m}'
             sss.dependency 'PXLNetWork/Macro'
             sss.dependency 'PXLNetWork/Category'
             sss.dependency 'PXLNetWork/ShowBox'
@@ -171,7 +173,7 @@ Pod::Spec.new do |s|
       end
 
       ss.subspec 'NetWork' do |sss|
-            sss.source_files = 'Expand/NetWork/NetWork/JY_HttpRequestListManager.{h,m}', 'Expand/NetWork/NetWork/JY_HttpRequestListManager.{h,m}'
+            sss.source_files = 'Expand/NetWork/NetWork/JY_HttpRequestListManager.{h,m}', 'Expand/NetWork/NetWork/JY_HttpRequestManager.{h,m}'
             sss.dependency 'PXLNetWork/NetWork/RequestTool'
       end
 
