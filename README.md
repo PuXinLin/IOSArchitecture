@@ -31,4 +31,15 @@ IOSArchitecture 是一个能提高开发效率和用户体验的框架。<br/>
         pod 'PXLNetWork', '~> 1.0.9',:inhibit_warnings => false #忽略xcode8 注释里面的警告
      end
     
+<br/>
+
+## 默认依赖第三方库：
+
+    pod 'MBProgressHUD', '~> 0.9.2'
+    pod 'AFNetworking', '~> 3.1.0'
+    pod 'MJRefresh', '~> 3.1.0'
+    pod 'SDWebImage', '~> 3.7.5'
+    pod 'Masonry', '~> 1.0.1'
+    pod 'YYModel', '~> 1.0.4'
+    pod 'YYCache', '~> 1.0.4'
 
