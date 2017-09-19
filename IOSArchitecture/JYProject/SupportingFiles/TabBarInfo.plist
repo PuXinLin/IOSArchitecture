@@ -14,36 +14,36 @@
 			<key>TabBarButtonSelectImage</key>
 			<string>首页</string>
 		</dict>
-        <dict>
-            <key>ViewControllerName</key>
-            <string>PXLHomeViewController</string>
-            <key>TabBarButtonTitle</key>
-            <string>商城</string>
-            <key>TabBarButtonDefaultImage</key>
-            <string>首页-未点击</string>
-            <key>TabBarButtonSelectImage</key>
-            <string>首页</string>
-        </dict>
-        <dict>
-            <key>ViewControllerName</key>
-            <string>PXLHomeViewController</string>
-            <key>TabBarButtonTitle</key>
-            <string>圈子</string>
-            <key>TabBarButtonDefaultImage</key>
-            <string>首页-未点击</string>
-            <key>TabBarButtonSelectImage</key>
-            <string>首页</string>
-        </dict>
-        <dict>
-            <key>ViewControllerName</key>
-            <string>PXLHomeViewController</string>
-            <key>TabBarButtonTitle</key>
-            <string>我的</string>
-            <key>TabBarButtonDefaultImage</key>
-            <string>首页-未点击</string>
-            <key>TabBarButtonSelectImage</key>
-            <string>首页</string>
-        </dict>
+		<dict>
+			<key>ViewControllerName</key>
+			<string>PXLHomeViewController</string>
+			<key>TabBarButtonTitle</key>
+			<string>商城</string>
+			<key>TabBarButtonDefaultImage</key>
+			<string>首页-未点击</string>
+			<key>TabBarButtonSelectImage</key>
+			<string>首页</string>
+		</dict>
+		<dict>
+			<key>ViewControllerName</key>
+			<string>PXLHomeViewController</string>
+			<key>TabBarButtonTitle</key>
+			<string>圈子</string>
+			<key>TabBarButtonDefaultImage</key>
+			<string>首页-未点击</string>
+			<key>TabBarButtonSelectImage</key>
+			<string>首页</string>
+		</dict>
+		<dict>
+			<key>ViewControllerName</key>
+			<string>PXLHomeViewController</string>
+			<key>TabBarButtonTitle</key>
+			<string>我的</string>
+			<key>TabBarButtonDefaultImage</key>
+			<string>首页-未点击</string>
+			<key>TabBarButtonSelectImage</key>
+			<string>首页</string>
+		</dict>
 	</array>
 </dict>
 </plist>

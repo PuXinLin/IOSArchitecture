@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "PXLNetWork"
-  s.version      = "1.0.8"
+  s.version      = "1.0.9"
   s.summary      = "This is a network based on afnetworking module."
 
   # This description is used to generate tags and improve search results.
@@ -147,6 +147,14 @@ Pod::Spec.new do |s|
 
   s.subspec 'ShowBox' do |ss|
      ss.source_files = 'Expand/ShowBox/**/*.{h,m}'
+     ss.resources = ["Expand/ShowBox/Resources/*.png"]
+     ss.dependency 'PXLNetWork/Macro'
+     ss.dependency 'PXLNetWork/Category'
+  end
+
+  s.subspec 'Bar' do |ss|
+     ss.source_files = 'Expand/Bar/**/*.{h,m}'
+     ss.resources = ["Expand/Bar/Resources/*.plist"]
      ss.dependency 'PXLNetWork/Macro'
      ss.dependency 'PXLNetWork/Category'
   end
@@ -156,7 +164,10 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'NetWork' do |ss|
-      ss.source_files = 'Expand/NetWork/*.{h}'
+
+      ss.subspec 'public' do |sss|
+            sss.source_files = 'Expand/NetWork/*.h'
+      end
 
       ss.subspec 'RequestTool' do |sss|
             sss.source_files = 'Expand/NetWork/NetWork/*.{h,m}'
@@ -165,6 +176,7 @@ Pod::Spec.new do |s|
             sss.dependency 'PXLNetWork/Category'
             sss.dependency 'PXLNetWork/ShowBox'
             sss.dependency 'PXLNetWork/Cache'
+            sss.dependency 'PXLNetWork/NetWork/public'
       end
 
       ss.subspec 'DownLoadTool' do |sss|
