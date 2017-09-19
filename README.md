@@ -24,11 +24,11 @@ IOSArchitecture 是一个能提高开发效率和用户体验的框架。<br/>
 
 ## 使用Podfile文件导入
 
-    `
+    
      platform :ios, '8.0' 
      #use_frameworks!个别需要用到它，比如reactiveCocoa
      target 'ProjectName' do
         pod 'PXLNetWork', '~> 1.0.9',:inhibit_warnings => false #忽略xcode8 注释里面的警告
      end
-    `
+    
 
