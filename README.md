@@ -1,5 +1,5 @@
 # IOSArchitecture
-IOSArchitecture 是一个能提高开发效率和用户体验的框架。<br/>
+IOSArchitecture 是一个能提高开发效率和用户体验的框架。框架是由多个小模块组成，这里主要讲解的iOS开发过程中的网络层封装。<br/>
 
 <br/>
 
