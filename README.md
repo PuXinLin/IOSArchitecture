@@ -15,17 +15,17 @@ IOSArchitecture 是一个能提高开发效率和用户体验的框架。框架�
     
 <br/>
 
-## 默认依赖第三方库：
-
-    pod 'MBProgressHUD', '~> 0.9.2'
-    pod 'AFNetworking', '~> 3.1.0'
-    pod 'MJRefresh', '~> 3.1.0'
-    pod 'SDWebImage', '~> 3.7.5'
-    pod 'Masonry', '~> 1.0.1'
-    pod 'YYModel', '~> 1.0.4'
-    pod 'YYCache', '~> 1.0.4'
-
-<br/>
+<!--## 默认依赖第三方库：-->
+<!---->
+<!--    pod 'MBProgressHUD', '~> 0.9.2'-->
+<!--    pod 'AFNetworking', '~> 3.1.0'-->
+<!--    pod 'MJRefresh', '~> 3.1.0'-->
+<!--    pod 'SDWebImage', '~> 3.7.5'-->
+<!--    pod 'Masonry', '~> 1.0.1'-->
+<!--    pod 'YYModel', '~> 1.0.4'-->
+<!--    pod 'YYCache', '~> 1.0.4'-->
+<!---->
+<!--<br/>-->
 
 ## 模块说明
     * bar            : 对UITabBarController和UINavigationController的封装。可根据Resources文件夹下的TabBarInfo.plist实现需求。
