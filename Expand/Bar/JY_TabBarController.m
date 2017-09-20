@@ -8,7 +8,8 @@
 
 #import "JY_TabBarController.h"
 #import "JY_NavigationVController.h"
-
+#import "JYMacro.h"
+#import "JYCategory.h"
 
 @interface JY_TabBarController ()
 
