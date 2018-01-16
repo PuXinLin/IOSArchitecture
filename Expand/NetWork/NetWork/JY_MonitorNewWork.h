@@ -29,9 +29,7 @@ typedef void (^NetWorkStateBlock)(DetectionNetworkType statue);
 + (instancetype)sharedRequestInstance;
 
 /**
- * 监听网络状态
- *
- * @pram state 根据需求设置 传nil 单纯监听网络
+ * 开启监听网络状态
  */
 + (void)starNetWorkStateDetection;
 

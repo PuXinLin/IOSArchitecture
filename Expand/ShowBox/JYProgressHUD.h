@@ -20,9 +20,9 @@ typedef NS_ENUM(NSInteger, JYProgressType) {
 /**
  *  提示框  (Controller.view上的提示)
  *
- * @param aString      文字内容
+ * @param message        文字内容
  * @param onView         弹出框的父View
- * @param progressType 提示框状态
+ * @param progressType   提示框状态
  */
 +(MBProgressHUD*)showMessageJY:(NSString*)message onView:(UIView*)onView progressType:(JYProgressType)progressType;
 
@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, JYProgressType) {
 /**
  * 提示框  (Window上的提示)
  *
- * @param aString      文字内容
+ * @param message      文字内容
  * @param progressType 提示框状态
  */
 
