@@ -7,6 +7,9 @@
 //
 
 #import "JY_MonitorNewWork.h"
+#import <CoreTelephony/CoreTelephonyDefines.h>
+#import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 
 @interface JY_MonitorNewWork()
 @property (nonatomic, assign, readwrite) BOOL isNetwork;
@@ -124,18 +127,43 @@
 #pragma mark 获取状态栏网络状态 导航栏隐藏无法获取
 - (int)getStatusBarNetWorkStates
 {
-    UIApplication *app = [UIApplication sharedApplication];
-    NSArray *children = [[[app valueForKeyPath:@"statusBar"]valueForKeyPath:@"foregroundView"]subviews];
-    int state = 0;
-    //获取到网络返回码
-    for (id child in children) {
-        if ([child isKindOfClass:NSClassFromString(@"UIStatusBarDataNetworkItemView")]) {
-            //获取到状态栏
-            state = [[child valueForKeyPath:@"dataNetworkType"] intValue];
+    if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus == AFNetworkReachabilityStatusReachableViaWWAN) {
+        return 5;
+    } else if([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus == AFNetworkReachabilityStatusReachableViaWiFi){
+        NSArray *typeStrings2G = @[CTRadioAccessTechnologyEdge,
+                                   CTRadioAccessTechnologyGPRS,
+                                   CTRadioAccessTechnologyCDMA1x];
+     
+        NSArray *typeStrings3G = @[CTRadioAccessTechnologyHSDPA,
+                                   CTRadioAccessTechnologyWCDMA,
+                                   CTRadioAccessTechnologyHSUPA,
+                                   CTRadioAccessTechnologyCDMAEVDORev0,
+                                   CTRadioAccessTechnologyCDMAEVDORevA,
+                                   CTRadioAccessTechnologyCDMAEVDORevB,
+                                   CTRadioAccessTechnologyeHRPD];
+        
+        NSArray *typeStrings4G = @[CTRadioAccessTechnologyLTE];
+        
+        CTTelephonyNetworkInfo *teleInfo= [[CTTelephonyNetworkInfo alloc] init];
+        NSString *accessString = teleInfo.currentRadioAccessTechnology;
+        if ([typeStrings4G containsObject:accessString]) {
+            // @"4G";
+            return 3;
+        } else if ([typeStrings3G containsObject:accessString]) {
+            // @"3G";
+            return 2;
+        } else if ([typeStrings2G containsObject:accessString]) {
+            // @"2G";
+            return 1;
+        } else {
+            // @"无网络";
+            return 0;
         }
+    } else {
+        return 0;
     }
-    return state;
 }
+
 #pragma mark ---------- Click Event ----------
 
 #pragma mark ---------- Delegate ----------
